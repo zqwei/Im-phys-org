@@ -1,25 +1,110 @@
 <!DOCTYPE html>
 <html>
-  <head>
+    <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
     <title>Recording technique comparison</title>
-    <link rel="stylesheet" href="semantic/dist/semantic.min.css">
-    <link rel="stylesheet" type="text/css" href="semantic/dist/components/menu.css">
-  </head>
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.11/semantic.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.11/components/menu.css">
+    <script
+      src="https://code.jquery.com/jquery-3.1.1.min.js"
+      integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+      crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.11/semantic.min.js"></script>
 
-  <body>
-    <div class="ui container">
-      <div class="ui inverted menu">
-        <a class="red item">Projects</a>
-        <a class="active yellow item">Simultaneous Comparison</a>
-        <a class="olive item">Non-simultaneous Comparison</a>
-        <a class="teal item">Downloads</a>
-      </div>
-    </div>
+    <!--- Example CSS -->
+    <style>
+    body {
+      padding: 7em;
+    }
+    .ui.menu {
+      margin: 3em 0em;
+    }
+    .ui.menu:last-child {
+      margin-bottom: 110px;
+    }
+    </style>
 
-    <script src="semantic/dist/semantic.min.js"></script>
-  </body>
+    <!--- Example Javascript -->
+    <script>
+    $(document)
+      .ready(function() {
+        $('.ui.menu .ui.dropdown').dropdown({
+          on: 'hover'
+        });
+        $('.ui.menu a.item')
+          .on('click', function() {
+            $(this)
+              .addClass('active')
+              .siblings()
+              .removeClass('active')
+            ;
+          })
+        ;
+      })
+    ;
+    </script>
+    </head>
+
+    <body>
+        <div class="ui inverted fixed top menu">
+            <a class="active red item" href="index.html">Projects</a>
+            <a class="yellow item" href="ephys-ca.html">Simultaneous Comparison</a>
+            <a class="olive item" href="non-ephys-ca.html">Non-simultaneous Comparison</a>
+            <a class="teal item" href="datasets.html">Datasets</a>
+            <a class="blue item" href="codes.html">Codes</a>
+            <div class="right menu">
+                <div class="item">
+                    <i class="big inverted github icon"></i>
+                </div>
+                <div class="item">
+                    <i class="big inverted bug icon"></i>
+                </div>
+                <div class="item">
+                    <i class="big inverted share alternate icon"></i>
+                </div>
+            </div>
+        </div>
+
+        <img class="ui centered medium large image" src="images/square-image.png">
+
+        <div class="ui equal width center aligned padded grid">
+            <div class="row">
+                <div class="one wide column">
+                    <a class="ui red ribbon large label"> <h3>About</h3>  </a>
+                </div>
+                <div class="ten wide column">
+                    <p>lallallalallalalal</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="one wide column">
+                    <a class="ui black ribbon large label"> <h3>Publication</h3>  </a>
+                </div>
+                <div class="ten wide column">
+                    <p>lallallalallalalal</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="one wide column">
+                    <a class="ui blue ribbon large label"> <h3>Cite</h3>  </a>
+                </div>
+                <div class="ten wide column">
+                    <p>lallallalallalalal</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="one wide column">
+                    <a class="ui green ribbon large label"> <h3>Contact</h3>  </a>
+                </div>
+                <div class="ten wide column">
+                    <p>lallallalallalalal</p>
+                </div>
+            </div>
+
+        </div>
+
+    </body>
 
 </html>
