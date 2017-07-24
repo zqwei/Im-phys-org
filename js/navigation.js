@@ -76,4 +76,7 @@
 
   // Navigate whenever the fragment identifier value changes.
   $(window).bind('hashchange', navigate);
-}());
+
+}()
+
+);
