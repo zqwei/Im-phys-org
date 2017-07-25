@@ -4,7 +4,7 @@ $(function(){
     var strTemp = $('#code_content').text();
     strTemp = strTemp.replace(/\s/g, '');
     if(!strTemp){
-        $('#code_content').load('context/_code_collection.html');
+        $('#data_content').load('context/_data_collection.html');
     };
 
 
@@ -15,7 +15,7 @@ $(function(){
             .removeClass('active');
         var str = $(this).text();
         str = str.replace(/\s+/g, '_').toLowerCase();
-        $('#code_content').load('context/_code_' + str + '.html')
+        $('#data_content').load('context/_data_' + str + '.html')
     });
 }()
 );
