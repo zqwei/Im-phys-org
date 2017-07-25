@@ -25,6 +25,8 @@
   <link rel="stylesheet" type="text/css" href="dist/components/list.css">
   <link rel="stylesheet" type="text/css" href="dist/components/icon.css">
   <link rel="stylesheet" type="text/css" href="dist/components/sidebar.css">
+  <link rel="stylesheet" type="text/css" href="dist/components/sticky.css">
+  <link rel="stylesheet" type="text/css" href="dist/components/rail.css">
   <link rel="stylesheet" type="text/css" href="dist/components/transition.css">
 
   <style type="text/css">
@@ -35,6 +37,10 @@
 
     a{
         color: gray;
+    }
+
+    .horizontal.divider {
+      border-color: pink;
     }
 
     .masthead.segment {
@@ -121,11 +127,20 @@
 
   </style>
 
+  <script src="https://cdn.rawgit.com/webcomponents/webcomponentsjs/v0.7.15/webcomponents-lite.min.js"></script>
+  <link rel="import" href="https://cdn.rawgit.com/zerodevx/zero-md/v0.2.0/build/zero-md.html">
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+  </script>
+  <script type="text/javascript"
+     src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+  </script>
   <script src="assets/library/jquery.min.js"></script>
   <script src="dist/semantic.js"></script>
   <script src="dist/components/visibility.js"></script>
   <script src="dist/components/sidebar.js"></script>
   <script src="dist/components/transition.js"></script>
+  <script src="dist/components/sticky.js"></script>
   <script src="dist/components/form.js"></script>
   <script>
   $(document)
@@ -169,6 +184,21 @@
 
 </head>
 <body>
+
+<!-- define md-html css -->
+<style>
+    .md-html h1 {
+        font-size: 2em;
+        margin-top: 1.5em;
+        border-bottom: 1px solid #dbdbdb;
+    }
+    .md-html p {
+        font-size: 1.33em;
+        margin-top: 3em;
+    }
+</style>
+
+
 
 <!-- Following Menu -->
 <div class="ui inverted large top fixed hidden menu">

@@ -1,60 +1,34 @@
-<div class="ui container">
-<div class="ui vertical stripe quote segment">
-    <div class="ui container">
-        <br>
-        <h1>Benchmarks</h1>
-        <br>
-        <h2></h2>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
+<!-- <div class="main ui container">
+    <div class="ui dividing right rail">
+        <div class="ui segment">
+            Right Rail Content
+        </div>
     </div>
-</div>
+    <div class="ui dividing container">
+        <zero-md file="context/_ephys-ca.md"><div class="md-html"></div></zero-md>
+    </div>
+</div> -->
 
-<div class="ui vertical stripe quote segment">
-    <div class="ui container">
-        <br>
-        <h1>Spike to calcium model performance</h1>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-    </div>
-</div>
-
-<div class="ui vertical stripe quote segment">
-    <div class="ui container">
-        <br>
-        <h1>Calcium to spike model performance</h1>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <p>under construnction......</p>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-    </div>
-</div>
+<div class="ui grid container">
+    <div class="ui container twelve wide column">
+        <div class="ui right dividing rail" style="padding-top: 20px">
+            <div class="ui sticky">
+                <div id="toc"></div>
+            </div>
+        </div>
+        <zero-md file="context/_ephys-ca.md"><div class="md-html" id='md_file'></div></zero-md>
+        <script type="text/javascript">
+            (function () {
+                $("#toc").append('hello');
+                html_text = $("#md_file").text();
+                $("#toc").append($("#md_file").html());
+                console.log(html_text)
+                $("#md_file h1").each(function(){
+                    console.log('hello')
+                    var current = $(this);
+                    console.log(current.text());
+                });
+            })();
+        </script>
+  </div>
 </div>
