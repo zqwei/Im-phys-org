@@ -1,6 +1,6 @@
 (function () {
     var toc = [];
-    toc += "<div class='ui bulleted list'>";
+    toc += "<div class='ui large bulleted list'>";
     var ind = false;
     $("h1").each(function(){
         current = $(this);

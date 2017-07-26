@@ -3,7 +3,7 @@
 <head>
   <!-- Standard Meta -->
   <meta charset="utf-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 
   <!-- Site Properties -->
@@ -24,6 +24,7 @@
   <link rel="stylesheet" type="text/css" href="dist/components/segment.css">
   <link rel="stylesheet" type="text/css" href="dist/components/button.css">
   <link rel="stylesheet" type="text/css" href="dist/components/list.css">
+  <link rel="stylesheet" type="text/css" href="dist/components/label.css">
   <link rel="stylesheet" type="text/css" href="dist/components/icon.css">
   <link rel="stylesheet" type="text/css" href="dist/components/sidebar.css">
   <link rel="stylesheet" type="text/css" href="dist/components/sticky.css">
@@ -40,10 +41,22 @@
         color: gray;
     }
 
-    p{ text-align: justify;}
+    p{ text-align: justify; font-size: 1.33em;}
 
-    .horizontal.divider {
-      border-color: pink;
+    #headerbanner{
+      background-image: url('images/banner.png');
+      /*background-size: cover;
+      background-attachment:fixed;*/
+      background-position: center top;
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
+
+    #headerbanner h1 {
+      margin-top: 0em;
+      margin-bottom: 0em;
+      font-size: 4em;
+      font-weight: normal;
     }
 
     .masthead.segment {
@@ -57,7 +70,7 @@
       margin-left: 0.5em;
     }
     .masthead h1.ui.header {
-      margin-top: 3em;
+      margin-top: 0em;
       margin-bottom: 0em;
       font-size: 4em;
       font-weight: normal;
@@ -65,6 +78,7 @@
     .masthead h2 {
       font-size: 1.7em;
       font-weight: normal;
+      margin-top: 2em;
     }
 
     .ui.vertical.stripe {
@@ -80,9 +94,7 @@
     .ui.vertical.stripe .floated.image {
       clear: both;
     }
-    .ui.vertical.stripe p {
-      font-size: 1.33em;
-    }
+
     .ui.vertical.stripe .horizontal.divider {
       margin: 3em 0em;
     }
@@ -119,10 +131,10 @@
       }
       .masthead h1.ui.header {
         font-size: 2em;
-        margin-top: 1.5em;
+        /*margin-top: 1.5em;*/
       }
       .masthead h2 {
-        margin-top: 0.5em;
+        /*margin-top: 0.5em;*/
         font-size: 1.5em;
       }
     }
@@ -189,6 +201,11 @@
   });
   </script>
   <script src="dist/components/accordion.js"></script>
+  <script language='javascript'>
+       $(document).ready(function(){
+          $('.ui.accordion').accordion();
+       });
+  </script>
   <a name="_top"></a>
 </head>
 <body>
