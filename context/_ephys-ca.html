@@ -1,33 +1,36 @@
-<!-- <div class="main ui container">
-    <div class="ui dividing right rail">
-        <div class="ui segment">
-            Right Rail Content
-        </div>
-    </div>
-    <div class="ui dividing container">
-        <zero-md file="context/_ephys-ca.md"><div class="md-html"></div></zero-md>
-    </div>
-</div> -->
-
 <div class="ui grid container">
-    <div class="ui container twelve wide column">
+    <div class="ui container ten wide column">
         <div class="ui right dividing rail" style="padding-top: 20px">
             <div class="ui sticky">
-                <div id="toc"></div>
             </div>
         </div>
-        <zero-md file="context/_ephys-ca.md"><div class="md-html" id='md_file'></div></zero-md>
+        <!-- <div id='toc'></div> -->
+        <div class="ui text container">
+            <h1><a name="_benchmarks">Benchmarks</a></h1>
+            <div class="ui divider"></div>
+            <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+            <h1><a name="_s2c">Spike to calcium model performance</a></h1>
+            <div class="ui divider"></div>
+            <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+            <h1><a name="_c2s">Calcium to spike model performance</a></h1>
+            <div class="ui divider"></div>
+            <br><br>
+            <p>Under construction .....</p>
+            <br><br>
+        </div>
         <script type="text/javascript">
             (function () {
-                $("#toc").append('hello');
-                html_text = $("#md_file").text();
-                $("#toc").append($("#md_file").html());
-                console.log(html_text)
-                $("#md_file h1").each(function(){
-                    console.log('hello')
+                toc = [];
+                toc += "<div class='ui bulleted list'>";
+                $("h1").each(function(){
                     var current = $(this);
-                    console.log(current.text());
+                    var html = current.html();
+                    var html_new = html.replace('name="', 'href="#');
+                    console.log(html_new);
+                    toc += "<a class='item'>" + html_new + "</a>";
                 });
+                toc += "</div>";
+                $(".ui.sticky").html(toc);
             })();
         </script>
   </div>

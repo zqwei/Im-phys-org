@@ -35,33 +35,18 @@
     }
   }
 
-  // Sets the "active" class on the active navigation link.
-  // function setActiveLink(fragmentId){
-  //   $("#navbar a").each(function (i, linkElement) {
-  //     var link = $(linkElement),
-  //         pageName = link.text("href").substr(1);
-  //     if(pageName === fragmentId) {
-  //       link.attr("class", "active");
-  //     } else {
-  //       link.removeAttr("class");
-  //     }
-  //   });
-  // }
-
   // Updates dynamic content based on the fragment identifier.
   function navigate(){
 
     // Isolate the fragment identifier using substr.
     // This gets rid of the "#" character.
     var fragmentId = location.hash.substr(1);
-
-    // Set the "content" div innerHTML based on the fragment identifier.
-    getContent(fragmentId, function (content) {
-      $("#content").html(content);
-    });
-
-    // Toggle the "active" class on the link currently navigated to.
-    // setActiveLink(fragmentId);
+    if(fragmentId[0] !== '_'){
+        // Set the "content" div innerHTML based on the fragment identifier.
+        getContent(fragmentId, function (content) {
+          $("#content").html(content);
+        });
+    }
   }
 
   // If no fragment identifier is provided,
