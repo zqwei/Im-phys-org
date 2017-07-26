@@ -5,33 +5,20 @@
             </div>
         </div>
         <!-- <div id='toc'></div> -->
-        <div class="ui text container">
-            <h1><a name="_benchmarks">Benchmarks</a></h1>
+        <div class="ui text container" id='toc_text'>
+            <h1>Benchmarks</h1>
             <div class="ui divider"></div>
             <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-            <h1><a name="_s2c">Spike to calcium model performance</a></h1>
+            <h1>Spike to calcium model performance<a name="_s2c">  </a></h1>
             <div class="ui divider"></div>
             <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-            <h1><a name="_c2s">Calcium to spike model performance</a></h1>
+            <h1>Calcium to spike model performance<a name="_c2s">  </a></h1>
             <div class="ui divider"></div>
             <br><br>
             <p>Under construction .....</p>
             <br><br>
         </div>
-        <script type="text/javascript">
-            (function () {
-                toc = [];
-                toc += "<div class='ui bulleted list'>";
-                $("h1").each(function(){
-                    var current = $(this);
-                    var html = current.html();
-                    var html_new = html.replace('name="', 'href="#');
-                    console.log(html_new);
-                    toc += "<a class='item'>" + html_new + "</a>";
-                });
-                toc += "</div>";
-                $(".ui.sticky").html(toc);
-            })();
-        </script>
   </div>
 </div>
+
+<script src='js/toc.js'></script>
