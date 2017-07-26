@@ -17,6 +17,7 @@
   <link rel="stylesheet" type="text/css" href="dist/components/image.css">
   <link rel="stylesheet" type="text/css" href="dist/components/menu.css">
   <link rel="stylesheet" type="text/css" href="dist/components/form.css">
+  <link rel="stylesheet" type="text/css" href="dist/components/accordion.css">
 
   <link rel="stylesheet" type="text/css" href="dist/components/divider.css">
   <link rel="stylesheet" type="text/css" href="dist/components/dropdown.css">
@@ -168,17 +169,24 @@
 
   <script>
   $(document).ready(function() {
+      $('.ui.accordion').accordion();
       $('.ui.menu .ui.dropdown').dropdown({
-        on: 'hover'
-      });
+        on: 'hover'});
+
       $('.ui.menu a.item').on('click', function(){
           $(this)
               .addClass('active')
               .siblings()
               .removeClass('active');
-      });
+          });
+
+      $('.trigger.example .accordion').accordion({
+          selector: {
+              trigger: '.title .icon'}
+          });
   });
   </script>
+  <script src="dist/components/accordion.js"></script>
   <a name="_top"></a>
 </head>
 <body>
@@ -269,6 +277,7 @@
 </div>
 
 <script src="js/navigation.js"></script>
+
 </body>
 
 </html>

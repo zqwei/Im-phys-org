@@ -6,7 +6,10 @@
 </p>
 </div>
 
-<div class="ui container" id="data_collection">
-    <script src = 'js/json_html_data.js'>
-    </script>
-</div>
+<div class="ui container"> <div id="data_development"></div> </div>
+<script src = 'js/json_html_data.js'></script>
+<script language='javascript'>
+     $(document).ready(function(){
+        $('.ui.accordion').accordion('refresh');
+     });
+</script>
