@@ -33,7 +33,6 @@
                 items += item;
                 });
             items += '</div>';
-            console.log(items)
             callback(items);
             });
         }

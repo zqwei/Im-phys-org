@@ -20,7 +20,7 @@
     });
     toc += "</div><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>";
     $(".ui.sticky").html(toc);
-    if(("#toc_text_non")){$(".ui.sticky").sticky({context:"#toc_text_non"});}
-    else if(("#toc_text_sim")){$(".ui.sticky").sticky({context:"#toc_text_sim"});}
+    // var fragmentId = location.hash.substr(1);
+    // $(".ui.sticky").sticky({context:"#toc_text_"+fragmentId});
     $(".ui.sticky").sticky();
 })();

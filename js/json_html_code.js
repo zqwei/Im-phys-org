@@ -4,7 +4,6 @@
         $.getJSON( json_name, function( data ) {
             var items = [];
             $.each( data, function( key, val ) {
-                console.log(key);
                 items.push( key + ">" + val + "<br>" );
                 });
             callback(items);
