@@ -20,7 +20,5 @@
     });
     toc += "</div><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>";
     $(".ui.sticky").html(toc);
-    // var fragmentId = location.hash.substr(1);
-    // $(".ui.sticky").sticky({context:"#toc_text_"+fragmentId});
     $(".ui.sticky").sticky();
 })();

@@ -10,4 +10,4 @@
 ```bash
     npm start
 ```
-4. It will show the address of website at local and external address end with port 10001
+4. It will show the website at local and external addresses ended with port 10001
