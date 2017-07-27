@@ -19,7 +19,7 @@
 </div>
 
 <!-- contents -->
-<div class="ui container">
+<div class="ui container" id='codetab'>
         <div id='code_menu' class="ui top attached tabular three item menu">
             <a class="active item" data-tab="collection"><h2>Collection</h2></a>
             <a class="item" data-tab="develop"><h2>Under development</h2></a>
@@ -42,3 +42,7 @@
             </script>
         </div>
 </div>
+
+<script type="text/javascript">
+    $('#codetab .menu .item').tab({context:$("#codetab")});    
+</script>

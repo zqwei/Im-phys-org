@@ -35,6 +35,46 @@
     }
   }
 
+  // Sets the "active" class on the active navigation link.
+    function setActiveLink(fragmentId){
+      $("#navtop a").each(function() {
+          var link = $(this).attr("href");
+          if (link!== undefined){
+               pageName = link.substr(1);
+               if(pageName === fragmentId) {
+                   $(this).addClass('active');
+               }
+               else{
+                   $(this).removeClass('active');
+                   }
+          };
+      });
+      $("#navside a").each(function() {
+          var link = $(this).attr("href");
+          if (link!== undefined){
+               pageName = link.substr(1);
+               if(pageName === fragmentId) {
+                   $(this).addClass('active');
+               }
+               else{
+                   $(this).removeClass('active');
+                   }
+          };
+      });
+      $("#navhide a").each(function() {
+          var link = $(this).attr("href");
+          if (link!== undefined){
+               pageName = link.substr(1);
+               if(pageName === fragmentId) {
+                   $(this).addClass('active');
+               }
+               else{
+                   $(this).removeClass('active');
+                   }
+          };
+      });
+    }
+
   // Updates dynamic content based on the fragment identifier.
   function navigate(){
 
@@ -46,6 +86,7 @@
         getContent(fragmentId, function (content) {
           $("#content").html(content);
         });
+        setActiveLink(fragmentId);
     }
   }
 

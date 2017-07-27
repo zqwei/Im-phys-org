@@ -175,8 +175,7 @@
       // create sidebar and attach to menu open
       $('.ui.sidebar')
         .sidebar('attach events', '.toc.item');
-    $('.menu .item').tab();
-    });    
+    });
   </script>
 
   <script>
@@ -208,7 +207,7 @@
 
 
 <!-- Following Menu -->
-<!-- <div class="ui inverted large top fixed hidden menu">
+<div class="ui inverted large top fixed hidden menu" id="navhide">
   <div class="ui container">
       <a class="active red item" href="#home">Projects</a>
       <a class="yellow item" href="#ephys-ca">Simultaneous Comparison</a>
@@ -218,10 +217,10 @@
       <a class="purple item" href="#codes">Codes</a>
     </div>
   </div>
-</div> -->
+</div>
 
 <!-- Sidebar Menu -->
-<div class="ui vertical inverted sidebar menu">
+<div class="ui vertical inverted sidebar menu" id="navside">
     <a class="active red item" href="#home">Projects</a>
     <a class="yellow item" href="#ephys-ca">Simultaneous Comparison</a>
     <a class="olive item" href="#non-ephys-ca">Non-simultaneous Comparison</a>
@@ -235,7 +234,7 @@
 <div class="pusher">
   <div class="ui inverted vertical masthead center aligned segment">
     <div class="ui container">
-      <div id="navbar" class="ui large secondary inverted pointing menu">
+      <div class="ui large secondary inverted pointing menu" id="navtop">
         <a class="toc item">
           <i class="sidebar icon"></i>
         </a>
