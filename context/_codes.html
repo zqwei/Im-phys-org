@@ -20,24 +20,25 @@
 
 <!-- contents -->
 <div class="ui container">
-    <div id='code_menu' class="ui top attached tabular three item menu">
-        <a class="active item"><h2>Collection</h2></a>
-        <a class="item"><h2>Under development</h2></a>
-        <a class="item"><h2>Submit a code</h2></a>
-    </div>
+        <div id='code_menu' class="ui top attached tabular three item menu">
+            <a class="active item" data-tab="collection"><h2>Collection</h2></a>
+            <a class="item" data-tab="develop"><h2>Under development</h2></a>
+            <a class="item" data-tab="submit"><h2>Submit a code</h2></a>
+        </div>
 
-    <div class="ui bottom attached active tab segment">
-        123
-    </div>
-    <div class="ui bottom attached tab segment">
-        789an
-    </div>
-    <div class="ui bottom attached tab segment">
-        456
-    </div>
-
+        <div class="ui bottom attached active tab segment" data-tab="collection" id='tmp_collection'>
+            <script type="text/javascript">
+                $('#tmp_collection').load('context/_code_collection.html')
+            </script>
+        </div>
+        <div class="ui bottom attached tab segment" data-tab="develop" id='tmp_develop'>
+            <script type="text/javascript">
+                $('#tmp_develop').load('context/_code_develop.html')
+            </script>
+        </div>
+        <div class="ui bottom attached tab segment" data-tab="submit" id='tmp_submit'>
+            <script type="text/javascript">
+                $('#tmp_submit').load('context/_code_submit.html')
+            </script>
+        </div>
 </div>
-
-<!-- <div id="code_content"></div>
-
-<script src="js/code.js"></script> -->

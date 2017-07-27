@@ -20,6 +20,7 @@
     });
     toc += "</div>";
     $(".ui.sticky").html(toc);
-    $(".ui.sticky").sticky({offset:50, bottomOffset:50, context:"#toc_text"});
+    $(".ui.sticky").sticky({context:"#toc_text"});
+    $(".ui.sticky").sticky();
     $(".ui.sticky").sticky('refresh');
 })();
