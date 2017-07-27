@@ -1,5 +1,5 @@
 (function () {
-    var toc = [];
+    var toc = '<h3 class="ui header">TOC</h3>';
     toc += "<div class='ui large bulleted list'>";
     var ind = false;
     $("h1").each(function(){
@@ -18,9 +18,9 @@
 
         toc += "<a class='item'>" + html_new + "</a>";
     });
-    toc += "</div>";
+    toc += "</div><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>";
     $(".ui.sticky").html(toc);
-    $(".ui.sticky").sticky({context:"#toc_text"});
+    if(("#toc_text_non")){$(".ui.sticky").sticky({context:"#toc_text_non"});}
+    else if(("#toc_text_sim")){$(".ui.sticky").sticky({context:"#toc_text_sim"});}
     $(".ui.sticky").sticky();
-    $(".ui.sticky").sticky('refresh');
 })();

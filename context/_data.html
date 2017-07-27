@@ -9,23 +9,23 @@
 
 <!-- contents -->
 <div class="ui container" id='datatab'>
-        <div id='code_menu' class="ui top attached tabular three item menu">
+        <div id='code_menu' class="ui three item secondary pointing menu">
             <a class="active item" data-tab="data_collection"><h2>Collection</h2></a>
             <a class="item" data-tab="data_develop"><h2>Under compiling</h2></a>
             <a class="item" data-tab="data_submit"><h2>Submit a dataset</h2></a>
         </div>
 
-        <div class="ui bottom attached active tab segment" data-tab="data_collection" id='tmp_data_collection'>
+        <div class="ui bottom attached active tab text" data-tab="data_collection" id='tmp_data_collection'>
             <script type="text/javascript">
                 $('#tmp_data_collection').load('context/_data_collection.html')
             </script>
         </div>
-        <div class="ui bottom attached tab segment" data-tab="data_develop" id='tmp_data_develop'>
+        <div class="ui bottom attached tab text" data-tab="data_develop" id='tmp_data_develop'>
             <script type="text/javascript">
                 $('#tmp_data_develop').load('context/_data_compiling.html')
             </script>
         </div>
-        <div class="ui bottom attached tab segment" data-tab="data_submit" id='tmp_data_submit'>
+        <div class="ui bottom attached tab text" data-tab="data_submit" id='tmp_data_submit'>
             <script type="text/javascript">
                 $('#tmp_data_submit').load('context/_data_submit.html')
             </script>
