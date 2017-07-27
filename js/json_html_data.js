@@ -40,12 +40,14 @@
     if($('#data_collection')){
         getContentFromJson('dat/data_collection.json', function(data) {
             $('#data_collection').html(data);
+            $('#data_collection .ui.accordion').accordion();
         });
     }
 
     if($('#data_development')){
         getContentFromJson('dat/data_development.json', function(data) {
             $('#data_development').html(data);
+            $('#data_development .ui.accordion').accordion();
         });
     }
 

@@ -12,7 +12,7 @@
 
     if('#code_collection'){
         getContentFromJson('dat/code_collection.json', function(data) {
-            $('#code_collection').html(data);
+            $('#code_collection').html(data);    
         });
     }
 

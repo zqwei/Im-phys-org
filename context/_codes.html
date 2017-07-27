@@ -28,21 +28,29 @@
 
         <div class="ui bottom attached active tab text" data-tab="collection" id='tmp_collection'>
             <script type="text/javascript">
-                $('#tmp_collection').load('context/_code_collection.html')
+                $(document).ready(function(){
+                    $('#tmp_collection').load('context/_code_collection.html');
+                });
             </script>
         </div>
         <div class="ui bottom attached tab text" data-tab="develop" id='tmp_develop'>
             <script type="text/javascript">
-                $('#tmp_develop').load('context/_code_develop.html')
+                $(document).ready(function(){
+                    $('#tmp_develop').load('context/_code_develop.html')
+                });
             </script>
         </div>
         <div class="ui bottom attached tab text" data-tab="submit" id='tmp_submit'>
             <script type="text/javascript">
-                $('#tmp_submit').load('context/_code_submit.html')
+                $(document).ready(function(){
+                    $('#tmp_submit').load('context/_code_submit.html')
+                });
             </script>
         </div>
 </div>
 
 <script type="text/javascript">
-    $('#codetab .menu .item').tab({context:$("#codetab")});
+    $(document).ready(function(){
+        $('#codetab .menu .item').tab({context:$("#codetab")});
+    });
 </script>
