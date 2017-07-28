@@ -19,6 +19,5 @@
         toc += "<a class='item'>" + html_new + "</a>";
     });
     toc += "</div><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>";
-    $(".ui.sticky").html(toc);
-    $(".ui.sticky").sticky();
+    $(".ui.fixed.top.sticky").html(toc);
 })();
