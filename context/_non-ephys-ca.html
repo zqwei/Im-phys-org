@@ -146,9 +146,10 @@
 
 <script type="text/javascript">
     $(window).bind('hashchange', function(){
-        // console.log($('#toc_text_non').text().indexOf('$$'));
+        if($('#toc_text_non')){
             if($('#toc_text_non').text().indexOf('$$') !== -1){
                 location.reload();
             };
+        };
     });
 </script>
