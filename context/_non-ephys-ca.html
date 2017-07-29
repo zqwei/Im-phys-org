@@ -1,3 +1,18 @@
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX", "output/HTML-CSS"],
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+      processEscapes: true
+    },
+    "HTML-CSS": { availableFonts: ["TeX"] }
+  });
+</script>
+<script type="text/javascript" src="node_modules/mathjax/MathJax.js?config=MML_HTMLorMML-full.js">
+</script>
+
 <div class="ui grid container">
     <div class="ui basic segment">
         <div class="ui right dividing rail" style="padding-top: 20px; min-height=300px;">
@@ -52,7 +67,7 @@
                 The ‘peakiness’ of the distribution of neuronal activity (‘s’) across
                 recording modalities were measured as the difference between observed
                 neural activity and temporally uniformly distributed neural activity ($P=\frac{1}{2T}$;
-                $T$ is the length of the recording/task):
+                T is the length of the recording/task):
                 $$s=\frac{1}{P}\sqrt{P\sum_{i=A,B}\int_0^T dt(P_i(t)-P)^2}$$
             </p>
             <br>
@@ -77,10 +92,10 @@
                 In this study, PCA was performed on the activity of neurons averaged
                 across two alternative trial types ($s\in\{A, B\}$):
                 $$\mathbf{r}(s,t)=\mathbf{Cx}(s,t)+<\mathbf{r}(s,t)>_{s,t}$$
-                $\mathbf{r}$ is a $n\times2T$ matrix, where n is the number of recorded
+                $\mathbf{r}$ is a $n\times 2T$ matrix, where n is the number of recorded
                 units in each dataset and T is the number of time points for each trial type.
                 $<\mathbf{r}(s,t)>_{s,t}$ a vector of the mean activity of each neuron across time and trial types.
-                $\mathbf{x}(s,t)$ is an $n\times2T$ PC score matrix, where the $i$th row corresponds to the $i$th
+                $\mathbf{x}(s,t)$ is an $n\times 2T$ PC score matrix, where the $i$th row corresponds to the $i$th
                 PC score. We estimated the relative contribution to each PC of the different forms of variance:
                 temporal dynamics, trial-type selectivity and other. Explained variance (EV) of temporal dynamics
                 $EV_i(t)$ and trial-type selectivity $EV_i(s)$ for the th principal component (PC) were computed as:
@@ -126,13 +141,14 @@
     </div>
 </div>
 
+<script src='js/toc.js'></script>
 
 
 <script type="text/javascript">
-    console.log('MathJax');
-    MathJax.Hub.Configured();
-    MathJax.Hub.Process('#toc_text_non');
-    MathJax.Hub.Update('#toc_text_non');
+    $(window).bind('hashchange', function(){
+        // console.log($('#toc_text_non').text().indexOf('$$'));
+            if($('#toc_text_non').text().indexOf('$$') !== -1){
+                location.reload();
+            };
+    });
 </script>
-
-<script src='js/toc.js'></script>

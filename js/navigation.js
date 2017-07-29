@@ -28,7 +28,6 @@
 
         // Store the fetched content in the cache.
         partialsCache[fragmentId] = content;
-
         // Pass the newly fetched content to the callback.
         callback(content);
       });
