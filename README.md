@@ -1,4 +1,8 @@
-# Neural-Recording-Methodology-Comparison
+# Neural Recording Methodology Comparison
+
+## Aim
+This is a website for our project of __Neural Recording Methodology Comparison__
+
 
 ## Testing sever
 1. Install Node
