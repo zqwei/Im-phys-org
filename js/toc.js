@@ -2,7 +2,10 @@
     var toc = '<h3 class="ui header">TOC</h3>';
     toc += "<div class='ui large bulleted list'>";
     var ind = false;
-    $("h1").each(function(){
+    var active_toc = $('.ui.active.tab .ui.grid .ui.text').attr('id');
+    active_toc = '#' + active_toc + ' h1';
+    console.log(active_toc);
+    $(active_toc).each(function(){
         current = $(this);
         if(ind){
             var html = current.html();
@@ -15,9 +18,8 @@
             var html_new = "<a href='#_top'>" + html + "</a>";
             ind = true;
         }
-
         toc += "<a class='item'>" + html_new + "</a>";
     });
     toc += "</div><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>";
-    $(".ui.fixed.top.sticky").html(toc);
+    $(".ui.sticky").html(toc);
 })();
