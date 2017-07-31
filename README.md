@@ -4,6 +4,15 @@
 This is a website for our project of __Neural Recording Methodology Comparison__
 
 
+## Git management
+* merge your own branch with updated master (Do at your own git)
+```bash
+    git merge master
+```
+* Send a pull request to merge your own branch to master (Do with a pull request)
+https://help.github.com/articles/creating-a-pull-request/
+
+
 ## Code architecture
 ### Frontend
 Frontend of the website is based on Semantic-UI and JQuery.
