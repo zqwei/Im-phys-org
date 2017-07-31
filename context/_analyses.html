@@ -28,7 +28,6 @@
         <div class="ui bottom attached active tab text" data-tab="sim" id='tmp_sim'>
             <script type="text/javascript">
                 $(document).ready(function(){
-                    console.log($('.ui.active.tab .ui.grid .ui.text').attr('id'));
                     $('#tmp_sim').load('context/_ephys-ca.html');
                 });
             </script>
@@ -36,7 +35,6 @@
         <div class="ui bottom attached tab text" data-tab="non_sim" id='tmp_non_sim'>
             <script type="text/javascript">
                 $(document).ready(function(){
-                    console.log($('.ui.active.tab .ui.grid .ui.text').attr('id'));
                     $('#tmp_non_sim').load('context/_non-ephys-ca.html');
                 });
             </script>
@@ -46,7 +44,6 @@
 <script type="text/javascript">
     $(document).ready(function(){
         $('#codetab .menu .item').tab({
-            context        :  $("#codetab"),
-            evaluateScripts: true});
+            context:  $("#codetab")});
     });
 </script>
