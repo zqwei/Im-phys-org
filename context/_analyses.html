@@ -21,24 +21,26 @@
 <!-- contents -->
 <div class="ui container" id='codetab'>
         <div id='code_menu' class="ui two item secondary pointing menu">
-            <a class="active item" data-tab="sim"><h2>Simultaneous Ephys-Imaging</h2></a>
-            <a class="item" data-tab="non_sim"><h2>Nonsimultaneous Ephys/Imaging</h2></a>
+            <a class="active item" data-tab="non_sim"><h2>Nonsimultaneous Ephys/Imaging</h2></a>
+            <a class="item" data-tab="sim"><h2>Simultaneous Ephys-Imaging</h2></a>
         </div>
 
-        <div class="ui bottom attached active tab text" data-tab="sim" id='tmp_sim'>
-            <script type="text/javascript">
-                $(document).ready(function(){
-                    $('#tmp_sim').load('context/_ephys-ca.html');
-                });
-            </script>
-        </div>
-        <div class="ui bottom attached tab text" data-tab="non_sim" id='tmp_non_sim'>
+        <div class="ui bottom attached active tab text" data-tab="non_sim" id='tmp_non_sim'>
             <script type="text/javascript">
                 $(document).ready(function(){
                     $('#tmp_non_sim').load('context/_non-ephys-ca.html');
                 });
             </script>
         </div>
+
+        <div class="ui bottom attached tab text" data-tab="sim" id='tmp_sim'>
+            <script type="text/javascript">
+                $(document).ready(function(){
+                    $('#tmp_sim').load('context/_ephys-ca.html');
+                });
+            </script>
+        </div>
+
 </div>
 
 <script type="text/javascript">
