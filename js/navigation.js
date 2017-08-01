@@ -10,7 +10,7 @@
   // Stores the cached partial HTML pages.
   // Keys correspond to fragment identifiers.
   // Values are the text content of each loaded partial HTML file.
-  var partialsCache = {}
+  var partialsCache = {};
 
   // Gets the appropriate content for the given fragment identifier.
   // This function implements a simple cache.
@@ -18,7 +18,6 @@
 
     // If the page has been fetched before,
     if(partialsCache[fragmentId]) {
-
       // pass the previously fetched content to the callback.
       callback(partialsCache[fragmentId]);
 
@@ -33,6 +32,8 @@
       });
     }
   }
+
+
 
   // Sets the "active" class on the active navigation link.
     function setActiveLink(fragmentId){
@@ -86,9 +87,8 @@
           $("#content").html(content);
         });
         setActiveLink(fragmentId);
-    }
+    };
   }
-
   // If no fragment identifier is provided,
   if(!location.hash) {
 
