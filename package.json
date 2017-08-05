@@ -13,6 +13,6 @@
   },
   "dependencies": {
     "mathjax": "^2.7.1",
-    "node-couchdb": "^1.1.1"
+    "pouchdb": "^6.3.4"
   }
 }

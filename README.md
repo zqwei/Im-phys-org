@@ -20,6 +20,8 @@ Frontend of the website is based on Semantic-UI and JQuery.
 ### Backend
 Backend of the website is implemented by Node.Js and CouchDB.
 
+* remove use of CouchDB (not compatible with my computer).
+
 ## Testing website on a local server
 
 ### Set up local server at project folder
