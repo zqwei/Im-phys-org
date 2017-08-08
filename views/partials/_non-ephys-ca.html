@@ -1,0 +1,249 @@
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX", "output/HTML-CSS"],
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+      processEscapes: true
+    },
+    "HTML-CSS": { availableFonts: ["TeX"] }
+  });
+</script>
+<script type="text/javascript" src="node_modules/mathjax/MathJax.js?config=MML_HTMLorMML-full.js">
+</script>
+
+<div class="ui grid container">
+  <div class="ui basic segment">
+      <div class="ui right dividing rail" style="min-height=300px;">
+          <div id='toc_text_non_sticky' class="ui fixed sticky" style="width: 272px !important; height: 300px !important;">
+          </div>
+      </div>
+      <div id='toc_text_non' class='ui text'>
+          <br>
+          <h1>Benchmarks</h1>
+          <div class="ui divider"></div>
+          <h2>Hidden dynamics in calcium imaging
+              <span class="ui red label">Single-Unit Analysis</span>
+              <span class="ui black label">Selectivity</span>
+          </h2>
+          <br>
+          <img class="ui huge centered image" src="images/cell_type.png" />
+          <br>
+          <p>
+              Individual neurons could exhibit diverse temporal dynamics and
+              even change selectivity. We classified neurons into three broad
+              categories: ‘monophasic’ neurons showed consistent selectivity
+              across the trial; ‘multiphasic’ neurons changed selectivity over
+              time; ‘non-selective’ neurons responded similarly across trial
+              types but in a task-modulated manner.
+          </p>
+          <p>
+              For two-alternative force choice task, neural selectivity for type A
+              or type B trials was using two-sample t-tests, with neural activity
+              binned over 67 ms, which corresponds to one imaging frame (~15Hz).
+              A neuron was selective if it showed selectivity (p < .05) for >335 ms
+              (5 continuous frames). A selective neuron was multiphasic if the polarity
+              of selectivity switched, with periods of selectivity at least 335 ms long.
+              Other selective neurons were monophasic. The fraction of each cell type
+              is then computed for each recording and model condition.
+          </p>
+          <br>
+          <br>
+          <h2>Peakness of neural dynamcis
+              <span class="ui red label">Single-Unit Analysis</span>
+              <span class="ui black label">Peakness</span>
+          </h2>
+          <br>
+          <img class="ui large centered image" src="images/peakness.png" />
+          <br>
+          <p>
+              Slow and nonlinear dynamics of imaging can lead to a distorted view
+              of neuronal dynamics, where 'peaky' neural dynamics at transitions
+              between behavioral epochs in ephys seemed to be delayed and jittered,
+              causing a sequence-like appearance in imaging.
+          </p>
+          <p>
+              The ‘peakiness’ of the distribution of neuronal activity (‘s’) across
+              recording modalities were measured as the difference between observed
+              neural activity and temporally uniformly distributed neural activity ($P=\frac{1}{2T}$;
+              T is the length of the recording/task):
+              $$s=\frac{1}{P}\sqrt{P\sum_{i=A,B}\int_0^T dt(P_i(t)-P)^2}$$
+          </p>
+          <br>
+          <h2>Variance content
+              <span class="ui blue label">Population Analysis</span>
+              <span class="ui black label">PCA</span>
+              <span class="ui black label">variance content</span>
+          </h2>
+          <br>
+          <img class="ui huge centered image" src="images/pca.png" />
+          <br>
+          <p>
+              Principal component analysis (PCA) finds modes of population activity
+              that capture the largest amount of variance in neural activity. This method
+              usually handles the first pipeline of data processing for large-scale dataset.
+              Data visualization and analysis are often performed after truncating the
+              decomposition after a few components. Accordingly, if the recording method results
+              in a change in the relative ranking of different sources of variance, this truncation
+              will throw out different sources of variance.
+          </p>
+          <p>
+              In this study, PCA was performed on the activity of neurons averaged
+              across two alternative trial types ($s\in\{A, B\}$):
+              $$\mathbf{r}(s,t)=\mathbf{Cx}(s,t)+<\mathbf{r}(s,t)>_{s,t}$$
+              $\mathbf{r}$ is a $n\times 2T$ matrix, where n is the number of recorded
+              units in each dataset and T is the number of time points for each trial type.
+              $<\mathbf{r}(s,t)>_{s,t}$ a vector of the mean activity of each neuron across time and trial types.
+              $\mathbf{x}(s,t)$ is an $n\times 2T$ PC score matrix, where the $i$th row corresponds to the $i$th
+              PC score. We estimated the relative contribution to each PC of the different forms of variance:
+              temporal dynamics, trial-type selectivity and other. Explained variance (EV) of temporal dynamics
+              $EV_i(t)$ and trial-type selectivity $EV_i(s)$ for the th principal component (PC) were computed as:
+              $$EV_i(t)=<< x_i(s,t)>_s^2>_t/< x_i(s,t)^2>_{s,t}$$
+              $$EV_i(t)=<< x_i(s,t)>_t^2>_s/< x_i(s,t)^2>_{s,t}$$
+              respectively.
+          </p>
+          <br>
+          <h2>Decodability
+              <span class="ui blue label">Population Analysis</span>
+              <span class="ui black label">LDA</span>
+              <span class="ui black label">decodability</span>
+          </h2>
+          <br>
+          <img class="ui large centered image" src="images/lda.png" />
+          <br>
+          <p>
+              Linear discriminant analysis (LDA) is applied on neural dynamics grouped
+              into bins corresponding to single imaging frames (67 ms) to compute the
+              instantaneous decodability of trial type. The optimal LDA decoder was
+              computed separately for each time bin, using correct trials.
+              We estimated performance for the instantaneous LDA decoder by sampling a
+              subset of units (10-200), and averaging 100 samplings. We separated
+              the trials of each neuron into non-overlapping training (70%) and testing (30%) sets.
+              We then shuffled trial identity of each neuron to build up random collections
+              of population activity at each time point for correct trial A (50% in training and testing)
+              and trial B using all recorded neurons. The instantaneous decoder of trial type was
+              computed from training set and its performance was evaluated on the testing set.
+          </p>
+          <p>
+              To achieve robust estimation given the large number of neurons, we applied a <a href="https://web.stanford.edu/~hastie/Papers/RDA-6.pdf">sparse version of LDA</a>.
+          </p>
+          <br>
+          <h1><a name="_non_s2c">  </a>Spike to calcium model performance</h1>
+          <div class="ui divider"></div>
+              <div class="ui red segment">
+                  <h3>Please selective matched datasets to compare <i class="arrow circle down icon"></i></h3>
+              </div>
+              <table class="ui celled striped five column table">
+                  <thead>
+                      <tr>
+                          <th colspan="5">
+                              Benchmark table
+                          </th>
+                    </tr>
+                    <tr>
+                        <th>Dataset Name</th>
+                        <th>Fraction selective neuron</th>
+                        <th>Peakness</th>
+                        <th>PC content</th>
+                        <th>Decodability</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  </tr>
+                </tbody>
+              </table>
+          <h1><a name="_non_c2s">  </a>Calcium to spike model performance</h1>
+          <div class="ui divider"></div>
+          <br><br>
+          <p>Under construction .....</p>
+          <br><br>
+          <h1><a name="_non_submit">  </a>Submit an analysis</h1>
+          <div class="ui divider"></div>
+          <br><br>
+          <p>We will contact with you for successful submissions</p>
+          <br>
+          <form class="ui form">
+              <h4 class="ui dividing header">Personal information</h4>
+              <div class="field">
+                  <label>Name</label>
+                  <div class="two fields">
+                      <div class="field">
+                          <input type="text" name="first-name" placeholder="First Name">
+                      </div>
+                      <div class="field">
+                          <input type="text" name="last-name" placeholder="Last Name">
+                      </div>
+                  </div>
+                  <div class="two fields">
+                      <div class="field">
+                          <label>Institution</label>
+                          <input type="text" name="address" placeholder="Institution">
+                      </div>
+                      <div class="field">
+                          <label>Email</label>
+                          <input type="text" name="email" placeholder="email@email">
+                      </div>
+                  </div>
+              </div>
+
+              <h4 class="ui dividing header">Analysis information</h4>
+
+              <div class="field">
+                  <label>Analysis type</label>
+                  <select class="ui fluid dropdown">
+                      <option value="1">Single-unit analysis</option>
+                      <option value="2">Population analysis</option>
+                  </select>
+              </div>
+              <div class="field">
+                  <label>Analysis description</label>
+                  <textarea></textarea>
+                  <label>Analysis keywords</label>
+                  <div class="field">
+                      <input type="text" name="address" placeholder="linear/ nonlinear/ hill function/ sigmoid function">
+                  </div>
+                  <label>Related code repo</label>
+                  <div class="field">
+                      <input type="text" name="address" placeholder="https://github.com/user/repo.git">
+                  </div>
+                  <label>Reference (please tailed down to 3)</label>
+                  <div class="field">
+                      <input type="text" name="address" placeholder="reference 1">
+                  </div>
+                  <div class="field">
+                      <input type="text" name="address" placeholder="reference 2">
+                  </div>
+                  <div class="field">
+                      <input type="text" name="address" placeholder="reference 3">
+                  </div>
+                  <label>Other information</label>
+                  <textarea></textarea>
+              </div>
+              <div class="item">
+              </div>
+              <div class="ui right floated blue submit disabled button" tabindex="0">Submit Code</div>
+              <br>
+              <br>
+              <br>
+              <br>
+      </form>
+      </div>
+  </div>
+</div>
+
+<script type="text/javascript">
+    $(window).bind('hashchange', function(){
+        if($('#toc_text_non')){
+            if($('#toc_text_non').text().indexOf('$$') !== -1){
+                location.reload();
+            };
+        };
+    });
+</script>

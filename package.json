@@ -1,18 +1,17 @@
 {
-  "name": "Demo",
-  "version": "1.0.0",
-  "description": "demo project.",
+  "name": "data-comparison-app",
+  "version": "0.0.0",
+  "private": true,
   "scripts": {
-    "lite": "lite-server --port 10001",
-    "start": "npm run lite"
-  },
-  "author": "",
-  "license": "ISC",
-  "devDependencies": {
-    "lite-server": "^1.3.1"
+    "start": "node ./bin/www"
   },
   "dependencies": {
-    "mathjax": "^2.7.1",
-    "pouchdb": "^6.3.4"
+    "body-parser": "~1.17.1",
+    "cookie-parser": "~1.4.3",
+    "debug": "~2.6.3",
+    "express": "~4.15.2",
+    "hbs": "~4.0.1",
+    "morgan": "~1.8.1",
+    "serve-favicon": "~2.4.2"
   }
 }
