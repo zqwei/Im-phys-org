@@ -16,7 +16,10 @@ https://help.github.com/articles/creating-a-pull-request/
 ## Code architecture
 ### Frontend
 ~~Frontend of the website is based on Semantic-UI and JQuery.~~
-* Frontend of the website is written using Pug (Jade) and express.js.
+~~ Frontend of the website is written using Pug (Jade) and express.js.~~
+* Frontend of the website is written using HBS and express.js.
+* Issue #1: Lack of support of loading json file for pages like using database list.
+* Issue #1: Lack of support of mathjax for pages using math equations.
 
 ### Backend
 Backend of the website is implemented by Node.Js and CouchDB.
