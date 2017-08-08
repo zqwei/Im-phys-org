@@ -32,6 +32,9 @@ https://help.github.com/articles/creating-a-pull-request/
     ```bash
     mongo
     ```
+    * GUI for MongoDB -- __Robo 3T__
+    * _TODO_: render data from MongoDB to each html when __get__ request is sent.
+    * _TODO_: check if HBS can loop through MongoDB data file.
 
 ## Testing website on a local server
 
