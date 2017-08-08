@@ -1,134 +1,54 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <!-- Standard Meta -->
-  <meta charset="utf-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+  <head>
+    <!-- Standard Meta -->
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 
-  <!-- Site Properties -->
-  <title>{{title}}</title>
-  <link rel="stylesheet" type="text/css" href="/semantic-ui/components/reset.css">
-  <link rel="stylesheet" type="text/css" href="/semantic-ui/components/site.css">
-  <link rel="stylesheet" type="text/css" href="/semantic-ui/components/container.css">
-  <link rel="stylesheet" type="text/css" href="/semantic-ui/components/grid.css">
-  <link rel="stylesheet" type="text/css" href="/semantic-ui/components/header.css">
-  <link rel="stylesheet" type="text/css" href="/semantic-ui/components/image.css">
-  <link rel="stylesheet" type="text/css" href="/semantic-ui/components/menu.css">
-  <link rel="stylesheet" type="text/css" href="/semantic-ui/components/form.css">
-  <link rel="stylesheet" type="text/css" href="/semantic-ui/components/accordion.css">
-  <link rel="stylesheet" type="text/css" href="/semantic-ui/components/divider.css">
-  <link rel="stylesheet" type="text/css" href="/semantic-ui/components/dropdown.css">
-  <link rel="stylesheet" type="text/css" href="/semantic-ui/components/segment.css">
-  <link rel="stylesheet" type="text/css" href="/semantic-ui/components/button.css">
-  <link rel="stylesheet" type="text/css" href="/semantic-ui/components/list.css">
-  <link rel="stylesheet" type="text/css" href="/semantic-ui/components/label.css">
-  <link rel="stylesheet" type="text/css" href="/semantic-ui/components/icon.css">
-  <link rel="stylesheet" type="text/css" href="/semantic-ui/components/sidebar.css">
-  <link rel="stylesheet" type="text/css" href="/semantic-ui/components/sticky.css">
-  <link rel="stylesheet" type="text/css" href="/semantic-ui/components/rail.css">
-  <link rel="stylesheet" type="text/css" href="/semantic-ui/components/transition.css">
-  <link rel="stylesheet" type="text/css" href="/semantic-ui/components/tab.css">
-  <link rel="stylesheet" type="text/css" href="/semantic-ui/components/table.css">
-  <link rel="stylesheet" type="text/css" href="/stylesheets/style.css">
+    <!-- Site Properties -->
+    <title>{{title}}</title>
+    <link rel="stylesheet" type="text/css" href="/semantic-ui/components/reset.css">
+    <link rel="stylesheet" type="text/css" href="/semantic-ui/components/site.css">
+    <link rel="stylesheet" type="text/css" href="/semantic-ui/components/container.css">
+    <link rel="stylesheet" type="text/css" href="/semantic-ui/components/grid.css">
+    <link rel="stylesheet" type="text/css" href="/semantic-ui/components/header.css">
+    <link rel="stylesheet" type="text/css" href="/semantic-ui/components/image.css">
+    <link rel="stylesheet" type="text/css" href="/semantic-ui/components/menu.css">
+    <link rel="stylesheet" type="text/css" href="/semantic-ui/components/form.css">
+    <link rel="stylesheet" type="text/css" href="/semantic-ui/components/accordion.css">
+    <link rel="stylesheet" type="text/css" href="/semantic-ui/components/divider.css">
+    <link rel="stylesheet" type="text/css" href="/semantic-ui/components/dropdown.css">
+    <link rel="stylesheet" type="text/css" href="/semantic-ui/components/segment.css">
+    <link rel="stylesheet" type="text/css" href="/semantic-ui/components/button.css">
+    <link rel="stylesheet" type="text/css" href="/semantic-ui/components/list.css">
+    <link rel="stylesheet" type="text/css" href="/semantic-ui/components/label.css">
+    <link rel="stylesheet" type="text/css" href="/semantic-ui/components/icon.css">
+    <link rel="stylesheet" type="text/css" href="/semantic-ui/components/sidebar.css">
+    <link rel="stylesheet" type="text/css" href="/semantic-ui/components/sticky.css">
+    <link rel="stylesheet" type="text/css" href="/semantic-ui/components/rail.css">
+    <link rel="stylesheet" type="text/css" href="/semantic-ui/components/transition.css">
+    <link rel="stylesheet" type="text/css" href="/semantic-ui/components/tab.css">
+    <link rel="stylesheet" type="text/css" href="/semantic-ui/components/table.css">
+    <link rel="stylesheet" type="text/css" href="/stylesheets/style.css">
 
-  <script src="/semantic-ui/jquery.min.js"></script>
-  <script src="/semantic-ui/semantic.js"></script>
-  <script src="/semantic-ui/components/visibility.js"></script>
-  <script src="/semantic-ui/components/sidebar.js"></script>
-  <script src="/semantic-ui/components/transition.js"></script>
-  <script src="/semantic-ui/components/sticky.js"></script>
-  <script src="/semantic-ui/components/form.js"></script>
-  <script src="/semantic-ui/components/tab.js"></script>
-  <script src="/semantic-ui/components/accordion.js"></script>
-  <script src="/javascripts/main.js"></script>
-</head>
-<body>
-
-
-<!-- Following Menu -->
-<div class="ui inverted large top fixed hidden menu">
-  <div class="ui container">
-    <a class="{{#if active.home}}active{{/if}} red item" href="/">Home</a>
-    <a class="{{#if active.analyses}}active{{/if}} yellow item" href="analyses">Analyses</a>
-    <a class="{{#if active.data}}active{{/if}} teal item" href="data">Datasets</a>
-    <a class="{{#if active.model}}active{{/if}} blue item" href="model">Models</a>
-    <a class="{{#if active.codes}}active{{/if}} purple item" href="codes">Code</a>
+    <script src="/semantic-ui/jquery.min.js"></script>
+    <script src="/semantic-ui/semantic.js"></script>
+    <script src="/semantic-ui/components/visibility.js"></script>
+    <script src="/semantic-ui/components/sidebar.js"></script>
+    <script src="/semantic-ui/components/transition.js"></script>
+    <script src="/semantic-ui/components/sticky.js"></script>
+    <script src="/semantic-ui/components/form.js"></script>
+    <script src="/semantic-ui/components/tab.js"></script>
+    <script src="/semantic-ui/components/accordion.js"></script>
+    <script src="/javascripts/main.js"></script>
+  </head>
+  <body>
+    {{> _ipad_menu}}
+    <div class="pusher">
+      {{> _page_menu}}
+      <div id="content">{{{body}}}</div>
+      {{> _footer}}
     </div>
-  </div>
-</div>
-
-<!-- Sidebar Menu -->
-<div class="ui vertical inverted sidebar menu">
-  <a class="{{#if active.home}}active{{/if}} red item" href="/">Home</a>
-  <a class="{{#if active.analyses}}active{{/if}} yellow item" href="analyses">Analyses</a>
-  <a class="{{#if active.data}}active{{/if}} teal item" href="data">Datasets</a>
-  <a class="{{#if active.model}}active{{/if}} blue item" href="model">Models</a>
-  <a class="{{#if active.codes}}active{{/if}} purple item" href="codes">Code</a>
-</div>
-
-
-<!-- Page Contents -->
-<div class="pusher">
-  <div class="ui inverted vertical masthead center aligned segment">
-    <div class="ui container">
-      <div class="ui large secondary inverted pointing menu">
-        <a class="toc item">
-          <i class="sidebar icon"></i>
-        </a>
-        <a class="{{#if active.home}}active{{/if}} red item" href="/">Home</a>
-        <a class="{{#if active.analyses}}active{{/if}} yellow item" href="analyses">Analyses</a>
-        <a class="{{#if active.data}}active{{/if}} teal item" href="data">Datasets</a>
-        <a class="{{#if active.model}}active{{/if}} blue item" href="model">Models</a>
-        <a class="{{#if active.codes}}active{{/if}} purple item" href="codes">Code</a>
-      </div>
-    </div>
-  </div>
-  <div id="content">
-    {{{body}}}
-  </div>
-
-  <div class="ui footer inverted vertical segment">
-    <div class="ui container">
-      <div class="ui stackable inverted divided equal height stackable grid">
-        <div class="five wide column">
-          <h3 class="ui inverted header">Contact Us</h3>
-          <div class="inverted item">
-              Ziqiang Wei <a href="mailto:weiz@janelia.hhmi.org?Subject=Dataset%20comparison%20website"><i class="white mail icon"></i></a> <br>
-              Janelia Research Campus <br>
-              19700 Helix Drive <br>
-              Ashburn, VA 20147
-          </div>
-        </div>
-        <div class="six wide column">
-            <h3>License</h3>
-            <br>
-            MIT?(The one I usually use)
-        </div>
-        <div class="five wide column">
-          <h3 class="ui inverted header">Social Media</h3>
-          <br>
-          <span class="item">
-              <i class="big inverted github icon"></i>
-          </span>
-          <span class="item">
-              <i class="big inverted slack icon"></i>
-          </span>
-          <span class="item">
-              <i class="big inverted twitter icon"></i>
-          </span>
-          <span class="item">
-              <i class="big inverted bug icon"></i>
-          </span>
-          <span class="item">
-              <i class="big inverted share alternate icon"></i>
-          </span>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-</body>
-
+  </body>
 </html>
