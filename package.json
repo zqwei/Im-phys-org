@@ -13,6 +13,7 @@
     "express-livereload": "0.0.24",
     "gulp": "^3.9.1",
     "hbs": "~4.0.1",
+    "mathjax-node": "^1.1.0",
     "morgan": "~1.8.1",
     "serve-favicon": "~2.4.2"
   }

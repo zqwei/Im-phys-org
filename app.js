@@ -20,8 +20,7 @@ hbs.registerPartials(path.join(__dirname, 'views/partials'));
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
-// port to listen
-app.set('port', process.env.PORT || 10001)
+app.use('/node_modules', express.static(path.join(__dirname, 'node_modules')))
 
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
