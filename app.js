@@ -25,8 +25,8 @@ app.use('/node_modules', express.static(path.join(__dirname, 'node_modules')))
 
 
 // // Connect to Mongoose
-// mongoose.connect('mongodb://localhost/ephys_imaging_datasets');
-// var db = mongoose.connection;
+mongoose.connect('mongodb://localhost/ephys_imaging_datasets', {useMongoClient: true});
+var db = mongoose.connection;
 
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));

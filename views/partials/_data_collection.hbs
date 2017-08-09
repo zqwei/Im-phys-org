@@ -1,5 +1,13 @@
 <div class="ui container">
-  <div id="data_collection">
-    {{collection.title}}
-  </div>
+  <!--  menu the name of Datasets -->
+  <!-- <div class="ui left vertical menu"> -->
+    {{#each collection}}
+      <!-- <a class="item"> -->
+        {{name}} <br>
+        {{#each datasets}}
+          "Hello" <br>
+        {{/each}}
+      <!-- </a> -->
+    {{/each}}
+  <!-- </div> -->
 </div>
