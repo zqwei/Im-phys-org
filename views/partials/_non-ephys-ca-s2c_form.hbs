@@ -1,7 +1,10 @@
 <div class="ui red segment">
     <h3>Please selective matched datasets to compare <i class="arrow circle down icon"></i></h3>
+    <div class="ui gray divider"></div>
     <div class="ui grid form" id='s2cformList'>
       <div class="four wide column">
+        <h3>Ephys</h3>
+        <div class="ui gray divider"></div>
         <div class="ui fluid left large secondary vertical pointing menu">
           {{#each s2cFormList}}
             <a class="{{#ifCond @key 0}}active{{/ifCond}} item" data-tab="data-{{@key}}")>
@@ -11,6 +14,8 @@
         </div>
       </div>
       <div class="eight wide column">
+        <h3>Matched imaging</h3>
+        <div class="ui gray divider"></div>
         {{#each s2cFormList}}
           <div class="ui {{#ifCond @key 0}}active{{/ifCond}} tab text" data-tab="data-{{@key}}">
               {{#each matched}}
@@ -25,6 +30,14 @@
         {{/each}}
       </div>
       <div class="four wide column">
+        <h3>Spike to imaging models</h3>
+        <div class="ui gray divider"></div>
+          <div class="inline field">
+            <div class="ui checkbox">
+              <input type="checkbox" tabindex="0" class="hidden">
+              <label>Sigmoid model (Wei et al. 2017)</label>
+            </div>
+          </div>
       </div>
     </div>
 </div>
