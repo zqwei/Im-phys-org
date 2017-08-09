@@ -1,53 +1,34 @@
 var express = require('express');
 var router = express.Router();
-var mongoose = require('mongoose');
+var mongodb = require('mongodb');
 
-var datasetSchema = mongoose.Schema({
-  name:{
-    type: String,
-    required: true
-  },
-  description:{
-    type: String,
-    required: true
-  },
-  label:{
-    type: String,
-    required: true
-  },
-  datasets:{
-    Name: {type: String},
-    Label: {type: String},
-    OtherLabel: {type: String},
-    Description: {type: String},
-    Reference: {type: String},
-    Link: {type: String},
-  }
-});
-
-datasetSchema.set('toJSON', { virtuals: true });
-
-var Datasets = mongoose.model('Datasets', datasetSchema);
-
-Datasets.getDatasets = function(callback, limit){
-  Datasets.find(callback).limit(limit);
-};
-
-Datasets.getDatasetbyId = function(id, callback){
-  Datasets.findById(id, callback);
-};
-
-/* GET home page. */
-
-var _id = "598a04f3e0c7ca56a5d97dc3";
+var url = 'mongodb://localhost:27017/ephys_imaging_datasets';
+var MongoClient = mongodb.MongoClient;
 
 router.get('/', function(req, res, next) {
-  Datasets.getDatasets(function(err, Datasets){
-    if(err){throw err;}
-    res.render('data', {
-        title: 'Datasets' ,
-        active: {data: true},
-        collection: Datasets});
+  MongoClient.connect(url, function(err, db){
+    if (err){
+      console.log('Unable to connect to the database');
+    }
+    else{
+      console.log('Connect to ephys imaging databsets');
+      var collection = db.collection('datasets');
+      collection.find({}).toArray(function(err, result){
+        if(err){
+          res.send(err);
+        }
+        else if (result.length) {
+          console.log(collection);
+          res.render('data', {
+              title: 'Datasets' ,
+              active: {data: true},
+              collection: result});
+        }
+        else{
+          res.send('No record at the moment.');
+        }
+      });
+    }
   });
 });
 

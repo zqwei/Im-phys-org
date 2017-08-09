@@ -5,7 +5,6 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var hbs = require('hbs');
-var mongoose = require('mongoose');
 
 var index = require('./routes/index');
 var users = require('./routes/users');
@@ -23,10 +22,6 @@ app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
 app.use('/node_modules', express.static(path.join(__dirname, 'node_modules')))
 
-
-// // Connect to Mongoose
-mongoose.connect('mongodb://localhost/ephys_imaging_datasets', {useMongoClient: true});
-var db = mongoose.connection;
 
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));

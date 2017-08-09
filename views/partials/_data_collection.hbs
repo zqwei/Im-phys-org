@@ -1,13 +1,51 @@
-<div class="ui container">
-  <!--  menu the name of Datasets -->
-  <!-- <div class="ui left vertical menu"> -->
+<div class="ui grid" id='data_collection_tab'>
+  <div class="four wide column">
+    <div class="ui fluid left large secondary vertical pointing menu">
+      {{#each collection}}
+        <a class="item" data-tab="data-{{@key}}")>
+          {{name}}
+          <div class="ui yellow label">
+            {{datasets.length}}
+          </div>
+        </a>
+      {{/each}}
+    </div>
+  </div>
+  <div class="twelve wide column">
     {{#each collection}}
-      <!-- <a class="item"> -->
-        {{name}} <br>
-        {{#each datasets}}
-          "Hello" <br>
-        {{/each}}
-      <!-- </a> -->
+      <div class="ui tab basic segment" data-tab="data-{{@key}}">
+        <h2>{{name}} <span class="ui red label flotated right">{{label}}</span></h2>
+        <p>{{description}}</p>
+        <h3>Related datasets <span class="ui large teal circular label">{{datasets.length}}</span></h3>
+        <ul class="ui list">
+          {{#each datasets}}
+            <li><h3>{{Name}}</h3></li>
+            <span class="ui blue label">{{Label}}</span>
+            {{#each OtherLabel}}
+              <span class="ui gray label">{{this}}</span>
+            {{/each}}
+            <br>
+            {{Description}}
+            <br>
+            References:
+            <ul class="ui list">
+              {{#each Reference}}
+                <li>{{this}}</li>
+              {{/each}}
+            </ul>
+            Link: {{Link}}
+          {{/each}}
+        </ul>
+      </div>
     {{/each}}
-  <!-- </div> -->
+  </div>
 </div>
+<!--
+<div class="ui container" id='data_collection_tab'>
+</div> -->
+
+<script type="text/javascript">
+    $(document).ready(function(){
+        $('#data_collection_tab .menu .item').tab({context:$("#data_collection_tab")});
+    });
+</script>
