@@ -42,33 +42,6 @@ router.get('/', function(req, res, next) {
           s2cFormList: non_forms.s2cFormList
          });
       });
-      //
-      //
-      //
-      //
-      //
-      //
-      // var collection = db.collection('nonsim_matched_ephys');
-      // collection.find({}).toArray(function(err, result){
-      //   if(err){
-      //     res.send(err);
-      //   }
-      //   else if (result.length) {
-      //     s2cFormList = result;
-      //     callback();
-      //   }
-      //   else{
-      //     res.send('No record at the moment.');
-      //   }
-      // });
-      //
-      // console.log(s2cFormList);
-      //
-      // res.render('analyses', {
-      //   title: 'Analyses',
-      //   active:{ analyses: true},
-      //   s2cFormList: s2cFormList
-      //  });
     }
   });
 
