@@ -2,7 +2,7 @@
   <div class="four wide column">
     <div class="ui fluid left large secondary vertical pointing menu">
       {{#each collection}}
-        <a class="item" data-tab="data-{{@key}}")>
+        <a class="{{#ifCond @key 0}}active{{/ifCond}} item" data-tab="data-{{@key}}")>
           {{name}}
           <div class="ui yellow label">
             {{datasets.length}}
@@ -13,7 +13,7 @@
   </div>
   <div class="twelve wide column">
     {{#each collection}}
-      <div class="ui tab basic segment" data-tab="data-{{@key}}">
+      <div class="ui {{#ifCond @key 0}}active{{/ifCond}} tab text" data-tab="data-{{@key}}">
         <h2>{{name}} <span class="ui red label flotated right">{{label}}</span></h2>
         <p>{{description}}</p>
         <h3>Related datasets <span class="ui large teal circular label">{{datasets.length}}</span></h3>
@@ -40,9 +40,6 @@
     {{/each}}
   </div>
 </div>
-<!--
-<div class="ui container" id='data_collection_tab'>
-</div> -->
 
 <script type="text/javascript">
     $(document).ready(function(){

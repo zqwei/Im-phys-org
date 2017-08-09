@@ -11,14 +11,14 @@ router.get('/', function(req, res, next) {
       console.log('Unable to connect to the database');
     }
     else{
-      console.log('Connect to ephys imaging databsets');
+      // console.log('Connect to ephys imaging databsets data.js');
       var collection = db.collection('datasets');
       collection.find({}).toArray(function(err, result){
         if(err){
           res.send(err);
         }
         else if (result.length) {
-          console.log(collection);
+          // console.log(collection);
           res.render('data', {
               title: 'Datasets' ,
               active: {data: true},
@@ -28,6 +28,7 @@ router.get('/', function(req, res, next) {
           res.send('No record at the moment.');
         }
       });
+      db.close();
     }
   });
 });
