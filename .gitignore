@@ -1,2 +1,5 @@
 package-lock.json
 node_modules/
+data/*
+
+!data/ephys_imaging_datasets/*
