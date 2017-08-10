@@ -77,15 +77,13 @@
 <script type="text/javascript">
   $(document).ready(function(){
     $('#nonS2cFormList .menu .item').tab({context:$("#nonS2cFormList")});
-    // $('#nonS2cFormList').submit(function(e) {
-    //   e.preventDefault();
-    //   console.log('submited');
-    //   // $.get('/', function(data) {
-    //   //     // console.log('success');
-    //   //     console.log(data);
-    //   //     console.log(JSON.stringify(data));
-    //   //     $("nonS2cFormResult").html(JSON.stringify(data));
-    //   // });
-    // });
+  });
+</script>
+
+<script src="/node_modules/socket.io-client/dist/socket.io.js"></script>
+<script>
+  var socket = io();
+  socket.on('message', function(data){
+    alert(data);
   });
 </script>

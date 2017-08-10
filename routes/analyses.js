@@ -6,6 +6,8 @@ var urlencoded = bodyParser.urlencoded({ extended: false });
 var async = require('async');
 var url = 'mongodb://localhost:27017/ephys_imaging_datasets';
 var MongoClient = mongodb.MongoClient;
+var http = require('http').Server(router);
+var io = require('socket.io')(http);
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
@@ -47,8 +49,12 @@ router.get('/', function(req, res, next) {
   });
 });
 
+
 router.post('/', urlencoded, function(req, res){
   console.log(req.body);
+  io.on('connection', function(socket){
+    console.log('a user connected');
+  });
   res.json({data: req.body.name});
 });
 
