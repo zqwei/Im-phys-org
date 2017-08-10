@@ -34,7 +34,16 @@ https://help.github.com/articles/creating-a-pull-request/
     ```
     * GUI for MongoDB -- __Robo 3T__
     * _TODO_: render data from MongoDB to each html when __get__ request is sent.
-    * _TODO_: check if HBS can loop through MongoDB data file.
+
+* Set up of MongoDB
+    * set path to current project folder
+    ```bash
+    mongod --dbpath <project_folder>/data
+    ```
+    * copy ephys_imaging_datasets dataset to current MongoDB
+    ```bash
+    mongorestore -d ephys_imaging_datasets <location_for_dumped file>
+    ```
 
 ## Testing website on a local server
 
