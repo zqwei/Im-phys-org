@@ -2,7 +2,7 @@
   <div class="four wide column">
     <div class="ui fluid left large secondary vertical pointing menu">
       {{#each collection}}
-        <a class="{{#ifCond @key 0}}active{{/ifCond}} item" data-tab="data-{{@key}}")>
+        <a class="{{#ifCond @key 0}}active{{/ifCond}} item" data-tab="data-{{@key}}" )>
           {{name}}
           <div class="ui yellow label">
             {{datasets.length}}
@@ -19,15 +19,14 @@
         <h3>Related datasets <span class="ui large teal circular label">{{datasets.length}}</span></h3>
         <ul class="ui list">
           {{#each datasets}}
-            <li><h3>{{Name}}</h3></li>
+            <li>
+              <h3>{{Name}}</h3></li>
             <span class="ui blue label">{{Label}}</span>
             {{#each OtherLabel}}
               <span class="ui gray label">{{this}}</span>
             {{/each}}
-            <br>
-            {{Description}}
-            <br>
-            References:
+            <br> {{Description}}
+            <br> References:
             <ul class="ui list">
               {{#each Reference}}
                 <li>{{this}}</li>
@@ -42,7 +41,9 @@
 </div>
 
 <script type="text/javascript">
-    $(document).ready(function(){
-        $('#data_collection_tab .menu .item').tab({context:$("#data_collection_tab")});
+  $(document).ready(function() {
+    $('#data_collection_tab .menu .item').tab({
+      context: $("#data_collection_tab")
     });
+  });
 </script>

@@ -1,54 +1,57 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <!-- Standard Meta -->
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 
-    <!-- Site Properties -->
-    <title>{{title}}</title>
-    <link rel="stylesheet" type="text/css" href="/semantic-ui/components/reset.css">
-    <link rel="stylesheet" type="text/css" href="/semantic-ui/components/site.css">
-    <link rel="stylesheet" type="text/css" href="/semantic-ui/components/container.css">
-    <link rel="stylesheet" type="text/css" href="/semantic-ui/components/grid.css">
-    <link rel="stylesheet" type="text/css" href="/semantic-ui/components/header.css">
-    <link rel="stylesheet" type="text/css" href="/semantic-ui/components/image.css">
-    <link rel="stylesheet" type="text/css" href="/semantic-ui/components/menu.css">
-    <link rel="stylesheet" type="text/css" href="/semantic-ui/components/form.css">
-    <link rel="stylesheet" type="text/css" href="/semantic-ui/components/accordion.css">
-    <link rel="stylesheet" type="text/css" href="/semantic-ui/components/divider.css">
-    <link rel="stylesheet" type="text/css" href="/semantic-ui/components/dropdown.css">
-    <link rel="stylesheet" type="text/css" href="/semantic-ui/components/segment.css">
-    <link rel="stylesheet" type="text/css" href="/semantic-ui/components/button.css">
-    <link rel="stylesheet" type="text/css" href="/semantic-ui/components/list.css">
-    <link rel="stylesheet" type="text/css" href="/semantic-ui/components/label.css">
-    <link rel="stylesheet" type="text/css" href="/semantic-ui/components/icon.css">
-    <link rel="stylesheet" type="text/css" href="/semantic-ui/components/sidebar.css">
-    <link rel="stylesheet" type="text/css" href="/semantic-ui/components/sticky.css">
-    <link rel="stylesheet" type="text/css" href="/semantic-ui/components/rail.css">
-    <link rel="stylesheet" type="text/css" href="/semantic-ui/components/transition.css">
-    <link rel="stylesheet" type="text/css" href="/semantic-ui/components/tab.css">
-    <link rel="stylesheet" type="text/css" href="/semantic-ui/components/table.css">
-    <link rel="stylesheet" type="text/css" href="/stylesheets/style.css">
+<head>
+  <!-- Standard Meta -->
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 
-    <script src="/semantic-ui/jquery.min.js"></script>
-    <script src="/semantic-ui/semantic.js"></script>
-    <script src="/semantic-ui/components/visibility.js"></script>
-    <script src="/semantic-ui/components/sidebar.js"></script>
-    <script src="/semantic-ui/components/transition.js"></script>
-    <script src="/semantic-ui/components/sticky.js"></script>
-    <script src="/semantic-ui/components/form.js"></script>
-    <script src="/semantic-ui/components/tab.js"></script>
-    <script src="/semantic-ui/components/accordion.js"></script>
-    <script src="/javascripts/main.js"></script>
-  </head>
-  <body>
-    {{> _ipad_menu}}
-    <div class="pusher">
-      {{> _page_menu}}
-      <div id="content">{{{body}}}</div>
-      {{> _footer}}
-    </div>
-  </body>
+  <!-- Site Properties -->
+  <title>{{title}}</title>
+  <link rel="stylesheet" type="text/css" href="/semantic-ui/components/reset.css">
+  <link rel="stylesheet" type="text/css" href="/semantic-ui/components/site.css">
+  <link rel="stylesheet" type="text/css" href="/semantic-ui/components/container.css">
+  <link rel="stylesheet" type="text/css" href="/semantic-ui/components/grid.css">
+  <link rel="stylesheet" type="text/css" href="/semantic-ui/components/header.css">
+  <link rel="stylesheet" type="text/css" href="/semantic-ui/components/image.css">
+  <link rel="stylesheet" type="text/css" href="/semantic-ui/components/menu.css">
+  <link rel="stylesheet" type="text/css" href="/semantic-ui/components/form.css">
+  <link rel="stylesheet" type="text/css" href="/semantic-ui/components/accordion.css">
+  <link rel="stylesheet" type="text/css" href="/semantic-ui/components/divider.css">
+  <link rel="stylesheet" type="text/css" href="/semantic-ui/components/dropdown.css">
+  <link rel="stylesheet" type="text/css" href="/semantic-ui/components/segment.css">
+  <link rel="stylesheet" type="text/css" href="/semantic-ui/components/button.css">
+  <link rel="stylesheet" type="text/css" href="/semantic-ui/components/list.css">
+  <link rel="stylesheet" type="text/css" href="/semantic-ui/components/label.css">
+  <link rel="stylesheet" type="text/css" href="/semantic-ui/components/icon.css">
+  <link rel="stylesheet" type="text/css" href="/semantic-ui/components/sidebar.css">
+  <link rel="stylesheet" type="text/css" href="/semantic-ui/components/sticky.css">
+  <link rel="stylesheet" type="text/css" href="/semantic-ui/components/rail.css">
+  <link rel="stylesheet" type="text/css" href="/semantic-ui/components/transition.css">
+  <link rel="stylesheet" type="text/css" href="/semantic-ui/components/tab.css">
+  <link rel="stylesheet" type="text/css" href="/semantic-ui/components/table.css">
+  <link rel="stylesheet" type="text/css" href="/stylesheets/style.css">
+
+  <script src="/semantic-ui/jquery.min.js"></script>
+  <script src="/semantic-ui/semantic.js"></script>
+  <script src="/semantic-ui/components/visibility.js"></script>
+  <script src="/semantic-ui/components/sidebar.js"></script>
+  <script src="/semantic-ui/components/transition.js"></script>
+  <script src="/semantic-ui/components/sticky.js"></script>
+  <script src="/semantic-ui/components/form.js"></script>
+  <script src="/semantic-ui/components/tab.js"></script>
+  <script src="/semantic-ui/components/accordion.js"></script>
+  <script src="/javascripts/main.js"></script>
+</head>
+
+<body>
+  {{> _ipad_menu}}
+  <div class="pusher">
+    {{> _page_menu}}
+    <div id="content">{{{body}}}</div>
+    {{> _footer}}
+  </div>
+</body>
+
 </html>

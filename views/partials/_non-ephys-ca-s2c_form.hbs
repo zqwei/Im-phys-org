@@ -1,46 +1,51 @@
-<div class="ui red segment">
-    <h3>Please selective matched datasets to compare <i class="arrow circle down icon"></i></h3>
+
+<h3>Please selective matched datasets to compare <i class="arrow circle down icon"></i></h3>
+<div class="ui gray divider"></div>
+<form class="ui grid form" id='nonS2cFormList'  method='post'>
+  <div class="four wide column">
+    <h3>Ephys</h3>
     <div class="ui gray divider"></div>
-    <div class="ui grid form" id='s2cformList'>
-      <div class="four wide column">
-        <h3>Ephys</h3>
-        <div class="ui gray divider"></div>
-        <div class="ui fluid left large secondary vertical pointing menu">
-          {{#each s2cFormList}}
-            <a class="{{#ifCond @key 0}}active{{/ifCond}} item" data-tab="data-{{@key}}")>
-              {{name}}
-            </a>
-          {{/each}}
-        </div>
-      </div>
-      <div class="eight wide column">
-        <h3>Matched imaging</h3>
-        <div class="ui gray divider"></div>
-        {{#each s2cFormList}}
-          <div class="ui {{#ifCond @key 0}}active{{/ifCond}} tab text" data-tab="data-{{@key}}">
-              {{#each matched}}
-              <div class="inline field">
-                <div class="ui checkbox">
-                  <input type="checkbox" tabindex="0" class="hidden">
-                  <label>{{name}}</label>
-                </div>
-              </div>
-              {{/each}}
-          </div>
-        {{/each}}
-      </div>
-      <div class="four wide column">
-        <h3>Spike to imaging models</h3>
-        <div class="ui gray divider"></div>
+    <div class="ui fluid left large secondary vertical pointing menu">
+      {{#each nonS2cFormList}}
+        <a class="{{#ifCond @key 0}}active{{/ifCond}} item" data-tab="data-{{@key}}")>
+          {{name}}
+        </a>
+      {{/each}}
+    </div>
+  </div>
+  <div class="eight wide column">
+    <h3>Matched imaging</h3>
+    <div class="ui gray divider"></div>
+    {{#each nonS2cFormList}}
+      <div class="ui {{#ifCond @key 0}}active{{/ifCond}} tab text" data-tab="data-{{@key}}">
+          {{#each matched}}
           <div class="inline field">
             <div class="ui checkbox">
-              <input type="checkbox" tabindex="0" class="hidden">
-              <label>Sigmoid model (Wei et al. 2017)</label>
+              <input type="checkbox" name="name" value="{{../name}}_{{name}}" class="hidden">
+              <label>{{name}}</label>
             </div>
           </div>
+          {{/each}}
       </div>
-    </div>
-</div>
+    {{/each}}
+  </div>
+  <div class="four wide column">
+    <h3>Spike to imaging models</h3>
+    <div class="ui gray divider"></div>
+      <div class="inline field">
+        <div class="ui checkbox">
+          <input type="checkbox" tabindex="0" class="hidden">
+          <label>Sigmoid model (Wei et al. 2017)</label>
+        </div>
+      </div>
+  </div>
+  <div class="sixteen wide column">
+    <div class="ui gray divider"></div>
+    <button class="ui right floated blue button" tabindex="0" type="submit">Add Comparison</button>
+  </div>
+</form>
+<br>
+<br>
 <table class="ui celled striped five column table">
     <thead>
         <tr>
@@ -67,10 +72,20 @@
   </tbody>
 </table>
 
-
+<div id="nonS2cFormResult"></div>
 
 <script type="text/javascript">
-    $(document).ready(function(){
-        $('#s2cformList .menu .item').tab({context:$("#s2cformList")});
-    });
+  $(document).ready(function(){
+    $('#nonS2cFormList .menu .item').tab({context:$("#nonS2cFormList")});
+    // $('#nonS2cFormList').submit(function(e) {
+    //   e.preventDefault();
+    //   console.log('submited');
+    //   // $.get('/', function(data) {
+    //   //     // console.log('success');
+    //   //     console.log(data);
+    //   //     console.log(JSON.stringify(data));
+    //   //     $("nonS2cFormResult").html(JSON.stringify(data));
+    //   // });
+    // });
+  });
 </script>

@@ -1,6 +1,8 @@
 var express = require('express');
 var router = express.Router();
 var mongodb = require('mongodb');
+var bodyParser = require('body-parser');
+var urlencoded = bodyParser.urlencoded({ extended: false });
 var async = require('async');
 var url = 'mongodb://localhost:27017/ephys_imaging_datasets';
 var MongoClient = mongodb.MongoClient;
@@ -12,7 +14,7 @@ router.get('/', function(req, res, next) {
       console.log('Unable to connect to the database');
     }
     else{
-      console.log('Connect to ephys imaging databsets in analysis.js');
+      // console.log('Connect to ephys imaging databsets in analysis.js');
       var non_forms = {};
       var tasks = [
         function(callback){
@@ -22,8 +24,7 @@ router.get('/', function(req, res, next) {
               return callback(err);
             }
             else if (result.length) {
-              console.log('Here!')
-              non_forms.s2cFormList = result;
+              non_forms.nonS2cFormList = result;
               callback();
             }
             else{
@@ -39,12 +40,16 @@ router.get('/', function(req, res, next) {
         res.render('analyses', {
           title: 'Analyses',
           active:{ analyses: true},
-          s2cFormList: non_forms.s2cFormList
+          nonS2cFormList: non_forms.nonS2cFormList
          });
       });
     }
   });
+});
 
+router.post('/', urlencoded, function(req, res){
+  console.log(req.body);
+  res.json({data: req.body.name});
 });
 
 module.exports = router;
