@@ -1,13 +1,12 @@
 var express = require('express');
 var router = express.Router();
 var mongodb = require('mongodb');
-var bodyParser = require('body-parser');
-var urlencoded = bodyParser.urlencoded({ extended: false });
+// var bodyParser = require('body-parser');
+// var urlencoded = bodyParser.urlencoded({ extended: false });
 var async = require('async');
 var url = 'mongodb://localhost:27017/ephys_imaging_datasets';
 var MongoClient = mongodb.MongoClient;
-var http = require('http').Server(router);
-var io = require('socket.io')(http);
+var nonS2cFormListResults = [];
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
@@ -42,7 +41,8 @@ router.get('/', function(req, res, next) {
         res.render('analyses', {
           title: 'Analyses',
           active:{ analyses: true},
-          nonS2cFormList: non_forms.nonS2cFormList
+          nonS2cFormList: non_forms.nonS2cFormList,
+          results: nonS2cFormListResults
          });
       });
     }
@@ -50,12 +50,10 @@ router.get('/', function(req, res, next) {
 });
 
 
-router.post('/', urlencoded, function(req, res){
-  console.log(req.body);
-  io.on('connection', function(socket){
-    console.log('a user connected');
-  });
-  res.json({data: req.body.name});
+router.post('/', function(req, res){
+  nonS2cFormListResults=JSON.parse(req.body.data);
+  console.log(nonS2cFormListResults);
+  res.end();
 });
 
 module.exports = router;

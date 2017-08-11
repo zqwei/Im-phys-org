@@ -5,7 +5,7 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var hbs = require('hbs');
-var http = require('http');
+// var http = require('http');
 
 var index = require('./routes/index');
 var users = require('./routes/users');
@@ -15,6 +15,8 @@ var data = require('./routes/data');
 var model = require('./routes/model');
 
 var app = express();
+// var server = http.Server(app);
+// var io = require('socket.io')(server);
 
 hbs.registerPartials(path.join(__dirname, 'views/partials'));
 hbs.registerHelper('ifCond', function(v1, v2, options) {
@@ -65,6 +67,11 @@ app.use(function(err, req, res, next) {
   res.render('error');
 });
 
+// io.on('connection', function (socket) {
+//   console.log('connection open');
+// });
+
+// server.listen(10001);
 app.listen(10001);
 
 module.exports = app;

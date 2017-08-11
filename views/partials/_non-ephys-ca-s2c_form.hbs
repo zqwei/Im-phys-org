@@ -1,7 +1,7 @@
 
 <h3>Please selective matched datasets to compare <i class="arrow circle down icon"></i></h3>
 <div class="ui gray divider"></div>
-<form class="ui grid form" id='nonS2cFormList'  method='post'>
+<form class="ui grid form" id='nonS2cFormList' method='post'>
   <div class="four wide column">
     <h3>Ephys</h3>
     <div class="ui gray divider"></div>
@@ -21,7 +21,7 @@
           {{#each matched}}
           <div class="inline field">
             <div class="ui checkbox">
-              <input type="checkbox" name="name" value="{{../name}}_{{name}}" class="hidden">
+              <input type="checkbox" name="{{../name}}_{{name}}" class="hidden">
               <label>{{name}}</label>
             </div>
           </div>
@@ -34,14 +34,14 @@
     <div class="ui gray divider"></div>
       <div class="inline field">
         <div class="ui checkbox">
-          <input type="checkbox" tabindex="0" class="hidden">
+          <input type="checkbox" class="hidden">
           <label>Sigmoid model (Wei et al. 2017)</label>
         </div>
       </div>
   </div>
   <div class="sixteen wide column">
     <div class="ui gray divider"></div>
-    <button class="ui right floated blue button" tabindex="0" type="submit">Add Comparison</button>
+    <button class="ui right floated blue button" type="submit">Add Comparison</button>
   </div>
 </form>
 <br>
@@ -62,28 +62,26 @@
     </tr>
   </thead>
   <tbody>
-    <tr>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    </tr>
+    {{> _non_ephys_ca_s2c_form_results}}
   </tbody>
 </table>
 
-<div id="nonS2cFormResult"></div>
+
+
 
 <script type="text/javascript">
-  $(document).ready(function(){
+  $(function(){
     $('#nonS2cFormList .menu .item').tab({context:$("#nonS2cFormList")});
-  });
-</script>
-
-<script src="/node_modules/socket.io-client/dist/socket.io.js"></script>
-<script>
-  var socket = io();
-  socket.on('message', function(data){
-    alert(data);
+    $('#nonS2cFormList').on('submit', function(){
+      $.ajax({
+        type: 'POST',
+        data: {data: JSON.stringify($('#nonS2cFormList').serializeArray())},
+        url: '/analyses',
+        success: function(data) {
+          console.log('yeah');
+          location.reload();
+        }
+      });
+    });
   });
 </script>
