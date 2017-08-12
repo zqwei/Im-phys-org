@@ -1,12 +1,9 @@
 var express = require('express');
 var router = express.Router();
 var mongodb = require('mongodb');
-// var bodyParser = require('body-parser');
-// var urlencoded = bodyParser.urlencoded({ extended: false });
 var async = require('async');
 var url = 'mongodb://localhost:27017/ephys_imaging_datasets';
 var MongoClient = mongodb.MongoClient;
-var nonS2cFormListResults = [];
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
@@ -25,7 +22,22 @@ router.get('/', function(req, res, next) {
               return callback(err);
             }
             else if (result.length) {
-              non_forms.nonS2cFormList = result;
+              non_forms.nonFormList = result;
+              callback();
+            }
+            else{
+              res.send('No record at the moment.');
+            }
+          });
+        },
+        function(callback){
+          var collection = db.collection('models');
+          collection.find({}).toArray(function(err, result){
+            if(err){
+              return callback(err);
+            }
+            else if (result.length) {
+              non_forms.modelList = result;
               callback();
             }
             else{
@@ -41,19 +53,13 @@ router.get('/', function(req, res, next) {
         res.render('analyses', {
           title: 'Analyses',
           active:{ analyses: true},
-          nonS2cFormList: non_forms.nonS2cFormList,
-          results: nonS2cFormListResults
+          nonFormList: non_forms.nonFormList,
+          nonS2CModelList: non_forms.modelList[0].models,
+          nonC2SModelList: non_forms.modelList[1].models
          });
       });
     }
   });
-});
-
-
-router.post('/', function(req, res){
-  nonS2cFormListResults=JSON.parse(req.body.data);
-  console.log(nonS2cFormListResults);
-  res.end();
 });
 
 module.exports = router;

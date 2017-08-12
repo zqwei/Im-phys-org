@@ -1,27 +1,24 @@
-
-<h3>Please selective matched datasets to compare <i class="arrow circle down icon"></i></h3>
-<div class="ui gray divider"></div>
-<form class="ui grid form" id='nonS2cFormList' method='post'>
+<form class="ui grid form" id='nonFormList' method='post'>
   <div class="four wide column">
-    <h3>Ephys</h3>
+    <h3>Datasets</h3>
     <div class="ui gray divider"></div>
     <div class="ui fluid left large secondary vertical pointing menu">
-      {{#each nonS2cFormList}}
+      {{#each nonFormList}}
         <a class="{{#ifCond @key 0}}active{{/ifCond}} item" data-tab="data-{{@key}}")>
           {{name}}
         </a>
       {{/each}}
     </div>
   </div>
-  <div class="eight wide column">
-    <h3>Matched imaging</h3>
+  <div class="four wide column">
+    <h3>Recordings</h3>
     <div class="ui gray divider"></div>
-    {{#each nonS2cFormList}}
+    {{#each nonFormList}}
       <div class="ui {{#ifCond @key 0}}active{{/ifCond}} tab text" data-tab="data-{{@key}}">
           {{#each matched}}
           <div class="inline field">
             <div class="ui checkbox">
-              <input type="checkbox" name="{{../name}}_{{name}}" class="hidden">
+              <input type="checkbox" name="data/{{../name}}/{{name}}" class="hidden">
               <label>{{name}}</label>
             </div>
           </div>
@@ -32,18 +29,33 @@
   <div class="four wide column">
     <h3>Spike to imaging models</h3>
     <div class="ui gray divider"></div>
+    {{#each nonS2CModelList}}
       <div class="inline field">
         <div class="ui checkbox">
-          <input type="checkbox" class="hidden">
-          <label>Sigmoid model (Wei et al. 2017)</label>
+          <input type="checkbox" name="model/S2C {{name}}" class="hidden">
+          <label>{{name}}</label>
         </div>
       </div>
+      {{/each}}
   </div>
-  <div class="sixteen wide column">
+  <div class="four wide column">
+    <h3>Imaging to spike models</h3>
     <div class="ui gray divider"></div>
-    <button class="ui right floated blue button" type="submit">Add Comparison</button>
+    {{#each nonC2SModelList}}
+      <div class="inline field">
+        <div class="ui checkbox">
+          <input type="checkbox" name="C2S {{name}} model" class="hidden">
+          <label>{{name}}</label>
+        </div>
+      </div>
+      {{/each}}
+      {{#ifCond nonC2SModelList.length 0}}
+      <h3><i class="hourglass start icon"></i>Underconstruction</h3>
+      {{/ifCond}}
   </div>
 </form>
+<div class="ui gray divider"></div>
+<button class="ui right floated blue button" id='compare_btn'>Compare</button>
 <br>
 <br>
 <table class="ui celled striped five column table">
@@ -61,27 +73,18 @@
           <th>Decodability</th>
     </tr>
   </thead>
-  <tbody>
-    {{> _non_ephys_ca_s2c_form_results}}
+  <tbody id="nonFormListResults">
   </tbody>
 </table>
 
 
-
-
 <script type="text/javascript">
   $(function(){
-    $('#nonS2cFormList .menu .item').tab({context:$("#nonS2cFormList")});
-    $('#nonS2cFormList').on('submit', function(){
-      $.ajax({
-        type: 'POST',
-        data: {data: JSON.stringify($('#nonS2cFormList').serializeArray())},
-        url: '/analyses',
-        success: function(data) {
-          console.log('yeah');
-          location.reload();
-        }
-      });
+    $('#nonFormList .menu .item').tab({context:$("#nonFormList")});
+    $('#nonFormListResults').load('/results/_non_ephys_ca_s2c_form_empty.html');
+    $('#compare_btn').on('click', function(event){
+      event.preventDefault();
+      $.getScript("/javascripts/nonFormList.js");
     });
   });
 </script>
