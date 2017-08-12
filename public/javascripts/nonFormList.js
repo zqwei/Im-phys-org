@@ -80,7 +80,7 @@ $.each(dataList, function(ind, data){
       });
     },
     error: function(){
-      $("#" + divId).html('Non results at the moment');
+      $("#" + divId).html('Results will be compiled soon .... <br> Please check back our website.');
     }
   });
 });
@@ -108,7 +108,7 @@ $.each(dataList, function(ind, data){
       });
     },
     error: function(){
-      $("#" + divId).html('Non results at the moment');
+      $("#" + divId).html('Results will be compiled soon .... <br> Please check back our website.');
     }
   });
 });
@@ -136,7 +136,7 @@ $.each(dataList, function(ind, data){
       });
     },
     error: function(){
-      $("#" + divId).html('Non results at the moment');
+      $("#" + divId).html('Results will be compiled soon .... <br> Please check back our website.');
     }
   });
 });
@@ -166,7 +166,7 @@ $.each(dataList, function(ind, data){
     error: function(){
       console.log(plot_ind);
       console.log(divId);
-      $("#" + divId).html('Non results at the moment');
+      $("#" + divId).html('Results will be compiled soon .... <br> Please check back our website.');
     }
   });
 });
