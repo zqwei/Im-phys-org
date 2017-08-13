@@ -41,11 +41,19 @@ if(dataList.length){
     html += '<tr>';
     html += '<td>'+ tb_name +'</td>'
     for(var i=0; i<numPerformance; i++){
-      var divId = data.replace(/\ +/g, '');
-      divId = divId.replace(/\//g, '');
-      divId = divId.replace(/\./g, '');
-      // console.log(divId);
-      html += '<td><div id="' + divId + i +'"> </div> </div></td>'
+      // var divId = data.replace(/\ +/g, '');
+      // divId = divId.replace(/\//g, '');
+      // divId = divId.replace(/\./g, '');
+      // divId += i;
+      // // console.log(divId);
+      var url = data.replace(/\ +/g, '_');
+      url = url.replace(/\//g, '_');
+      url = url.replace(/\./g, '');
+      url =  '/results/nonData/' + url + '_' + comparisonList[i] + '.html';
+      // html += '<td><div id="' + divId + '"> </div> </div></td>'
+      html += '<td><iframe src="' + url +'" frameBorder="0" scrolling="no"> </iframe> </div></td>'
+      // console.log($('#'+ divId));
+      // $('#'+ divId).load(url);
     }
     html += '</tr>';
   });
@@ -56,117 +64,121 @@ else{
   $('#nonFormListResults').load('/results/_non_ephys_ca_s2c_form_empty.html');
 }
 
+// $.each(dataList, function(ind, data){
+//   // plot selecctivity
+//   var plot_ind = 0;
+//   var url = data.replace(/\ +/g, '_');
+//   url = url.replace(/\//g, '_');
+//   url = url.replace(/\./g, '');
+//   url =  '/results/nonData/' + url + '_' + comparisonList[plot_ind] + '.csv';
+//   var divId = data.replace(/\ +/g, '');
+//   divId = divId.replace(/\//g, '');
+//   divId = divId.replace(/\./g, '');
+//   divId += plot_ind;
+//   // $.ajax({
+//   //   url: url,
+//   //   success: function(){
+//   console.log(document.getElementById(divId));
+//   var chart = c3.generate({
+//     data: {
+//       bindto: document.getElementById(divId),
+//       url: url,
+//       type: 'donut'
+//     }
+//   });
+//       // setTimeout(function () { chart.load({columns: data}); }, 500);
+//   // $("#" + divId).html(chart.element);
+//   //   },
+//   //   error: function(){
+//   //     $("#" + divId).html('Results will be compiled soon .... <br> Please check back our website.');
+//   //   },
+//   //   async: false
+//   // });
+// });
 
-$.each(dataList, function(ind, data){
-  // plot selecctivity
-  var plot_ind = 0;
-  var url = data.replace(/\ +/g, '_');
-  url = url.replace(/\//g, '');
-  url = url.replace(/\./g, '');
-  url =  '/results/nonData/' + url + comparisonList[plot_ind] + '.csv';
-  var divId = data.replace(/\ +/g, '');
-  divId = divId.replace(/\//g, '');
-  divId = divId.replace(/\./g, '');
-  divId += plot_ind;
-  $.ajax({
-    url: url,
-    success: function(){
-      c3.generate({
-        bindto: '"#' + data + '0"',
-        data: {
-          url: url,
-          type: 'pie'
-        }
-      });
-    },
-    error: function(){
-      $("#" + divId).html('Results will be compiled soon .... <br> Please check back our website.');
-    }
-  });
-});
-
-$.each(dataList, function(ind, data){
-  // plot peakness
-  var plot_ind = 1;
-  var url = data.replace(/\ +/g, '_');
-  url = url.replace(/\//g, '');
-  url = url.replace(/\./g, '');
-  url =  '/results/nonData/' + url + comparisonList[plot_ind] + '.csv';
-  var divId = data.replace(/\ +/g, '');
-  divId = divId.replace(/\//g, '');
-  divId = divId.replace(/\./g, '');
-  divId += plot_ind;
-  $.ajax({
-    url: url,
-    success: function(){
-      c3.generate({
-        bindto: '"#' + data + '0"',
-        data: {
-          url: url,
-          type: 'pie'
-        }
-      });
-    },
-    error: function(){
-      $("#" + divId).html('Results will be compiled soon .... <br> Please check back our website.');
-    }
-  });
-});
-
-$.each(dataList, function(ind, data){
-  // plot pc
-  var plot_ind = 2;
-  var url = data.replace(/\ +/g, '_');
-  url = url.replace(/\//g, '');
-  url = url.replace(/\./g, '');
-  url =  '/results/nonData/' + url + comparisonList[plot_ind] + '.csv';
-  var divId = data.replace(/\ +/g, '');
-  divId = divId.replace(/\//g, '');
-  divId = divId.replace(/\./g, '');
-  divId += plot_ind;
-  $.ajax({
-    url: url,
-    success: function(){
-      c3.generate({
-        bindto: '"#' + data + '0"',
-        data: {
-          url: url,
-          type: 'pie'
-        }
-      });
-    },
-    error: function(){
-      $("#" + divId).html('Results will be compiled soon .... <br> Please check back our website.');
-    }
-  });
-});
-
-$.each(dataList, function(ind, data){
-  // plot decodability
-  var plot_ind = 3;
-  var url = data.replace(/\ +/g, '_');
-  url = url.replace(/\//g, '');
-  url = url.replace(/\./g, '');
-  url =  '/results/nonData/' + url + comparisonList[plot_ind] + '.csv';
-  var divId = data.replace(/\ +/g, '');
-  divId = divId.replace(/\//g, '');
-  divId = divId.replace(/\./g, '');
-  divId += plot_ind;
-  $.ajax({
-    url: url,
-    success: function(){
-      c3.generate({
-        bindto: '"#' + data + '0"',
-        data: {
-          url: url,
-          type: 'pie'
-        }
-      });
-    },
-    error: function(){
-      console.log(plot_ind);
-      console.log(divId);
-      $("#" + divId).html('Results will be compiled soon .... <br> Please check back our website.');
-    }
-  });
-});
+// $.each(dataList, function(ind, data){
+//   // plot peakness
+//   var plot_ind = 1;
+//   var url = data.replace(/\ +/g, '_');
+//   url = url.replace(/\//g, '');
+//   url = url.replace(/\./g, '');
+//   url =  '/results/nonData/' + url + comparisonList[plot_ind] + '.csv';
+//   var divId = data.replace(/\ +/g, '');
+//   divId = divId.replace(/\//g, '');
+//   divId = divId.replace(/\./g, '');
+//   divId += plot_ind;
+//   $.ajax({
+//     url: url,
+//     success: function(){
+//       c3.generate({
+//         bindto: "#" + divId,
+//         data: {
+//           url: url,
+//           type: 'pie'
+//         }
+//       });
+//     },
+//     error: function(){
+//       $("#" + divId).html('Results will be compiled soon .... <br> Please check back our website.');
+//     }
+//   });
+// });
+//
+//
+// $.each(dataList, function(ind, data){
+//   // plot pc
+//   var plot_ind = 2;
+//   var url = data.replace(/\ +/g, '_');
+//   url = url.replace(/\//g, '');
+//   url = url.replace(/\./g, '');
+//   url =  '/results/nonData/' + url + comparisonList[plot_ind] + '.csv';
+//   var divId = data.replace(/\ +/g, '');
+//   divId = divId.replace(/\//g, '');
+//   divId = divId.replace(/\./g, '');
+//   divId += plot_ind;
+//   $.ajax({
+//     url: url,
+//     success: function(){
+//       c3.generate({
+//         bindto: "#" + divId,
+//         data: {
+//           url: url,
+//           type: 'pie'
+//         }
+//       });
+//     },
+//     error: function(){
+//       $("#" + divId).html('Results will be compiled soon .... <br> Please check back our website.');
+//     }
+//   });
+// });
+//
+// $.each(dataList, function(ind, data){
+//   // plot decodability
+//   var plot_ind = 3;
+//   var url = data.replace(/\ +/g, '_');
+//   url = url.replace(/\//g, '');
+//   url = url.replace(/\./g, '');
+//   url =  '/results/nonData/' + url + comparisonList[plot_ind] + '.csv';
+//   var divId = data.replace(/\ +/g, '');
+//   divId = divId.replace(/\//g, '');
+//   divId = divId.replace(/\./g, '');
+//   divId += plot_ind;
+//   $.ajax({
+//     url: url,
+//     success: function(){
+//       c3.generate({
+//         bindto: "#" + divId,
+//         data: {
+//           url: url,
+//           type: 'pie'
+//         }
+//       });
+//     },
+//     error: function(){
+//       // console.log(plot_ind);
+//       // console.log(divId);
+//       $("#" + divId).html('Results will be compiled soon .... <br> Please check back our website.');
+//     }
+//   });
+// });
