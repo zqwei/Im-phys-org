@@ -49,6 +49,38 @@ app.use('/data', data);
 app.use('/model', model);
 app.use('/users', users);
 
+//generated dataset json using at the client side
+var mongodb = require('mongodb');
+var url = 'mongodb://localhost:27017/ephys_imaging_datasets';
+var MongoClient = mongodb.MongoClient;
+var fs = require('fs');
+// var util = require('util')
+
+MongoClient.connect(url, function(err, db){
+  var collection = db.collection('nonsim_matched_ephys');
+  collection.find({}).toArray(function(err, result){
+    if(err){
+      throw err;
+    }
+    else if (result.length) {
+      // var resultJson = [];
+      // for(var i=0; i<result.length; i++){
+      //   var dataName = result[i].name;
+      //   for(var j=0; j<result[i].matched; j++){
+      //     var setName = result[i].matched[j];
+      //     console.log(dataName + ' ' + setNanme);
+      //     resultJson.push(dataName + ' ' + setNanme);
+      //   }
+      // }
+      // console.log(resultJson);
+      fs.writeFileSync(path.join(__dirname, 'public', 'results', 'nonDataResults.json'), JSON.stringify(result, null, 2) , 'utf-8');
+    }
+    else{
+      console.log('No record at the moment.');
+    }
+  });
+});
+
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   var err = new Error('Not Found');
