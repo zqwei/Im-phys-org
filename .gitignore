@@ -1,4 +1,5 @@
 package-lock.json
 node_modules/
 data/*
-public/results
+public/results/*.json
+public/results/nonData/
