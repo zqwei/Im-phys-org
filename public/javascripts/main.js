@@ -24,4 +24,5 @@ $(document)
       selector: {
         trigger: '.title .icon'}
       });
+    $('.ui.dropdown').dropdown();
   });

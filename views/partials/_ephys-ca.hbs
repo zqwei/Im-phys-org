@@ -2,10 +2,8 @@
   <div class="ui text">
     <p>We describe each model in detail and continue to incorporate new models in <a href="model">Models</a> page.</p>
     <h1>Model fits</h1>
-    <div class="ui divider"></div>
-    <p>Please select a repitition of a cell and its model fits.<i class="angle double down icon"></i></p>
-    <form class="ui grid form" id='nonFormList' method='post'>
-      <div class="four wide column">
+    <form class="ui grid form" id='simFormList' method='post'>
+      <div class="eight wide column">
         <h3>Datasets</h3>
         <div class="ui gray divider"></div>
         <div class="ui fluid left large secondary vertical pointing menu">
@@ -16,7 +14,7 @@
           {{/each}}
         </div>
       </div>
-      <div class="four wide column">
+      <div class="eight wide column">
         <h3>Recordings</h3>
         <div class="ui gray divider"></div>
         {{#each simFormList}}
@@ -32,42 +30,20 @@
           </div>
         {{/each}}
       </div>
-      <div class="four wide column">
-        <h3>Spike to imaging models</h3>
-        <div class="ui gray divider"></div>
-        {{#each nonS2CModelList}}
-          <div class="inline field">
-            <div class="ui checkbox">
-              <input type="checkbox" name="model/S2C {{name}}" class="hidden">
-              <label>{{name}}</label>
-            </div>
-          </div>
-          {{/each}}
-      </div>
-      <div class="four wide column">
-        <h3>Imaging to spike models</h3>
-        <div class="ui gray divider"></div>
-        {{#each nonC2SModelList}}
-          <div class="inline field">
-            <div class="ui checkbox">
-              <input type="checkbox" name="C2S {{name}} model" class="hidden">
-              <label>{{name}}</label>
-            </div>
-          </div>
-          {{/each}}
-          {{#ifCond nonC2SModelList.length 0}}
-          <h3><i class="hourglass start icon"></i>Underconstruction</h3>
-          {{/ifCond}}
-      </div>
     </form>
     <div class="ui gray divider"></div>
     <button class="ui right floated blue button" id='compare_btn'>Compare</button>
     <br>
     <br>
-    <div class="ui segment" id='simChart'></div>
+
+
+
+    <div class="ui basic segment" id='simChart'>
+      <br><br><br><br><br><br><br><br><br>
+    </div>
     <h1>Performances</h1>
     <div class="ui divider"></div>
     <br><br>
-    
+
   </div>
 </div>

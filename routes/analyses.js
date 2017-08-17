@@ -44,6 +44,21 @@ router.get('/', function(req, res, next) {
               res.send('No record at the moment.');
             }
           });
+        },
+        function(callback){
+          var collection = db.collection('sim_matched_ephys');
+          collection.find({}).toArray(function(err, result){
+            if(err){
+              return callback(err);
+            }
+            else if (result.length) {
+              non_forms.simFormList = result;
+              callback();
+            }
+            else{
+              res.send('No record at the moment.');
+            }
+          });
         }
       ];
 
@@ -55,7 +70,8 @@ router.get('/', function(req, res, next) {
           active:{ analyses: true},
           nonFormList: non_forms.nonFormList,
           nonS2CModelList: non_forms.modelList[0].models,
-          nonC2SModelList: non_forms.modelList[1].models
+          nonC2SModelList: non_forms.modelList[1].models,
+          simFormList: non_forms.simFormList,
          });
       });
     }
