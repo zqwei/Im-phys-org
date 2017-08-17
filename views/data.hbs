@@ -1,0 +1,31 @@
+<div class="ui inverted vertical masthead center aligned segment">
+  <div class="ui container">
+    <div class="ui text container">
+      <h1 class="ui inverted header"> We are for Neurodata Without Borders </h1>
+      <br> <br>
+    </div>
+  </div>
+</div>
+
+<!-- contents -->
+<div class="ui container" id='datatab'>
+  <div class="ui two item secondary pointing menu">
+    <a class="active item" data-tab="data_collection"><h2>Collection</h2></a>
+    <a class="item" data-tab="data_submit"><h2>Submit a dataset</h2></a>
+  </div>
+
+  <div class="ui bottom attached active tab text" data-tab="data_collection">
+    {{> _data_collection}}
+  </div>
+  <div class="ui bottom attached tab text" data-tab="data_submit">
+    {{> _data_submit}}
+  </div>
+</div>
+
+<script type="text/javascript">
+  $(document).ready(function() {
+    $('#datatab .menu .item').tab({
+      context: $("#datatab")
+    });
+  });
+</script>
