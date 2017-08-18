@@ -63,17 +63,24 @@ MongoClient.connect(url, function(err, db){
       throw err;
     }
     else if (result.length) {
-      // var resultJson = [];
-      // for(var i=0; i<result.length; i++){
-      //   var dataName = result[i].name;
-      //   for(var j=0; j<result[i].matched; j++){
-      //     var setName = result[i].matched[j];
-      //     console.log(dataName + ' ' + setNanme);
-      //     resultJson.push(dataName + ' ' + setNanme);
-      //   }
-      // }
-      // console.log(resultJson);
       fs.writeFileSync(path.join(__dirname, 'public', 'results', 'nonDataResults.json'), JSON.stringify(result, null, 2) , 'utf-8');
+    }
+    else{
+      console.log('No record at the moment.');
+    }
+  });
+});
+
+MongoClient.connect(url, function(err, db){
+  var collection = db.collection('sim_matched_ephys');
+  collection.find({}).toArray(function(err, result){
+    if(err){
+      throw err;
+    }
+    else if (result.length) {
+      for (var i=0; i<result.length; i++){
+        fs.writeFileSync(path.join(__dirname, 'public', 'results', 'sim_' + result[i].alias + '.json'), JSON.stringify(result[i].matched, null, 2) , 'utf-8');
+      }
     }
     else{
       console.log('No record at the moment.');

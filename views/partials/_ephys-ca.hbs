@@ -2,37 +2,30 @@
   <div class="ui text">
     <p>We describe each model in detail and continue to incorporate new models in <a href="model">Models</a> page.</p>
     <h1>Model fits</h1>
-    <form class="ui grid form" id='simFormList' method='post'>
-      <div class="eight wide column">
-        <h3>Datasets</h3>
-        <div class="ui gray divider"></div>
-        <div class="ui fluid left large secondary vertical pointing menu">
-          {{#each simFormList}}
-            <a class="{{#ifCond @key 0}}active{{/ifCond}} item" data-tab="data-{{@key}}")>
-              {{name}}
-            </a>
-          {{/each}}
+    <div class="ui form" id=>
+      <div class="two fields">
+        <div class="field">
+          <label>Datasets</label>
+          <div class="ui fluid search selection dropdown" id='simDatasetID'>
+            <div class="default text"> Select a dataset</div>
+            <div class="menu">
+              {{#each simFormList}}
+              <div class="item" data-value={{alias}}>{{name}}</div>
+              {{/each}}
+            </div>
+          </div>
+        </div>
+        <div class="field">
+          <label>Recording</label>
+          <div class="ui fluid search selection dropdown">
+            <div class="default text"> Select a cell in a session</div>
+            <div class="menu" id='simDataID'>
+            </div>
+          </div>
         </div>
       </div>
-      <div class="eight wide column">
-        <h3>Recordings</h3>
-        <div class="ui gray divider"></div>
-        {{#each simFormList}}
-          <div class="ui {{#ifCond @key 0}}active{{/ifCond}} tab text" data-tab="data-{{@key}}">
-              {{#each matched}}
-              <div class="inline field">
-                <div class="ui checkbox">
-                  <input type="checkbox" name="data/{{../name}}/{{name}}" class="hidden">
-                  <label>{{name}}</label>
-                </div>
-              </div>
-              {{/each}}
-          </div>
-        {{/each}}
-      </div>
-    </form>
-    <div class="ui gray divider"></div>
-    <button class="ui right floated blue button" id='compare_btn'>Compare</button>
+    </div>
+    <button class="ui right floated blue button" id='plot_btn'>Plot</button>
     <br>
     <br>
 
@@ -47,3 +40,22 @@
 
   </div>
 </div>
+
+<script type="text/javascript">
+  $(function(){
+    $('#simDatasetID').dropdown({
+      onChange: function(value){
+        var html = '';
+        $.getJSON('/results/sim_'+ value +'.json', function(resultsJson){
+          $.each(resultsJson, function(ind, val){
+            html += '<div class="item" data-value="' + val.name + '">' + val.name + '</div>';
+          });
+          $('#simDataID').html(html);
+        });
+      }
+    });
+    $('#compare_btn').on('click', function(event){
+      event.preventDefault();
+    });
+  });
+</script>
