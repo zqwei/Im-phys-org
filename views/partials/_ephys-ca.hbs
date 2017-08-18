@@ -2,7 +2,7 @@
   <div class="ui text">
     <p>We describe each model in detail and continue to incorporate new models in <a href="model">Models</a> page.</p>
     <h1>Model fits</h1>
-    <div class="ui form" id=>
+    <div class="ui form">
       <div class="two fields">
         <div class="field">
           <label>Datasets</label>
@@ -17,7 +17,7 @@
         </div>
         <div class="field">
           <label>Recording</label>
-          <div class="ui fluid search selection dropdown">
+          <div class="ui fluid search selection dropdown" id='simCell'>
             <div class="default text"> Select a cell in a session</div>
             <div class="menu" id='simDataID'>
             </div>
@@ -28,9 +28,6 @@
     <button class="ui right floated blue button" id='plot_btn'>Plot</button>
     <br>
     <br>
-
-
-
     <div class="ui basic segment" id='simChart'>
       <br><br><br><br><br><br><br><br><br>
     </div>
@@ -51,11 +48,16 @@
             html += '<div class="item" data-value="' + val.name + '">' + val.name + '</div>';
           });
           $('#simDataID').html(html);
+          $('#simCell').dropdown('clear');
         });
       }
     });
-    $('#compare_btn').on('click', function(event){
+    $('#plot_btn').on('click', function(event){
       event.preventDefault();
+      var dataset = $('#simDatasetID').dropdown('get value');
+      var cell = $('#simCell').dropdown('get value');
+      var url = '/results/simData/' + dataset + '/' + cell + '.json';
+      console.log(url);
     });
   });
 </script>
