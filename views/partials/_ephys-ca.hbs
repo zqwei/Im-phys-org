@@ -1,5 +1,7 @@
 <div class="ui container">
   <div class="ui text">
+    <p>descripe what is simultaneous recoridng data</p>
+    <p>We currently collected xx datasests (<a href="data">Datasets</a>) and xx number of sim ephys-imaging cells in total.</p>
     <p>We describe each model in detail and continue to incorporate new models in <a href="model">Models</a> page.</p>
     <h1>Model fits</h1>
     <div class="ui form">
@@ -28,9 +30,7 @@
     <button class="ui right floated blue button" id='plot_btn'>Plot</button>
     <br>
     <br>
-    <div class="ui basic segment" id='simChart'>
-      <br><br><br><br><br><br><br><br><br>
-    </div>
+    <div id='simChart'></div><br><br>
     <h1>Performances</h1>
     <div class="ui divider"></div>
     <br><br>
@@ -38,7 +38,32 @@
   </div>
 </div>
 
+
 <script type="text/javascript">
+
+  var data = [
+  {
+    x: [0, 1, 2, 3, 4, 5, 6, 7, 8],
+    y: [0, 1, 2, 3, 4, 5, 6, 7, 8],
+    type: 'scatter'
+  }
+  ];
+
+  var layout = {
+    autosize: false,
+    width: 1000,
+    height: 250,
+    margin: {
+      l: 50,
+      r: 50,
+      b: 100,
+      t: 100,
+      pad: 4
+    }
+  };
+
+  Plotly.plot('simChart', data, layout);
+
   $(function(){
     $('#simDatasetID').dropdown({
       onChange: function(value){
@@ -57,7 +82,6 @@
       var dataset = $('#simDatasetID').dropdown('get value');
       var cell = $('#simCell').dropdown('get value');
       var url = '/results/simData/' + dataset + '/' + cell + '.json';
-      console.log(url);
     });
   });
 </script>
