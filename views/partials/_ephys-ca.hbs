@@ -27,7 +27,7 @@
         </div>
       </div>
     </div>
-    <button class="ui right floated blue button" id='plot_btn'>Plot</button>
+    <button class="ui right floated blue button" onclick="plot_cell()">Plot</button>
     <br>
     <br>
     <div id='simChart'></div><br><br>
@@ -39,49 +39,4 @@
 </div>
 
 
-<script type="text/javascript">
-
-  var data = [
-  {
-    x: [0, 1, 2, 3, 4, 5, 6, 7, 8],
-    y: [0, 1, 2, 3, 4, 5, 6, 7, 8],
-    type: 'scatter'
-  }
-  ];
-
-  var layout = {
-    autosize: false,
-    width: 1000,
-    height: 250,
-    margin: {
-      l: 50,
-      r: 50,
-      b: 100,
-      t: 100,
-      pad: 4
-    }
-  };
-
-  Plotly.plot('simChart', data, layout);
-
-  $(function(){
-    $('#simDatasetID').dropdown({
-      onChange: function(value){
-        var html = '';
-        $.getJSON('/results/sim_'+ value +'.json', function(resultsJson){
-          $.each(resultsJson, function(ind, val){
-            html += '<div class="item" data-value="' + val.name + '">' + val.name + '</div>';
-          });
-          $('#simDataID').html(html);
-          $('#simCell').dropdown('clear');
-        });
-      }
-    });
-    $('#plot_btn').on('click', function(event){
-      event.preventDefault();
-      var dataset = $('#simDatasetID').dropdown('get value');
-      var cell = $('#simCell').dropdown('get value');
-      var url = '/results/simData/' + dataset + '/' + cell + '.json';
-    });
-  });
-</script>
+<script src="/javascripts/simCell.js"></script>
