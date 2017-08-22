@@ -3,6 +3,18 @@
 ## Aim
 This is a website for our project of __Neural Recording Methodology Comparison__
 
+## Content structure
+1. __Home__ page: views/index.hbs
+2. __Analysis__ page: views/analysis.hbs
+    * Nonsimultaneous Ephys/Imaging tab: views/partials/\_non-ephys-ca.hbs    
+    * Simultaneous Ephys-Imaging tab: views/partials/\_ephys-ca.hbs
+3. __Datasets__ page: views/data.hbs
+    * Collection tab: views/partials/\_data\_collection.hbs
+    * Submit a dataset tab: views/partials/\_data\_submit.hbs
+4. __Models__ page: views/model.hbs
+5. __Codes__ page: views/codes.hbs
+    * Development log tab: views/partials/\_code\_collection.hbs
+    * Submit a code tab: views/partials/\_code\_submit.hbs
 
 ## Git management
 * merge your own branch with updated master (Do at your own git)
@@ -60,4 +72,16 @@ Static file folders:
 
 ```bash
     npm install mathjax --save
+```
+
+## Run `Gulp` to monitor the changes online
+
+### Set up gulp
+Gulp configure file and task file are `gulpfile.js` and `gulp_task/serve.js` files respectively.
+
+Before starting gulp, one needs to install global command of `gulp` and `nodemon`.
+```bash
+    npm install -g nodemon
+    npm install --save-dev nodemon
+    npm install -g gulp
 ```
