@@ -5,11 +5,11 @@ function plot_cell(){
     alert("Please select a cell!");
   }
   else{
-    var url = '/results/simData/' + dataset + '/' + cell '.html' ;
-    $('#simChart').load(url);
+    var url = '/results/simData/' + dataset + '/' + cell + '.html' ;
+    $('#simChart').html('<iframe src="' + url + '" width="1200" height="430" frameborder="0"></iframe>');
   }
+};
 
-}
 
 $(function(){
   $('#simDatasetID').dropdown({
