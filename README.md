@@ -85,3 +85,23 @@ Before starting gulp, one needs to install global command of `gulp` and `nodemon
     npm install --save-dev nodemon
     npm install -g gulp
 ```
+
+## Basic function in `Git`
+* Create a new branch
+```bash
+    git checkout -b <branch name>
+```
+
+* Update your branch with master branch
+```bash
+    git checkout master
+    git pull
+    git checkout <your branch>
+    git merge master
+```
+
+* Delete your branch
+```bash
+    git checkout master # switch to any branches which is not to be deleted
+    git branch -d <your branch>
+```
