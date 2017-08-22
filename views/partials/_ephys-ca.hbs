@@ -33,6 +33,75 @@
     <div id='simChart'></div><br><br>
     <h1>Performances</h1>
     <div class="ui divider"></div>
+    <div class="ui two column grid">
+      <div class="column">
+        <h4>All datasets</h4>
+        <div class="ui label" style="background-color:#ffffff">
+          .0
+        </div>
+        <div class="ui label" style="background-color:#fff5eb">
+          .1
+        </div>
+        <div class="ui label" style="background-color:#fee6ce">
+          .2
+        </div>
+        <div class="ui label" style="background-color:#fdd0a2">
+          .3
+        </div>
+        <div class="ui label" style="background-color:#fdae6b">
+          .4
+        </div>
+        <div class="ui label" style="background-color:#fd8d3c">
+          .5
+        </div>
+        <div class="ui label" style="background-color:#f16913">
+          .6
+        </div>
+        <div class="ui label" style="background-color:#d94801">
+          .7
+        </div>
+        <div class="ui label" style="background-color:#a63603">
+          .8
+        </div>
+        <div class="ui label" style="background-color:#7f2704">
+          .9
+        </div>
+      </div>
+      <div class="column">
+        <h4>Single datasets</h4>
+        <div class="ui label" style="background-color:#ffffff">
+          .0
+        </div>
+        <div class="ui label" style="background-color:#f7fcf5">
+          .1
+        </div>
+        <div class="ui label" style="background-color:#e5f5e0">
+          .2
+        </div>
+        <div class="ui label" style="background-color:#c7e9c0">
+          .3
+        </div>
+        <div class="ui label" style="background-color:#a1d99b">
+          .4
+        </div>
+        <div class="ui label" style="background-color:#74c476">
+          .5
+        </div>
+        <div class="ui label" style="background-color:#41ab5d">
+          .6
+        </div>
+        <div class="ui label" style="background-color:#238b45">
+          .7
+        </div>
+        <div class="ui label" style="background-color:#006d2c">
+          .8
+        </div>
+        <div class="ui label" style="background-color:#00441b">
+          .9
+        </div>
+      </div>
+    </div>
+
     <table class="ui celled striped three column table">
         <thead>
           <tr>
@@ -42,7 +111,36 @@
         </tr>
       </thead>
       <tbody>
-        
+        {{#each simPerformance}}
+        <tr>
+          <td>
+            {{name}} <br>
+            <div class="ui black label">
+              {{alias}}
+            </div>
+          </td>
+          <td>
+            <div class="ui label" style="background-color:{{pcolor}}">
+              {{performance}}
+            </div>
+            {{#each other}}
+              <div class="ui label" style="background-color:{{pcolor}}">
+                {{performance}}
+              </div>
+            {{/each}}
+          </td>
+          <td>
+            <div class="ui label" style="background-color:{{rcolor}}">
+              {{rank}}
+            </div>
+            {{#each other}}
+              <div class="ui label" style="background-color:{{rcolor}}">
+                {{rank}}
+              </div>
+            {{/each}}
+          </td>
+        </tr>
+        {{/each}}
       </tbody>
     </table>
     <br><br>

@@ -59,6 +59,21 @@ router.get('/', function(req, res, next) {
               res.send('No record at the moment.');
             }
           });
+        },
+        function(callback){
+          var collection = db.collection('sim_performance');
+          collection.find({}).toArray(function(err, result){
+            if(err){
+              return callback(err);
+            }
+            else if (result.length) {
+              non_forms.simPerformance = result;
+              callback();
+            }
+            else{
+              res.send('No record at the moment.');
+            }
+          });
         }
       ];
 
@@ -72,6 +87,7 @@ router.get('/', function(req, res, next) {
           nonS2CModelList: non_forms.modelList[0].models,
           nonC2SModelList: non_forms.modelList[1].models,
           simFormList: non_forms.simFormList,
+          simPerformance: non_forms.simPerformance
          });
       });
     }
