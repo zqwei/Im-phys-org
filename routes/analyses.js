@@ -80,6 +80,13 @@ router.get('/', function(req, res, next) {
       async.parallel(tasks, function(err) {
         if (err) return next(err);
         db.close();
+        for(var i=0; i<non_forms.simPerformance.length; i++){
+          for(var j=0; j<non_forms.simFormList.length; j++){
+            non_forms.simPerformance[i].other[j].name = non_forms.simFormList[j].name;
+            // console.log(non_forms.simPerformance[i].other[j].name);
+            // console.log(non_forms.simPerformance[i].other[j].pcolor);
+          }
+        }
         res.render('analyses', {
           title: 'Analyses',
           active:{ analyses: true},

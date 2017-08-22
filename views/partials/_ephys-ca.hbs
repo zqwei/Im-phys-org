@@ -102,7 +102,7 @@
       </div>
     </div>
 
-    <table class="ui celled striped three column table">
+    <table class="ui celled striped three column table" id='simPerformanceTab'>
         <thead>
           <tr>
               <th>Model</th>
@@ -120,21 +120,21 @@
             </div>
           </td>
           <td>
-            <div class="ui label" style="background-color:{{pcolor}}">
+            <div class="ui label" style="background-color:{{pcolor}}" data-content="All datasets">
               {{performance}}
             </div>
             {{#each other}}
-              <div class="ui label" style="background-color:{{pcolor}}">
+              <div class="ui label" style="background-color:{{pcolor}}" data-content="{{name}}">
                 {{performance}}
               </div>
             {{/each}}
           </td>
           <td>
-            <div class="ui label" style="background-color:{{rcolor}}">
+            <div class="ui label" style="background-color:{{rcolor}}" data-content="All datasets">
               {{rank}}
             </div>
             {{#each other}}
-              <div class="ui label" style="background-color:{{rcolor}}">
+              <div class="ui label" style="background-color:{{rcolor}}"  data-content="{{name}}">
                 {{rank}}
               </div>
             {{/each}}
@@ -149,3 +149,13 @@
 
 
 <script src="/javascripts/simCell.js"></script>
+<script type="text/javascript">
+$(document)
+  .ready(function() {
+    $('#simPerformanceTab .ui.label').popup({
+      inline: true,
+      hoverable: true,
+      position: 'top center',
+      on: 'click'});
+  });
+</script>
