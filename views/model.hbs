@@ -1,112 +1,137 @@
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX", "output/HTML-CSS"],
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+      processEscapes: true
+    },
+    "HTML-CSS": { availableFonts: ["TeX"] }
+  });
+</script>
+<script type="text/javascript" src="/node_modules/mathjax/MathJax.js?config=MML_HTMLorMML-full.js">
+</script>
+
 <div class="ui container">
-  <div class="ui vertical stripe quote segment">
-    <div class="ui container">
-      <br>
-      <h1>Spike to calcium model</h1>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-    </div>
-  </div>
+  <br>
+  <h1>Spike to calcium model</h1>
+  <p>
+    dddddddddd
+  </p>
+  <h2>S2C Linear</h2>
+  <p>
+    dddddddddd
+  </p>
+  <h2>S2C Hill</h2>
+  <p>
+    dddddddddd
+  </p>
+  <h2>S2C Sigmoid</h2>
+  <p>
+    dddddddddd
+  </p>
 
-  <div class="ui vertical stripe quote segment">
-    <div class="ui container">
-      <br>
-      <h1>Calcium to spike model</h1>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-    </div>
-  </div>
-
-  <!-- <div class="ui vertical stripe quote segment">
-    <div class="ui container">
-      <br>
-      <h1>Submit a model</h1>
-      <br>
-      <form class="ui form">
-        <h4 class="ui dividing header">Personal information</h4>
-        <div class="field">
-          <label>Name</label>
-          <div class="two fields">
-            <div class="field">
-              <input type="text" name="first-name" placeholder="First Name">
-            </div>
-            <div class="field">
-              <input type="text" name="last-name" placeholder="Last Name">
-            </div>
-          </div>
-          <div class="two fields">
-            <div class="field">
-              <label>Institution</label>
-              <input type="text" name="address" placeholder="Institution">
-            </div>
-            <div class="field">
-              <label>Email</label>
-              <input type="text" name="email" placeholder="email@email">
-            </div>
-          </div>
-        </div>
-
-        <h4 class="ui dividing header">Model information</h4>
-
-        <div class="field">
-          <label>Model type</label>
-          <select class="ui fluid dropdown">
-                    <option value="1">Spike to imaging model</option>
-                    <option value="2">Imaging to spike model</option>
-                </select>
-        </div>
-        <div class="field">
-          <label>Model description</label>
-          <textarea></textarea>
-          <label>Model keywords</label>
-          <div class="field">
-            <input type="text" name="address" placeholder="linear/ nonlinear/ hill function/ sigmoid function">
-          </div>
-          <label>Related code repo</label>
-          <div class="field">
-            <input type="text" name="address" placeholder="https://github.com/user/repo.git">
-          </div>
-          <label>Reference (please tailed down to 3)</label>
-          <div class="field">
-            <input type="text" name="address" placeholder="reference 1">
-          </div>
-          <div class="field">
-            <input type="text" name="address" placeholder="reference 2">
-          </div>
-          <div class="field">
-            <input type="text" name="address" placeholder="reference 3">
-          </div>
-          <label>Other information</label>
-          <textarea></textarea>
-        </div>
-        <div class="item">
-        </div>
-        <div class="ui right floated blue submit disabled button" tabindex="0">Submit Code</div>
-        <br>
-        <br>
-        <br>
-        <br>
-      </form>
-    </div>
-  </div> -->
+  <div class="ui divider"></div>
+  <h1>Calcium to spike model</h1>
+  <p>
+    dddddddddd
+  </p>
+  <h2>C2S Nonnegative Wienner Filter</h2>
+  <p>
+    dddddddddd
+  </p>
+  <h2>C2S FOOPSI</h2>
+  <p>
+    dddddddddd
+  </p>
+  <h2>C2S Finite Rate Innovation</h2>
+  <p>
+    dddddddddd
+  </p>
+  <h2>C2S Constrained OOPSI AR(n)</h2>
+  <p>
+    dddddddddd
+  </p>
+  <h2>C2S Constrained OOPSI MCMC</h2>
+  <p>
+    dddddddddd
+  </p>
+  <h2>C2S Peel Linear</h2>
+  <p>
+    dddddddddd
+  </p>
 </div>
+
+<!-- <div class="ui vertical stripe quote segment">
+  <div class="ui container">
+    <br>
+    <h1>Submit a model</h1>
+    <br>
+    <form class="ui form">
+      <h4 class="ui dividing header">Personal information</h4>
+      <div class="field">
+        <label>Name</label>
+        <div class="two fields">
+          <div class="field">
+            <input type="text" name="first-name" placeholder="First Name">
+          </div>
+          <div class="field">
+            <input type="text" name="last-name" placeholder="Last Name">
+          </div>
+        </div>
+        <div class="two fields">
+          <div class="field">
+            <label>Institution</label>
+            <input type="text" name="address" placeholder="Institution">
+          </div>
+          <div class="field">
+            <label>Email</label>
+            <input type="text" name="email" placeholder="email@email">
+          </div>
+        </div>
+      </div>
+
+      <h4 class="ui dividing header">Model information</h4>
+
+      <div class="field">
+        <label>Model type</label>
+        <select class="ui fluid dropdown">
+                  <option value="1">Spike to imaging model</option>
+                  <option value="2">Imaging to spike model</option>
+              </select>
+      </div>
+      <div class="field">
+        <label>Model description</label>
+        <textarea></textarea>
+        <label>Model keywords</label>
+        <div class="field">
+          <input type="text" name="address" placeholder="linear/ nonlinear/ hill function/ sigmoid function">
+        </div>
+        <label>Related code repo</label>
+        <div class="field">
+          <input type="text" name="address" placeholder="https://github.com/user/repo.git">
+        </div>
+        <label>Reference (please tailed down to 3)</label>
+        <div class="field">
+          <input type="text" name="address" placeholder="reference 1">
+        </div>
+        <div class="field">
+          <input type="text" name="address" placeholder="reference 2">
+        </div>
+        <div class="field">
+          <input type="text" name="address" placeholder="reference 3">
+        </div>
+        <label>Other information</label>
+        <textarea></textarea>
+      </div>
+      <div class="item">
+      </div>
+      <div class="ui right floated blue submit disabled button" tabindex="0">Submit Code</div>
+      <br>
+      <br>
+      <br>
+      <br>
+    </form>
+  </div>
+</div> -->
