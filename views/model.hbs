@@ -13,176 +13,37 @@
 <script type="text/javascript" src="/node_modules/mathjax/MathJax.js?config=MML_HTMLorMML-full.js">
 </script>
 
-<div class="ui container">
-  <br>
-  <h1>Spike to calcium model</h1>
-  <p>
-    Our comparisons were mainly built up from three spike to calcium models. All of our spike to calcium
-    models consists of two steps. First, spikes at times $\{t_k\}$ are converted to a latent variable, $c(t)$,
-    by convolution with a double-exponential kernel:
-    $$c(t)=\sum_{t>t_k}\exp(-\frac{t-t_k}{\tau_d})[1-\exp(-\frac{t-t_k}{\tau_r})]+n_i(t)$$
-    where $\tau_r$and $\tau_d$ are the rise and decay times, respectively. $n_i(t)\sim N(0, \sigma_i^2)$ is Gaussian distributed
-    "internal" noise with negative values were set to zero. Second, c(t) was converted to a synthetic
-    fluorescence signal through a general function $f(\cdot)$:
-    $$\Delta F/F_{synth}(t) = f(c(t)) + n_e(t)$$
-    where $n_e(t)\sim N(0, \sigma_e^2)$ is Gaussian distributed "external" noise.
-  </p>
-  <p>
-    <span class="ui inverted green label">Disclaimer</span> Please cite our work while these spike to calcium models are useful in your researches.
-  </p>
-  <h2>S2C Linear</h2>
-  <p>
-    $$f(c(t)) = F_{\max}\cdot c(t) + F_0$$
-    where $F_{\max}$ is the maximum possible fluorescence change, $F_{0}$ is the mimimun possible fluorescence change.
-  </p>
-  <h2>S2C Hill</h2>
-  <p>
-    $$f(c(t)) = F_{\max}\frac{c(t)^n}{c(t)^n+K_d}$$
-    where $n$ is a non-linearity, $K_d$ is a half-activation parameter, $F_{\max}$ is the maximum possible fluorescence change.
-  </p>
-  <h2>S2C Sigmoid</h2>
-  <p>
-    $$f(c(t)) = F_{\max}\frac{1}{\exp[-k(c(t)-c_{1/2})]+1}$$
-    where $k$ is a non-linearity, $c_{1/2}$ is a half-activation parameter, $F_{\max}$ is the maximum possible fluorescence change.
-  </p>
+<div class="ui inverted vertical masthead center aligned segment">
+  <div class="ui container">
+    <div class="ui text container">
+      <!-- I don't like these icons
 
-  <div class="ui divider"></div>
-  <h1>Calcium to spike model</h1>
-  <p>
-    We tested tens of calcium to spike model.
-    In general, calcium to spike model follows the similar mathematical setups. First, inferred spikes at time $t$ (usually in a small time bin, $dt$)
-    are converted to a latent variable, c(t), using an n-step autoregression, AR(n), process:
-    $$c(t) = \sum_{i=1}^n a_i \cdot c(t-i) + spk(t)$$
-    where $n = 1$, $a_1 = 1-\frac{dt}{\tau_d}$, $spk(t)$ is the number of spikes in time bin $dt$ (which is uaually zero or one).
-    Second, c(t) was converted to a synthetic
-    fluorescence signal through a general function $f(\cdot)$:
-    $$\Delta F/F_{synth}(t) = f(c(t)) + n_e(t)$$.
-  </p>
-  <h2>C2S Nonnegative Wienner Filter</h2>
-  <p>
-    <div class="ui bulleted list">
-      <div class="item">
-        AR(1) process: $n = 1$.
-      </div>
-      <div class="item">
-        Non-negative spike counts: $spk$ is non-negative (not strictly to be integer).
-      </div>
-      <div class="item">
-        Noise structures: $n_e$ follows Gaussian distribution.
-      </div>
-      <div class="item">
-        $f(\cdot)$ function: linear.
-      </div>
+      <h1 class="ui inverted header"> We are for Neurodata Without Borders </h1>
+      <br> <br>
+      !-->
     </div>
-    <span class="ui inverted black label">Reference</span>
-    Vogelstein et al. (2010) Fast nonnegative deconvolution for spike train inference from population calcium imaging. J. Neurophysiol.<br>
-    <span class="ui inverted black label">Source code</span>
-    <a href="https://github.com/liubenyuan/py-oopsi">https://github.com/liubenyuan/py-oopsi</a>
-  </p>
-  <h2>C2S FOOPSI</h2>
-  <p>
-    <div class="ui bulleted list">
-      <div class="item">
-        AR(1) process: $n = 1$.
-      </div>
-      <div class="item">
-        Poisson spike counts: $spk$ follows "Poission" distribution, which is approximated with an Exponential (not strictly to be integer).
-      </div>
-      <div class="item">
-        Noise structures: $n_e$ follows Gaussian distribution.
-      </div>
-      <div class="item">
-        $f(\cdot)$ function: linear.
-      </div>
-    </div>
-    <span class="ui inverted black label">Reference</span>
-    Vogelstein et al. (2010) Fast nonnegative deconvolution for spike train inference from population calcium imaging. J. Neurophysiol.<br>
-    <span class="ui inverted black label">Source code</span>
-    <a href="https://github.com/liubenyuan/py-oopsi">https://github.com/liubenyuan/py-oopsi</a>
-  </p>
-  <h2>C2S Finite Rate Innovation</h2>
-  <p>
-    <div class="ui bulleted list">
-      <div class="item">
-        AR(1) process: $n = 1$.
-      </div>
-      <div class="item">
-        Spike counts: strictly to be integer and the number of spike is decided using theory of finite rate innovation signals.
-      </div>
-      <div class="item">
-        Noise structures: $n_e$ follows Gaussian distribution.
-      </div>
-      <div class="item">
-        $f(\cdot)$ function: linear.
-      </div>
-    </div>
-    <span class="ui inverted black label">Reference</span>
-    Oñativia et al. (2013) A Finite Rate of Innovation algorithm for fast and accurate spike detection from two-photon calcium imaging. J. Neural Eng.<br>
-    <span class="ui inverted black label">Source code</span>
-    <a href="http://www.commsp.ee.ic.ac.uk/~jo210/src/ca_transient.zip">http://www.commsp.ee.ic.ac.uk/~jo210/src/ca_transient.zip</a>
-  </p>
-  <h2>C2S Constrained OOPSI AR(n)</h2>
-  <p>
-    <div class="ui bulleted list">
-      <div class="item">
-        AR(n) process: $n$ is taken from 1, 2, or 3.
-      </div>
-      <div class="item">
-        Poisson spike counts: $spk$ follows "Poission" distribution.
-      </div>
-      <div class="item">
-        Noise structures: $n_e$ follows Gaussian distribution; empirical estimation of noise prior.
-      </div>
-      <div class="item">
-        $f(\cdot)$ function: linear.
-      </div>
-    </div>
-    <span class="ui inverted black label">Reference</span>
-    Pnevmatikakis et al. (2016) Simultaneous Denoising, Deconvolution, and Demixing of Calcium Imaging Data. Neuron.<br>
-    <span class="ui inverted black label">Source code</span>
-    <a href="https://github.com/epnev/constrained_foopsi_python">https://github.com/epnev/constrained_foopsi_python</a>
-  </p>
-  <h2>C2S Constrained OOPSI MCMC</h2>
-  <p>
-    <div class="ui bulleted list">
-      <div class="item">
-        AR(1) process: $n = 1$.
-      </div>
-      <div class="item">
-        Poisson spike counts: $spk$ follows "Poission" distribution, which is sampled using discrete binary sampler using MCMC.
-      </div>
-      <div class="item">
-        Noise structures: $n_e$ follows Gaussian distribution.
-      </div>
-      <div class="item">
-        $f(\cdot)$ function: linear.
-      </div>
-    </div>
-    <span class="ui inverted black label">Reference</span>
-    Pnevmatikakis et al. (2014). Bayesian spike inference from calcium imaging data. Asilomar Conf. on Signals, Systems, and Computers.<br>
-    <span class="ui inverted black label">Source code</span>
-    <a href="https://github.com/epnev/continuous_time_ca_sampler">https://github.com/epnev/continuous_time_ca_sampler</a>
-  </p>
-  <h2>C2S Peel Linear</h2>
-  <p>
-    <div class="ui bulleted list">
-      <div class="item">
-        AR process: the same as spike-to-calcium model with $\tau_r$ and $tau_d$
-      </div>
-      <div class="item">
-        Spike counts: strictly to be integer and using template-matching to search the optimal number.
-      </div>
-      <div class="item">
-        Noise structures: $n_e$ follows Gaussian distribution.
-      </div>
-      <div class="item">
-        $f(\cdot)$ function: linear.
-      </div>
-    </div>
-    <span class="ui inverted black label">Reference</span>
-    Grewe et al. (2010) High-speed in vivo calcium imaging reveals neuronal network activity with near-millisecond precision. Nat. Methods<br>
-    <span class="ui inverted black label">Source code</span>
-    <a href="https://github.com/HelmchenLab/CalciumSim">https://github.com/HelmchenLab/CalciumSim</a>
-  </p>
-  <br><br><br>
+  </div>
 </div>
+
+<!-- contents -->
+<div class="ui container" id='modeltab'>
+  <div class="ui two item secondary pointing menu">
+    <a class="active item" data-tab="model_s2c"><h2>Spike to calcium model</h2></a>
+    <a class="item" data-tab="model_c2s"><h2>Calcium to spike model</h2></a>
+  </div>
+
+  <div class="ui bottom attached active tab text" data-tab="model_s2c">
+    {{> _s2c_model}}
+  </div>
+  <div class="ui bottom attached tab text" data-tab="model_c2s">
+    {{> _c2s_model}}
+  </div>
+</div>
+
+<script type="text/javascript">
+  $(document).ready(function() {
+    $('#modeltab .menu .item').tab({
+      context: $("#modeltab")
+    });
+  });
+</script>
