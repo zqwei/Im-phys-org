@@ -12,7 +12,11 @@ $(document)
       });
     // create sidebar and attach to menu open
     $('.ui.sidebar').sidebar('attach events', '.toc.item');
-    $('.ui.accordion').accordion();
+    var icons = {
+         header: "arrow left icon",
+         activeHeader: "arrow down icon"
+     };
+    $('.ui.accordion').accordion({icons: icons});
     $('.ui.menu .ui.dropdown').dropdown({on: 'hover'});
     $('.ui.menu a.item').on('click', function(){
       $(this)
@@ -20,9 +24,9 @@ $(document)
         .siblings()
         .removeClass('active');
       });
-    $('.trigger.example .accordion').accordion({
-      selector: {
-        trigger: '.title .icon'}
-      });
+    // $('.trigger.example .accordion').accordion({
+    //   selector: {
+    //     trigger: '.title .icon'}
+    //   });
     $('.ui.dropdown').dropdown();
   });
