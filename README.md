@@ -12,6 +12,8 @@ This is a website for our project of __Neural Recording Methodology Comparison__
     * Collection tab: views/partials/\_data\_collection.hbs
     * Submit a dataset tab: views/partials/\_data\_submit.hbs
 4. __Models__ page: views/model.hbs
+    * Spike to calcium tab: views/partials/\_s2c\_model.hbs
+    * Calcium to spike tab: views/partials/\_c2s\_model.hbs
 5. __Codes__ page: views/codes.hbs
     * Development log tab: views/partials/\_code\_collection.hbs
     * Submit a code tab: views/partials/\_code\_submit.hbs
