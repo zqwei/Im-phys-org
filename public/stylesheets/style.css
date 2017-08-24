@@ -34,6 +34,11 @@ p{ text-align: justify; font-size: 1.33em;}
   font-weight: normal;
 }
 
+/*.ui.accordion h3 {
+  font-size: 1.33em;
+  margin-top: 1em;
+}*/
+
 .masthead.segment {
   min-height: 50px;
   padding: 1em 0em;
