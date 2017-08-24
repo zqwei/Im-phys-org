@@ -3,7 +3,7 @@
     <p>
       By simultaneously recorded data, we refer to a recording that provides
       both a direct measurement of the spiking activity of a neuron and that of the
-      indirect method of interest. In our case simultaneous spiking and Ca imaging, 
+      indirect method of interest. In our case simultaneous spiking and Ca imaging,
       as can be achieved for instance by combining loose-cell recordings and imaging.
     </p>
     <p>
@@ -15,7 +15,7 @@
       The first thing one can do with such a dataset is to develop a spike-to-calcium model
       that tests our understanding of the way calcium imaging is related to spiking activity
       by generating a predicted synthetic calcium trace given a set of spike times.
-    </p> 
+    </p>
     <p>
       Details of each model are described in the <a href="model">Models</a> section of this resource. Below we display quantifications and visualizations
       of the performance of models on the different simultaneously recorded datasets.
@@ -85,7 +85,7 @@
         </div>
       </div>
       <div class="column">
-        <h4>Single datasets</h4>
+        <h4>Single datasets (click label in table to see dataset name)</h4>
         <div class="ui label" style="background-color:#ffffff">
           .0
         </div>
@@ -160,6 +160,7 @@
         {{/each}}
       </tbody>
     </table>
+
     <br><br>
   </div>
 </div>
@@ -169,10 +170,12 @@
 <script type="text/javascript">
 $(document)
   .ready(function() {
-    $('#simPerformanceTab .ui.label').popup({
-      inline: true,
-      hoverable: true,
+    $('#simPerformanceTab .label').popup({
+      // inline: true,
+      // hoverable: true,
       position: 'top center',
+      boundary: $('body'),
+      lastResort: true,
       on: 'click'});
   });
 </script>
