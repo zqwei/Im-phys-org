@@ -133,7 +133,7 @@
           <p>
               In this study, PCA was performed on the activity of neurons averaged
               across two alternative trial types ($s\in\{A, B\}$):
-              $$\mathbf{r}(s,t)=\mathbf{Cx}(s,t)+<\mathbf{r}(s,t)>_{s,t}$$
+              $$\mathbf{r}(s,t)=\mathbf{Cx}(s,t)+\langle\mathbf{r}(s,t)\rangle_{s,t}$$
               $\mathbf{r}$ is a $n\times 2T$ matrix, where n is the number of recorded
               units in each dataset and T is the number of time points for each trial type.
               $<\mathbf{r}(s,t)>_{s,t}$ a vector of the mean activity of each neuron across time and trial types.
@@ -141,8 +141,8 @@
               PC score. We estimated the relative contribution to each PC of the different forms of variance:
               temporal dynamics, trial-type selectivity and other. Explained variance (EV) of temporal dynamics
               $EV_i(t)$ and trial-type selectivity $EV_i(s)$ for the th principal component (PC) were computed as:
-              $$EV_i(t)=<< x_i(s,t)>_s^2>_t/< x_i(s,t)^2>_{s,t}$$
-              $$EV_i(t)=<< x_i(s,t)>_t^2>_s/< x_i(s,t)^2>_{s,t}$$
+              $$EV_i(t)=\langle\langle x_i(s,t)\rangle_s^2\rangle_t/\langle x_i(s,t)^2\rangle_{s,t}$$
+              $$EV_i(t)=\langle\langle x_i(s,t)\rangle_t^2\rangle_s/\langle x_i(s,t)^2\rangle_{s,t}$$
               respectively.
           </p>
         </div>
