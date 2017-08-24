@@ -107,3 +107,6 @@ Before starting gulp, one needs to install global command of `gulp` and `nodemon
     git checkout master # switch to any branches which is not to be deleted
     git branch -d <your branch>
 ```
+
+## LICENSE
+The content of this project itself is licensed under the <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/">Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 license</a>, and the underlying source code used to format and display that content is licensed under the <a href="https://github.com/zqwei/Neural-Recording-Methodology-Comparison/blob/master/LICENSE.md">MIT license</a>.
