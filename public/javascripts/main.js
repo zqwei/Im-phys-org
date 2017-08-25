@@ -12,18 +12,14 @@ $(document)
       });
     // create sidebar and attach to menu open
     $('.ui.sidebar').sidebar('attach events', '.toc.item');
-    var icons = {
-         header: "arrow left icon",
-         activeHeader: "arrow down icon"
-     };
-    $('.ui.accordion').accordion({icons: icons});
+    $('.ui.accordion').accordion({});
     $('.ui.menu .ui.dropdown').dropdown({on: 'hover'});
-    $('.ui.menu a.item').on('click', function(){
-      $(this)
-        .addClass('active')
-        .siblings()
-        .removeClass('active');
-      });
+    // $('.ui.menu a.item').on('click', function(){
+    //   $(this)
+    //     .addClass('active')
+    //     .siblings()
+    //     .removeClass('active');
+    //   });
     // $('.trigger.example .accordion').accordion({
     //   selector: {
     //     trigger: '.title .icon'}
