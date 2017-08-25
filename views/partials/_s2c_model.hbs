@@ -1,13 +1,19 @@
 <p>
   Spike to calcium models can be used to test our understanding of the process bridging
-  spikes and calcium imaging, given simultaneously recorded spiking and imaging.
-  A synthetic calcium signal is generated based on the recorded series of spikes and is
-  compared to the recorded calcium signals.
-  In addition, spike to calcium models can test how much of a given difference in an
-  analysis performed on spiking vs. imaging data can be explained by the indirect report
+  spikes and calcium imaging.
+</p>
+<p>
+  In the context of simultaneously recorded spiking and imaging
+  the synthetic calcium signal generated based on the recorded series of spikes can be
+  compared directly to the recorded calcium signals.
+</p>
+<p>
+  In the context of non-simultaneously recorded data, spike to calcium models can
+  test how much of the difference between the same analysis performed on a spiking
+  data and on an imaging data can be explained by the indirect report
   of activity. A synthetic imaging dataset is generated from the recorded spike trains.
-  Then the results of an analyis on this data is used to evaluate discrepencies between
-  imaging and ephys analyses.
+  Then the analysis of interest is applied on the synthetic data and how much of the
+  difference between spike and imaging is quantified.
 </p>
 <p>
   All of our spike to calcium
@@ -29,19 +35,28 @@
   <span class="ui inverted green label">Disclaimer</span> Please cite our work while these spike to calcium models are useful in your researches.
   !-->
 </p>
-<h2>S2C Linear</h2>
-<p>
-  $$f(c(t)) = F_{\max}\cdot c(t) + F_0$$
-  where $F_{\max}$ is the maximum possible fluorescence change, $F_{0}$ is the mimimun possible fluorescence change.
-</p>
-<h2>S2C Hill</h2>
-<p>
-  $$f(c(t)) = F_{\max}\frac{c(t)^n}{c(t)^n+K_d}$$
-  where $n$ is a non-linearity, $K_d$ is a half-activation parameter, $F_{\max}$ is the maximum possible fluorescence change.
-</p>
-<h2>S2C Sigmoid</h2>
-<p>
-  $$f(c(t)) = F_{\max}\frac{1}{\exp[-k(c(t)-c_{1/2})]+1}$$
-  where $k$ is a non-linearity, $c_{1/2}$ is a half-activation parameter, $F_{\max}$ is the maximum possible fluorescence change.
-</p>
-<br><br><br>
+
+<div class="ui accordion">
+  <div class="title"><h3>
+     <i class="dropdown icon"></i>
+      Read more about the different non-linearities in the models </h3>
+  </div>
+  <div class="content">
+    <h2>S2C Linear</h2>
+    <p>
+      $$f(c(t)) = F_{\max}\cdot c(t) + F_0$$
+      where $F_{\max}$ is the maximum possible fluorescence change, $F_{0}$ is the mimimun possible fluorescence change.
+    </p>
+    <h2>S2C Hill</h2>
+    <p>
+      $$f(c(t)) = F_{\max}\frac{c(t)^n}{c(t)^n+K_d}$$
+      where $n$ is a non-linearity, $K_d$ is a half-activation parameter, $F_{\max}$ is the maximum possible fluorescence change.
+    </p>
+    <h2>S2C Sigmoid</h2>
+    <p>
+      $$f(c(t)) = F_{\max}\frac{1}{\exp[-k(c(t)-c_{1/2})]+1}$$
+      where $k$ is a non-linearity, $c_{1/2}$ is a half-activation parameter, $F_{\max}$ is the maximum possible fluorescence change.
+    </p>
+    <br><br><br>
+  </div>
+</div>
