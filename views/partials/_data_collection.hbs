@@ -15,7 +15,15 @@
     {{#each collection}}
       <div class="ui {{#ifCond @key 0}}active{{/ifCond}} tab text" data-tab="data-{{@key}}">
         <h2>{{name}} <span class="ui red label flotated right">{{label}}</span></h2>
-        <p>{{description}}</p>
+        <div class="ui accordion">
+          <div class="title"><h3>
+              {{description}} (Read more <i class="dropdown icon"></i>)</h3>
+          </div>
+          <div class="content">
+            <p>{{description_detail}}</p>
+            <img src="{{description_images}}" height="150" class="ui centered image">
+          </div>
+        </div>
         <h3>Related datasets <span class="ui large teal circular label">{{datasets.length}}</span></h3>
         <ul class="ui list">
           {{#each datasets}}
@@ -29,7 +37,7 @@
             <br> References:
             <ul class="ui list">
               {{#each Reference}}
-                <li>{{this}}</li>
+                <li>{{this}}</li>description_images
               {{/each}}
             </ul>
             Link: {{Link}}
