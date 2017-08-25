@@ -16,12 +16,13 @@
       <div class="ui {{#ifCond @key 0}}active{{/ifCond}} tab text" data-tab="data-{{@key}}">
         <h2>{{name}} <span class="ui red label flotated right">{{label}}</span></h2>
         <div class="ui accordion">
-          <div class="title"><h3>
-              {{description}} (Read more <i class="dropdown icon"></i>)</h3>
+          <h3>{{description}} </h3>
+          <div class="title"><i class="dropdown icon"></i> Read more
           </div>
           <div class="content">
             <p>{{description_detail}}</p>
             <img src="{{description_images}}" height="150" class="ui centered image">
+            <br><br>
           </div>
         </div>
         <h3>Related datasets <span class="ui large teal circular label">{{datasets.length}}</span></h3>
