@@ -35,8 +35,18 @@
 
 <script type="text/javascript">
   $(document).ready(function() {
-    $('#codetab .menu .item').tab({
-      context: $("#codetab")
-    });
+    if(window.location.hash) {
+      var frag = window.location.hash;
+      if(frag === "#submit"){
+        $('#codetab .menu .item').tab('change tab', 'submit');
+      }
+      else{
+        alert('Page address does not exist!')
+      }
+    }else{
+      $('#codetab .menu .item').tab({
+        context: $("#codetab")
+      });
+    }
   });
 </script>
