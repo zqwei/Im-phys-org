@@ -35,13 +35,15 @@
               <span class="ui gray label">{{this}}</span>
             {{/each}}
             <br> {{Description}}
-            <br> References:
+            <br> <br> <div class="ui gray label">
+              References
+            </div>
             <ul class="ui list">
               {{#each Reference}}
-                <li>{{this}}</li>description_images
+                <li>{{this}}</li>
               {{/each}}
             </ul>
-            Link: {{Link}}
+            <span class="ui gray label">Link</span> <a href="{{Linkhref}}">{{Link}}</a> 
             <br>
             <br>
           {{/each}}
