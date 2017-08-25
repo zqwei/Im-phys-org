@@ -13,6 +13,7 @@ var analyses = require('./routes/analyses');
 var codes = require('./routes/codes');
 var data = require('./routes/data');
 var model = require('./routes/model');
+var develop = require('./routes/develop');
 
 var app = express();
 // var server = http.Server(app);
@@ -47,6 +48,7 @@ app.use('/analyses', analyses);
 app.use('/codes', codes);
 app.use('/data', data);
 app.use('/model', model);
+app.use('/develop', develop);
 app.use('/users', users);
 
 //generated dataset json using at the client side
