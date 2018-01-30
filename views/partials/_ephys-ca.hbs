@@ -1,3 +1,6 @@
+<link rel="stylesheet" href="https://cdn.pydata.org/bokeh/release/bokeh-0.12.10.min.css" type="text/css" />
+<script type="text/javascript" src="https://cdn.pydata.org/bokeh/release/bokeh-0.12.10.min.js"></script>
+
 <div class="ui container">
   <div class="ui text">
     <p>
@@ -21,6 +24,7 @@
       of the performance of models on the different simultaneously recorded datasets.
     </p>
     <h1>Model fits</h1>
+    <div id="alert"></div>
     <div class="ui form">
       <div class="two fields">
         <div class="field">
@@ -44,10 +48,14 @@
         </div>
       </div>
     </div>
-    <button class="ui right floated blue button" onclick="plot_cell()">Plot</button>
+    <button class="ui right floated blue button" id = "button" onclick="plot_cell()">Plot</button>
     <br>
     <br>
-    <div id='simChart'></div><br><br>
+    <div id='simChart'>
+      <div class="bk-root">
+        <div class="bk-plotdiv" id="mainPlot"></div>
+      </div>
+    </div><br><br>
     <h1>Performances</h1>
     <div class="ui divider"></div>
     <div class="ui two column grid">
