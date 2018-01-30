@@ -2,7 +2,7 @@ var express = require('express');
 var router = express.Router();
 var mongodb = require('mongodb');
 var async = require('async');
-var url = 'mongodb://localhost:27017/ephys_imaging_datasets';
+var url = 'mongodb://druckmannAdmin:Neural!dbadmin@localhost/druckmann_methodology?authSource=admin';
 var MongoClient = mongodb.MongoClient;
 
 /* GET home page. */
