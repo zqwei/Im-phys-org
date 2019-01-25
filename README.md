@@ -34,7 +34,14 @@ Static file folders:
 * public/results: for static benchmarks (not tracked in git).
 
 ### Backend
-* Backend of the website is implemented by Node.Js and MongoDB.
+* Backend of the website is implemented by Node.Js and MongoDB (3.4).
+    * install MongoDB (Data format is upgraded after MongoDB 4.0 -- http://dochub.mongodb.org/core/4.0-upgrade-fcv)
+    ```bash
+    brew install mongodb@3.4
+    sudo mkdir -p /data/db
+    sudo chown -R `id -un` /data/db
+    echo 'export PATH="/usr/local/opt/mongodb@3.4/bin:$PATH"' >> ~/.zshrc
+    ```
     * start MongoDB connections
     ```bash
     mongod
