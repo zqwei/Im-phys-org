@@ -12,10 +12,6 @@
     flex: 1;
 }
 
-
-.field {
-    z-index: 500;
-}
 a{
     color: gray;
 }
@@ -126,36 +122,3 @@ p{ text-align: justify; font-size: 1.33em;}
     font-size: 1.5em;
   }
 }
-.progress {
-  display: -ms-flexbox;
-  display: flex;
-  width:200px;
-  height: 1rem;
-  overflow: hidden;
-  font-size: 0.75rem;
-  background-color: #e9ecef;
-  border-radius: 0.25rem;
-  margin: 0 auto;
-}
-.progress-bar {
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-align: center;
-      align-items: center;
-  -ms-flex-pack: center;
-      justify-content: center;
-  color: #fff;
-  background-color: #007bff;
-
-}
-.progress-bar-striped {
-  background-image: linear-gradient(45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
-  background-size: 1rem 1rem;
-
-}
-
-.progress-bar-animated {
-  -webkit-animation: progress-bar-stripes 1s linear infinite;
-          animation: progress-bar-stripes 1s linear infinite;
-}
-
