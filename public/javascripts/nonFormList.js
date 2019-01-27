@@ -4,6 +4,7 @@ var html = '';
 var objectArrary = $('#nonFormList').serializeArray();
 var modelList = [];
 var dataList = [];
+var dataModelList = [];
 var ephysList = [];
 
 $.getJSON("/results/nonDataResults.json", function(resultsJson){
@@ -25,11 +26,12 @@ $.getJSON("/results/nonDataResults.json", function(resultsJson){
   if(dataList.length){
     $.each(modelList, function(ind, model){
       $.each(dataList, function(ind, data){
-        dataList.push(data+'/'+model);
+        dataModelList.push(data+'/'+model);
       });
     });
-    dataList = dataList.concat(ephysList);
-    dataList.sort();
+    dataList = ephysList.concat(dataList);
+    dataList = dataList.concat(dataModelList);
+    // dataList.sort();
     $.each(dataList, function(ind, data){
       var str_data = data.split("/");
       var tb_name = '<h4>'+str_data[0]+'</h4>';
@@ -57,7 +59,12 @@ $.getJSON("/results/nonDataResults.json", function(resultsJson){
       var cellNum = resultsJson[indDataset].matched[indData].numcell;
       if (str_data.length===3){
         urlName += '_' + str_data[2];
-        cellNum = resultsJson[indDataset].matched[0].numcell;
+        console.log(str_data[2])
+        cellNum = ''
+        if (str_data[2].indexOf('S2C')>=0){cellNum = resultsJson[indDataset].matched[0].numcell;}
+        console.log(cellNum)
+        if (str_data[2].indexOf('C2S')>=0){cellNum = resultsJson[indDataset].matched[indData].numcell;}
+        console.log(cellNum)
       }
       html += '<td>' + cellNum + '</td>'
       for(var i=0; i<numPerformance; i++){
