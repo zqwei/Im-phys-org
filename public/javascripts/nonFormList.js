@@ -30,8 +30,8 @@ $.getJSON("/results/nonDataResults.json", function(resultsJson){
       });
     });
     dataList = ephysList.concat(dataList);
+    dataList.sort();
     dataList = dataList.concat(dataModelList);
-    // dataList.sort();
     $.each(dataList, function(ind, data){
       var str_data = data.split("/");
       var tb_name = '<h4>'+str_data[0]+'</h4>';
@@ -59,12 +59,12 @@ $.getJSON("/results/nonDataResults.json", function(resultsJson){
       var cellNum = resultsJson[indDataset].matched[indData].numcell;
       if (str_data.length===3){
         urlName += '_' + str_data[2];
-        console.log(str_data[2])
-        cellNum = ''
+        // console.log(str_data[2])
+        cellNum = '';
         if (str_data[2].indexOf('S2C')>=0){cellNum = resultsJson[indDataset].matched[0].numcell;}
-        console.log(cellNum)
+        // console.log(cellNum)
         if (str_data[2].indexOf('C2S')>=0){cellNum = resultsJson[indDataset].matched[indData].numcell;}
-        console.log(cellNum)
+        // console.log(cellNum)
       }
       html += '<td>' + cellNum + '</td>'
       for(var i=0; i<numPerformance; i++){
