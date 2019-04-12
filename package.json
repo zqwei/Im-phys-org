@@ -18,7 +18,7 @@
     "kerberos": "0.0.23",
     "mathjax-node": "^1.1.0",
     "mongodb": "^2.2.31",
-    "morgan": "~1.8.1",
+    "morgan": ">=1.9.1",
     "plotly.js": "^1.29.3",
     "serve-favicon": "~2.4.2",
     "socket.io": "^2.0.3"
