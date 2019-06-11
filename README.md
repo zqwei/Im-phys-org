@@ -18,14 +18,6 @@ This is a website for our project of __Neural Recording Methodology Comparison__
     * Development log tab: views/partials/\_code\_collection.hbs
     * Submit a code tab: views/partials/\_code\_submit.hbs
 
-## Git management
-* merge your own branch with updated master (Do at your own git)
-```bash
-    git merge master
-```
-* Send a pull request to merge your own branch to master (Do with a pull request)
-https://help.github.com/articles/creating-a-pull-request/
-
 
 ## Code architecture
 ### Frontend
@@ -63,9 +55,17 @@ Static file folders:
     mongorestore -d ephys_imaging_datasets <location_for_dumped file>
     ```
 
-## Testing website on a local server
+## Run website on a local server using docker
+* Build or rebuild website -- one needs to do this every time with any change of files.
+```bash
+    docker-compose up --force-recreate --build 
+```
+* Close the website -- always do before update or rebuild the website
+```bash
+    docker-compose down
+```
 
-### Set up local server at project folder
+## Run on local server at project folder
 1. Install Node
 2. Run
 ```bash
@@ -75,15 +75,9 @@ Static file folders:
 ```bash
     npm start
 ```
-4. It will show the website at local and external addresses ended with port 10001
+4. It will show the website at local and external addresses ended with port 8080
 
-### Install other node packages
-
-```bash
-    npm install mathjax --save
-```
-
-## Run `Gulp` to monitor the changes online
+### Run `Gulp` to monitor the changes online
 
 ### Set up gulp
 Gulp configure file and task file are `gulpfile.js` and `gulp_task/serve.js` files respectively.
@@ -93,26 +87,6 @@ Before starting gulp, one needs to install global command of `gulp` and `nodemon
     npm install -g nodemon
     npm install --save-dev nodemon
     npm install -g gulp
-```
-
-## Basic function in `Git`
-* Create a new branch
-```bash
-    git checkout -b <branch name>
-```
-
-* Update your branch with master branch
-```bash
-    git checkout master
-    git pull
-    git checkout <your branch>
-    git merge master
-```
-
-* Delete your branch
-```bash
-    git checkout master # switch to any branches which is not to be deleted
-    git branch -d <your branch>
 ```
 
 ## LICENSE
