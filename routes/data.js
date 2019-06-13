@@ -3,8 +3,8 @@ var router = express.Router();
 var mongodb = require('mongodb');
 
 // var url = 'mongodb://druckmannAdmin:Neural!dbadmin@localhost/druckmann_methodology?authSource=admin';
-// var url = 'mongodb://localhost:27017/ephys_imaging_datasets';
-var url = 'mongodb://mongo/ephys_imaging_datasets';
+var url = 'mongodb://localhost:27017/ephys_imaging_datasets';
+// var url = 'mongodb://mongo/ephys_imaging_datasets';
 var MongoClient = mongodb.MongoClient;
 
 router.get('/', function(req, res, next) {

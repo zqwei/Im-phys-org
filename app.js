@@ -54,8 +54,8 @@ app.use('/users', users);
 //generated dataset json using at the client side
 var mongodb = require('mongodb');
 // var url = 'mongodb://druckmannAdmin:Neural!dbadmin@localhost/druckmann_methodology?authSource=admin';
-// var url = 'mongodb://localhost:27017/ephys_imaging_datasets';
-var url = 'mongodb://mongo/ephys_imaging_datasets';
+var url = 'mongodb://localhost:27017/ephys_imaging_datasets';
+// var url = 'mongodb://mongo/ephys_imaging_datasets';
 var MongoClient = mongodb.MongoClient;
 var fs = require('fs');
 // var util = require('util')
