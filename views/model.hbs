@@ -14,9 +14,10 @@
 </script>
 
 <div class="ui container" id='modeltab'>
-  <div class="ui two item secondary pointing menu">
-    <a class="active item" data-tab="model_s2c"><h2>Spike to calcium model</h2></a>
-    <a class="item" data-tab="model_c2s"><h2>Calcium to spike model</h2></a>
+  <div class="ui secondary menu">
+    <a class="active item" data-tab="model_s2c"><h3>S2C model</h3></a>
+    <a class="item" data-tab="model_c2s"><h3>C2S model</h3></a>
+    <a class="item" data-tab="model_benchmark"><h3>Benchmarks</h3></a>
   </div>
 
   <div class="ui bottom attached active tab text" data-tab="model_s2c">
@@ -24,6 +25,9 @@
   </div>
   <div class="ui bottom attached tab text" data-tab="model_c2s">
     {{> _c2s_model}}
+  </div>
+  <div class="ui bottom attached tab text" data-tab="model_benchmark">
+    {{> _benchmark}}
   </div>
 </div>
 
