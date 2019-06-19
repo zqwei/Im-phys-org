@@ -63,10 +63,19 @@
       <label>Other information</label>
       <textarea></textarea>
     </div>
-    <div class="ui right floated blue submit disabled button" tabindex="0">Submit Code</div>
+    <div class="ui right floated blue submit button" tabindex="0" id='submit_code'>Submit Code</div>
     <br>
     <br>
     <br>
     <br>
   </form>
 </div>
+
+<script type="text/javascript">
+  $(function(){
+    $('#submit_code').on('click', function(event){
+      event.preventDefault();
+      $.getScript("/javascripts/add_model.js");
+    });
+  });
+</script>
