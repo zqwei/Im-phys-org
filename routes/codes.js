@@ -42,6 +42,7 @@ router.post('/addmodel', function(req, res) {
               'body': body_text
           };
           createIssue( 'zqwei/Im-phys-API', title, opts, clbk );
+          res.send((err === null) ? { msg: '' } : { msg: err });
         }
       });
     }
