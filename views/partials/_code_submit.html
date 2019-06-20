@@ -25,7 +25,7 @@
       <div class="two fields">
         <div class="field">
           <label>Institution</label>
-          <input type="text" name="address" placeholder="Institution">
+          <input type="text" name="Institution" placeholder="Institution">
         </div>
         <div class="field">
           <label>Email</label>
@@ -38,30 +38,24 @@
 
     <div class="field">
       <label>Code type</label>
-      <select class="ui fluid dropdown">
-                <option value="1">Spike to imaging model</option>
-                <option value="2">Imaging to spike model</option>
-                <option value="3">Bechmarks</option>
-                <option value="4">Other</option>
-            </select>
+        <select class="ui fluid dropdown" name='code_type'>
+          <option value="1">Spike to imaging model</option>
+          <option value="2">Imaging to spike model</option>
+          <option value="3">Bechmarks</option>
+          <option value="4">Other</option>
+        </select>
     </div>
     <div class="field">
       <label>Repo</label>
       <div class="field">
-        <input type="text" name="address" placeholder="https://github.com/user/repo.git">
+        <input type="text" name="repo" placeholder="https://github.com/user/repo.git">
       </div>
-      <label>Reference (please tailed down to 3)</label>
+      <label>Reference </label>
       <div class="field">
-        <input type="text" name="address" placeholder="reference 1">
-      </div>
-      <div class="field">
-        <input type="text" name="address" placeholder="reference 2">
-      </div>
-      <div class="field">
-        <input type="text" name="address" placeholder="reference 3">
+        <input type="text" name="reference" placeholder="reference">
       </div>
       <label>Other information</label>
-      <textarea></textarea>
+      <textarea name='info'></textarea>
     </div>
     <div class="ui right floated blue submit button" tabindex="0" id='submit_code'>Submit Code</div>
     <br>
