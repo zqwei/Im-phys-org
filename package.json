@@ -20,7 +20,8 @@
     "mongodb": "^2.2.31",
     "morgan": ">=1.9.1",
     "serve-favicon": "^2.4.2",
-    "socket.io": "^2.0.3"
+    "socket.io": "^2.0.3",
+    "github-create-issue": "^2.0"
   },
   "devDependencies": {
     "browser-sync": "^2.18.13",
