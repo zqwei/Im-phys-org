@@ -70,3 +70,13 @@ As metadata for recordings is still an unsolved problem we will ingest and add d
     <br>
   </form>
 </div>
+
+
+<script type="text/javascript">
+  $(function(){
+    $('#submit_code').on('click', function(event){
+      event.preventDefault();
+      $.getScript("/javascripts/add_data.js");
+    });
+  });
+</script>
