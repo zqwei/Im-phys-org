@@ -36,7 +36,7 @@ router.post('/addmodel', function(req, res) {
           var code = req.body.code_type;
           var body_text = 'User name: '+user + '<br> Email: ' + email + '<br> Code type:' + code + '<br> Repo: ' + repo;
           var opts = {
-              'token': 'ccc8f9dc11b3bdc71bb219ef0a43a2542f13c9db',
+              'token': '3fc575ff574a7f3c7a01f48bbcd1381bc144b135',
               'useragent': 'imphys-issuer',
               'labels': ['New codes'],
               'body': body_text

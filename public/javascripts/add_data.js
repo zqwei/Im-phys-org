@@ -50,7 +50,7 @@ function submitForm(event){
 }
 
 function onFormSubmitted(res) {
-  alert('Thanks to submit your codes! We have added it in our database and also open an git issue at https://github.com/zqwei/Im-phys-API/issues.')
+  alert('Thanks to submit your dataset! We have added it in our database and also open an git issue at https://github.com/zqwei/Im-phys-API/issues.')
 }
 
 $('.ui.form').form('validate form',{onSuccess: submitForm(event)});

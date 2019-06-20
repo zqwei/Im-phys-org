@@ -57,12 +57,11 @@ router.post('/adddata', function(req, res) {
           var code = req.body.data_type;
           var body_text = 'User name: '+user + '<br> Email: ' + email + '<br> Data type:' + code + '<br> Repo: ' + repo;
           var opts = {
-              'token': 'ccc8f9dc11b3bdc71bb219ef0a43a2542f13c9db',
+              'token': '3fc575ff574a7f3c7a01f48bbcd1381bc144b135',
               'useragent': 'imphys-issuer',
               'labels': ['New dataset'],
               'body': body_text
           };
-          console.log('here ----')
           createIssue( 'zqwei/Im-phys-API', title, opts, clbk );
           res.send((err === null) ? { msg: '' } : { msg: err });
         }
