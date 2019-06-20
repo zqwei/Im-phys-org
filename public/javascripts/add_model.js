@@ -42,4 +42,15 @@ $('.ui.form').
       }
     });
 
-$('.ui.form').form('validate form');
+// submit form
+function submitForm(event){
+  event.preventDefault();
+  var formData = getFormData();
+  $.ajax({ type: 'POST', url: '/codes/addmodel', data: formData, dataType: 'JSON', success: onFormSubmitted });
+}
+
+function onFormSubmitted(res) {
+  alert('Success!')
+}
+
+$('.ui.form').form('validate form',{onSuccess: submitForm(event)});
