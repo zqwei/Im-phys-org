@@ -10,7 +10,7 @@ function getFormData(){
             lastname: getFieldValue('last-name'),
             institution: getFieldValue('Institution'),
             email: getFieldValue('email'),
-            code_type: getFieldValue('code_type'),
+            data_type: getFieldValue('data_type'),
             repo: getFieldValue('repo'),
             ref: getFieldValue('reference'),
             info : getFieldValue('info')
@@ -46,7 +46,7 @@ $('.ui.form').
 function submitForm(event){
   event.preventDefault();
   var formData = getFormData();
-  $.ajax({ type: 'POST', url: '/codes/addmodel', data: formData, dataType: 'JSON', success: onFormSubmitted });
+  $.ajax({ type: 'POST', url: '/data/adddata', data: formData, dataType: 'JSON', success: onFormSubmitted });
 }
 
 function onFormSubmitted(res) {

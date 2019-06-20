@@ -37,31 +37,32 @@ router.get('/', function(req, res, next) {
 });
 
 /* Add new data. */
-router.post('/addmodel', function(req, res) {
+router.post('/adddata', function(req, res) {
   MongoClient.connect(url, function(err, db){
     if (err){
       console.log('Unable to connect to the database');
     }
     else{
-      var collection = db.collection('n_models');
+      var collection = db.collection('n_datasets');
       collection.insert(req.body, function(err, result){
         if(err){
           res.send(err);
         }
         else{
           var user = req.body.firstname + ' ' + req.body.lastname;
-          var title = 'New codes from ' + user;
+          var title = 'New dataset from ' + user;
           var email = req.body.email;
           var repo = req.body.repo;
           var ref = req.body.ref;
-          var code = req.body.code_type;
-          var body_text = 'User name: '+user + '<br> Email: ' + email + '<br> Code type:' + code + '<br> Repo: ' + repo;
+          var code = req.body.data_type;
+          var body_text = 'User name: '+user + '<br> Email: ' + email + '<br> Data type:' + code + '<br> Repo: ' + repo;
           var opts = {
               'token': 'ccc8f9dc11b3bdc71bb219ef0a43a2542f13c9db',
               'useragent': 'imphys-issuer',
-              'labels': ['New codes'],
+              'labels': ['New dataset'],
               'body': body_text
           };
+          console.log('here ----')
           createIssue( 'zqwei/Im-phys-API', title, opts, clbk );
           res.send((err === null) ? { msg: '' } : { msg: err });
         }

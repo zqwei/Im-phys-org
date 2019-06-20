@@ -25,7 +25,7 @@ As metadata for recordings is still an unsolved problem we will ingest and add d
       <div class="two fields">
         <div class="field">
           <label>Institution</label>
-          <input type="text" name="address" placeholder="Institution">
+          <input type="text" name="Institution" placeholder="Institution">
         </div>
         <div class="field">
           <label>Email</label>
@@ -38,32 +38,26 @@ As metadata for recordings is still an unsolved problem we will ingest and add d
 
     <div class="field">
       <label>Dataset type</label>
-      <select class="ui fluid dropdown">
-                <option value="1">Simultaneous ephys-imaging dataset</option>
-                <option value="2">Simultaneous dataset (ephys only)</option>
-                <option value="3">Simultaneous dataset (imaging only)</option>
-                <option value="4">Other</option>
-            </select>
+      <select class="ui fluid dropdown" name='data_type'>
+        <option value="Simultaneous ephys-imaging dataset">Simultaneous ephys-imaging dataset</option>
+        <option value="Simultaneous dataset (ephys only)">Simultaneous dataset (ephys only)</option>
+        <option value="Simultaneous dataset (imaging only)">Simultaneous dataset (imaging only)</option>
+        <option value="Other">Other</option>
+      </select>
     </div>
     <div class="field">
       <label>Dataset share link</label>
       <div class="field">
-        <input type="text" name="address" placeholder="crcns.org/dropbox/google drive/dat link">
+        <input type="text" name="repo" placeholder="crcns.org/dropbox/google drive/dat link">
       </div>
-      <label>Reference (please tailed down to 3)</label>
+      <label>Reference</label>
       <div class="field">
-        <input type="text" name="address" placeholder="reference 1">
-      </div>
-      <div class="field">
-        <input type="text" name="address" placeholder="reference 2">
-      </div>
-      <div class="field">
-        <input type="text" name="address" placeholder="reference 3">
+        <input type="text" name="reference" placeholder="reference 1">
       </div>
       <label>Other information</label>
-      <textarea></textarea>
+      <textarea name='info'></textarea>
     </div>
-    <div class="ui right floated blue submit disabled button" tabindex="0">Submit Code</div>
+    <div class="ui right floated blue submit button" tabindex="0" id='submit_data'>Submit Dataset</div>
     <br>
     <br>
     <br>
@@ -74,7 +68,7 @@ As metadata for recordings is still an unsolved problem we will ingest and add d
 
 <script type="text/javascript">
   $(function(){
-    $('#submit_code').on('click', function(event){
+    $('#submit_data').on('click', function(event){
       event.preventDefault();
       $.getScript("/javascripts/add_data.js");
     });
