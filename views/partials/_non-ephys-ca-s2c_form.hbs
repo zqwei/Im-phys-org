@@ -1,90 +1,106 @@
 <form class="ui grid form" id='nonFormList' method='post'>
-  <div class="four wide column">
-    <h3>Behavior</h3>
-    <div class="ui gray divider"></div>
-    <div class="ui fluid left large secondary vertical pointing menu">
-      {{#each nonFormList}}
-        <a class="{{#ifCond @key 0}}active{{/ifCond}} item" data-tab="data-{{@key}}")>
-          {{name}}
-        </a>
-      {{/each}}
-    </div>
-  </div>
+  <div class="row">
   <div class="four wide column">
     <h3>Brain area</h3>
     <div class="ui gray divider"></div>
     <div class="ui fluid left large secondary vertical pointing menu">
       {{#each nonFormList}}
         <a class="{{#ifCond @key 0}}active{{/ifCond}} item" data-tab="data-{{@key}}")>
-          {{name}}
+          {{brain_area}}
         </a>
       {{/each}}
     </div>
   </div>
+
   <div class="four wide column">
-    <h3>Ephys</h3>
-    <div class="ui gray divider"></div>
+  <h3>Behavior</h3>
+  <div class="ui gray divider"></div>
     {{#each nonFormList}}
-      <div class="ui {{#ifCond @key 0}}active{{/ifCond}} tab text" data-tab="data-{{@key}}">
-          {{#each matched}}
-          <div class="inline field">
-            <div class="ui checkbox">
-              <input type="checkbox" name="data/{{../name}}/{{name}}" class="hidden">
-              <label>{{name}}</label>
-            </div>
-          </div>
-          {{/each}}
+    <div class="ui {{#ifCond @key 0}}active{{/ifCond}} tab text" data-tab="data-{{@key}}">
+      <div class="ui fluid left large secondary vertical pointing menu">
+        {{#each behavior}}
+        <a class="{{#ifCond @key 0}}active{{/ifCond}} item" data-tab="data-{{@../key}}/{{@key}}")>
+          {{name}}
+        </a>
+        {{/each}}
       </div>
+    </div>
     {{/each}}
   </div>
+
   <div class="four wide column">
-    <h3>Imaging</h3>
-    <div class="ui gray divider"></div>
-    {{#each nonFormList}}
-      <div class="ui {{#ifCond @key 0}}active{{/ifCond}} tab text" data-tab="data-{{@key}}">
-          {{#each matched}}
-          <div class="inline field">
-            <div class="ui checkbox">
-              <input type="checkbox" name="data/{{../name}}/{{name}}" class="hidden">
-              <label>{{name}}</label>
-            </div>
-          </div>
-          {{/each}}
-      </div>
-    {{/each}}
-  </div>
-  <div class="eight wide column">
-    <h3>Spike to imaging models</h3>
-    <div class="ui gray divider"></div>
-    {{#each nonS2CModelList}}
+  <h3>Ephys</h3>
+  <div class="ui gray divider"></div>
+  {{#each nonFormList}}
+    {{#each behavior}}
+    <div class="ui {{#ifCond @../key 0}}{{#ifCond @key 0}}active{{/ifCond}}{{/ifCond}} tab text" data-tab="data-{{@../key}}/{{@key}}">
+      {{#each ephys}}
       <div class="inline field">
         <div class="ui checkbox">
-          <input type="checkbox" name="model/S2C {{name}}" class="hidden">
+          <input type="checkbox" name="data/{{../name}}/{{name}}" class="hidden">
           <label>{{name}}</label>
         </div>
       </div>
       {{/each}}
+    </div>
+    {{/each}}
+  {{/each}}
   </div>
-  <div class="eight wide column">
-    <h3>Imaging to spike models</h3>
-    <div class="ui gray divider"></div>
-    {{#each nonC2SModelList}}
+
+  <div class="four wide column">
+  <h3>Imaging</h3>
+  <div class="ui gray divider"></div>
+  {{#each nonFormList}}
+    {{#each behavior}}
+    <div class="ui {{#ifCond @../key 0}}{{#ifCond @key 0}}active{{/ifCond}}{{/ifCond}} tab text" data-tab="data-{{@../key}}/{{@key}}">
+      {{#each imaging}}
       <div class="inline field">
         <div class="ui checkbox">
-          <input type="checkbox" name="model/C2S {{name}}" class="hidden">
+          <input type="checkbox" name="data/{{../name}}/{{name}}" class="hidden">
           <label>{{name}}</label>
         </div>
       </div>
       {{/each}}
-      {{#ifCond nonC2SModelList.length 0}}
-      <h3><i class="hourglass start icon"></i>Underconstruction</h3>
-      {{/ifCond}}
+    </div>
+    {{/each}}
+  {{/each}}
   </div>
+  </div>
+  <br><br>
+  <div class="row">
+  <div class="eight wide column">
+  <h3>Spike to imaging models</h3>
+  <div class="ui gray divider"></div>
+  {{#each nonS2CModelList}}
+    <div class="inline field">
+      <div class="ui checkbox">
+        <input type="checkbox" name="model/S2C {{name}}" class="hidden">
+        <label>{{name}}</label>
+      </div>
+    </div>
+    {{/each}}
+</div>
+<div class="eight wide column">
+  <h3>Imaging to spike models</h3>
+  <div class="ui gray divider"></div>
+  {{#each nonC2SModelList}}
+    <div class="inline field">
+      <div class="ui checkbox">
+        <input type="checkbox" name="model/C2S {{name}}" class="hidden">
+        <label>{{name}}</label>
+      </div>
+    </div>
+    {{/each}}
+    {{#ifCond nonC2SModelList.length 0}}
+    <h3><i class="hourglass start icon"></i>Underconstruction</h3>
+    {{/ifCond}}
+  </div>
+</div>
 </form>
 <div class="ui gray divider"></div>
 
 <br>
-<button class="ui right floated blue button" id='compare_btn'>Compare</button>
+<button class="ui right floated blue button" id='compare_btn'>Display</button>
 <br>
 <br>
 <table class="ui celled striped six column table">
@@ -110,6 +126,9 @@
 <script type="text/javascript">
   $(function(){
     $('#nonFormList .menu .item').tab({context:$("#nonFormList")});
+    $('#nonFormList .menu .item').on('click', function(){
+      $('#nonFormList .checkbox').checkbox('uncheck');
+    });
     $('#nonFormListResults').load('/results/_non_ephys_ca_s2c_form_empty.html');
     $('#compare_btn').on('click', function(event){
       event.preventDefault();
