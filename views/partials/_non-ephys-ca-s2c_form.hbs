@@ -1,6 +1,6 @@
 <form class="ui grid form" id='nonFormList' method='post'>
   <div class="four wide column">
-    <h3>Datasets</h3>
+    <h3>Behavior</h3>
     <div class="ui gray divider"></div>
     <div class="ui fluid left large secondary vertical pointing menu">
       {{#each nonFormList}}
@@ -11,7 +11,18 @@
     </div>
   </div>
   <div class="four wide column">
-    <h3>Recordings</h3>
+    <h3>Brain area</h3>
+    <div class="ui gray divider"></div>
+    <div class="ui fluid left large secondary vertical pointing menu">
+      {{#each nonFormList}}
+        <a class="{{#ifCond @key 0}}active{{/ifCond}} item" data-tab="data-{{@key}}")>
+          {{name}}
+        </a>
+      {{/each}}
+    </div>
+  </div>
+  <div class="four wide column">
+    <h3>Ephys</h3>
     <div class="ui gray divider"></div>
     {{#each nonFormList}}
       <div class="ui {{#ifCond @key 0}}active{{/ifCond}} tab text" data-tab="data-{{@key}}">
@@ -27,6 +38,22 @@
     {{/each}}
   </div>
   <div class="four wide column">
+    <h3>Imaging</h3>
+    <div class="ui gray divider"></div>
+    {{#each nonFormList}}
+      <div class="ui {{#ifCond @key 0}}active{{/ifCond}} tab text" data-tab="data-{{@key}}">
+          {{#each matched}}
+          <div class="inline field">
+            <div class="ui checkbox">
+              <input type="checkbox" name="data/{{../name}}/{{name}}" class="hidden">
+              <label>{{name}}</label>
+            </div>
+          </div>
+          {{/each}}
+      </div>
+    {{/each}}
+  </div>
+  <div class="eight wide column">
     <h3>Spike to imaging models</h3>
     <div class="ui gray divider"></div>
     {{#each nonS2CModelList}}
@@ -38,7 +65,7 @@
       </div>
       {{/each}}
   </div>
-  <div class="four wide column">
+  <div class="eight wide column">
     <h3>Imaging to spike models</h3>
     <div class="ui gray divider"></div>
     {{#each nonC2SModelList}}
