@@ -2,6 +2,7 @@ var express = require('express');
 var router = express.Router();
 var mongodb = require('mongodb');
 var createIssue = require( 'github-create-issue');
+var issuer = require('./issuer.json')
 
 // var url = 'mongodb://druckmannAdmin:Neural!dbadmin@localhost/druckmann_methodology?authSource=admin';
 var url = 'mongodb://localhost:27017/ephys_imaging_datasets';
@@ -57,15 +58,16 @@ router.post('/adddata', function(req, res) {
           var code = req.body.data_type;
           var body_text = 'User name: '+user + '<br> Email: ' + email + '<br> Data type:' + code + '<br> Repo: ' + repo;
           var opts = {
-              'token': '3fc575ff574a7f3c7a01f48bbcd1381bc144b135',
-              'useragent': 'imphys-issuer',
-              'labels': ['New dataset'],
+              'token': issuer.token,
+              'useragent': issuer.useragent,
+              'labels': ['New datasets'],
               'body': body_text
           };
           createIssue( 'zqwei/Im-phys-API', title, opts, clbk );
           res.send((err === null) ? { msg: '' } : { msg: err });
         }
       });
+      // db.close();
     }
   });
 });

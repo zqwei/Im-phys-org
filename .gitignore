@@ -8,3 +8,4 @@ public/semantic-ui/
 temp/
 public/datasets/
 .ipynb_checkpoints
+issuer.json

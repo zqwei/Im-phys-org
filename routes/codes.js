@@ -2,6 +2,7 @@ var express = require('express');
 var router = express.Router();
 var mongodb = require('mongodb');
 var createIssue = require( 'github-create-issue');
+var issuer = require('./issuer.json')
 
 // var url = 'mongodb://druckmannAdmin:Neural!dbadmin@localhost/druckmann_methodology?authSource=admin';
 var url = 'mongodb://localhost:27017/ephys_imaging_datasets';
@@ -36,8 +37,8 @@ router.post('/addmodel', function(req, res) {
           var code = req.body.code_type;
           var body_text = 'User name: '+user + '<br> Email: ' + email + '<br> Code type:' + code + '<br> Repo: ' + repo;
           var opts = {
-              'token': '3fc575ff574a7f3c7a01f48bbcd1381bc144b135',
-              'useragent': 'imphys-issuer',
+              'token': issuer.token,
+              'useragent': issuer.useragent,
               'labels': ['New codes'],
               'body': body_text
           };
