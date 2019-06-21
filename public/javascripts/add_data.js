@@ -1,13 +1,13 @@
 $('#submit_data').on('click', function(event){
     event.preventDefault();
-    $('.ui.form').form('validate form');
+    $('#datasetSubmit').form('validate form');
     event.preventDefault();
 });
 
 // obtain form values
 function getFieldValue(fieldId) {
    // 'get field' is part of Semantics form behavior API
-   return $('.ui.form').form('get field', fieldId).val();
+   return $('#datasetSubmit').form('get field', fieldId).val();
 }
 
 function getFormData(){
@@ -25,7 +25,7 @@ function getFormData(){
 }
 
 // form validation
-$('.ui.form').
+$('#datasetSubmit').
   form({
       on: 'blur',
       fields:{
