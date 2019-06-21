@@ -39,7 +39,18 @@ $('.ui.form').
           identifier : 'email',
           rules:[{type : 'email'}]
         }
-      }
+      },
+      onSuccess: function(event, fields){
+          submitForm(event);
+          console.log("on success");
+          console.log(fields);
+          event.preventDefault();
+        },
+      onFailure: function(formErrors, fields){
+          $('#info').html("on failure");
+          console.log("on failure");
+          console.log(fields);
+        }
     });
 
 // submit form
@@ -53,4 +64,4 @@ function onFormSubmitted(res) {
   alert('Thanks to submit your dataset! We have added it in our database and also open an git issue at https://github.com/zqwei/Im-phys-API/issues.')
 }
 
-$('.ui.form').form('validate form',{onSuccess: submitForm(event)});
+$('.ui.form').form('validate form');
