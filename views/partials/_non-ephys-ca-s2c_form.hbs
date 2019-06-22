@@ -37,7 +37,7 @@
       {{#each ephys}}
       <div class="inline field">
         <div class="ui checkbox">
-          <input type="checkbox" name="data/{{../name}}/{{name}}" class="hidden">
+          <input type="checkbox" name="data/{{name}}/{{picname}}" class="hidden">
           <label>{{name}}</label>
         </div>
       </div>
@@ -56,7 +56,7 @@
       {{#each imaging}}
       <div class="inline field">
         <div class="ui checkbox">
-          <input type="checkbox" name="data/{{../name}}/{{name}}" class="hidden">
+          <input type="checkbox" name="data/{{name}}/{{picname}}" class="hidden">
           <label>{{name}}</label>
         </div>
       </div>
@@ -112,7 +112,7 @@
       </tr>
       <tr>
           <th>Dataset Name</th>
-          <th>Cell #</th>
+          <!-- <th>Cell #</th> -->
           <th>Fraction selective neuron</th>
           <th>Peakness</th>
           <th>PC content</th>
