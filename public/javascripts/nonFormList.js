@@ -24,11 +24,16 @@ $.each(objectArrary, function(ind, value){
   }
 });
 if(dataList.length+ephysList.length){
-  $.each(modelList, function(ind, model){
-    $.each(dataList, function(ind, data){
-      dataModelList.push([data[0]+'/'+model, data[1]+'_'+model]);
+  if(dataList.length === 0 && modelList.length>0){
+    alert('No imaging data is selected, s2c or c2s model will not display.');
+  }
+  if(dataList.length){
+    $.each(modelList, function(ind, model){
+      $.each(dataList, function(ind, data){
+        dataModelList.push([data[0]+'/'+model, data[1]+'_'+model]);
+      });
     });
-  });
+  }
   dataList = ephysList.concat(dataList);
   dataList.sort();
   dataList = dataList.concat(dataModelList);
@@ -50,9 +55,6 @@ if(dataList.length+ephysList.length){
     html += '</tr>';
   });
   $('#nonFormListResults').html(html);
-  if(dataList.length === 0 && modelList.length>0){
-    alert('No imaging data is selected, s2c or c2s model will not display.');
-  }
 }
 else{
   alert('No item is selected to display.');
