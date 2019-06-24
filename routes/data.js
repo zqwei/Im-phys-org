@@ -37,6 +37,33 @@ router.get('/', function(req, res, next) {
   });
 });
 
+/* Send collection data. */
+router.get('/senddata', function(req, res) {
+  MongoClient.connect(url, function(err, db){
+    if (err){
+      console.log('Unable to connect to the database');
+    }
+    else{
+      // console.log('Connect to ephys imaging databsets data.js');
+      var collection = db.collection('datasets');
+      collection.find({}).toArray(function(err, result){
+        if(err){
+          res.send(err);
+        }
+        else if (result.length) {
+          // console.log(collection);
+          res.send(result);
+        }
+        else{
+          res.send('No record at the moment.');
+        }
+      });
+      db.close();
+    }
+  });
+});
+
+
 /* Add new data. */
 router.post('/adddata', function(req, res) {
   MongoClient.connect(url, function(err, db){
