@@ -1,0 +1,71 @@
+<h3>
+We would like to incorporate new datasets, either simultaneous recordings of ephys and imaging or non-simultaneous large-scale recordings in either modality.
+</h3>
+<h3>
+As metadata for recordings is still an unsolved problem we will ingest and add datasets manually. Please leave us a link to the location of the data and we will contact you with further questions if necessary to incorporate the data. Please consider using  <a href="crcns.org">crcns.org</a>
+</h3>
+<h3>Please contact <a href="mailto:weiz@janelia.hhmi.org?Subject=Dataset%20comparison%20website%20submit%20data">us</a> directly if the submit button is invalid.</h3>
+<br>
+<div class="ui divider"></div>
+<br>
+
+<div class="ui container">
+  <form class="ui form" id='datasetSubmit' method='post'>
+    <h4 class="ui dividing header">Personal information</h4>
+    <div class="field">
+      <label>Name</label>
+      <div class="two fields">
+        <div class="field">
+          <input type="text" name="first-name" placeholder="First Name">
+        </div>
+        <div class="field">
+          <input type="text" name="last-name" placeholder="Last Name">
+        </div>
+      </div>
+      <div class="two fields">
+        <div class="field">
+          <label>Institution</label>
+          <input type="text" name="Institution" placeholder="Institution">
+        </div>
+        <div class="field">
+          <label>Email</label>
+          <input type="text" name="email" placeholder="email@email">
+        </div>
+      </div>
+    </div>
+
+    <h4 class="ui dividing header">Dataset information</h4>
+
+    <div class="field">
+      <label>Dataset type</label>
+      <select class="ui fluid dropdown" name='data_type'>
+        <option value="Simultaneous ephys-imaging dataset">Simultaneous ephys-imaging dataset</option>
+        <option value="Simultaneous dataset (ephys only)">Simultaneous dataset (ephys only)</option>
+        <option value="Simultaneous dataset (imaging only)">Simultaneous dataset (imaging only)</option>
+        <option value="Other">Other</option>
+      </select>
+    </div>
+    <div class="field">
+      <label>Dataset share link</label>
+      <div class="field">
+        <input type="text" name="repo" placeholder="crcns.org/dropbox/google drive/dat link">
+      </div>
+      <label>Reference</label>
+      <div class="field">
+        <input type="text" name="reference" placeholder="reference 1">
+      </div>
+      <label>Other information</label>
+      <textarea name='info'></textarea>
+    </div>
+    <div class="ui right floated blue submit button" tabindex="0" id='submit_data'>Submit Dataset</div>
+    <br>
+    <br>
+    <br>
+    <br>
+  </form>
+</div>
+
+
+<script type="text/javascript">
+    $.getScript("/javascripts/add_data.js");
+</script>
