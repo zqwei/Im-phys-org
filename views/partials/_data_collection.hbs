@@ -1,126 +1,93 @@
-<form class="ui grid form" id='datasetList' method='post'>
-  <div class="four wide column">
-    <h3>Behavior</h3>
-    <div class="ui gray divider"></div>
-    <div class="ui fluid left large secondary vertical pointing menu">
-      {{#each nonFormList}}
-        <a class="{{#ifCond @key 0}}active{{/ifCond}} item" data-tab="data-{{@key}}")>
-          {{name}}
-        </a>
-      {{/each}}
-    </div>
-  </div>
+<form class="ui grid form" id='data_collection_tab' method='post'>
+  <div class="row">
   <div class="four wide column">
     <h3>Brain area</h3>
     <div class="ui gray divider"></div>
     <div class="ui fluid left large secondary vertical pointing menu">
-      {{#each nonFormList}}
-        <a class="{{#ifCond @key 0}}active{{/ifCond}} item" data-tab="data-{{@key}}")>
-          {{name}}
+      {{#each collection}}
+        <a class="{{#ifCond @key 0}}active{{/ifCond}} item" data-tab="data-{{@key}}" name="c-{{@key}}">
+          {{brain_area}}
         </a>
       {{/each}}
     </div>
   </div>
+
   <div class="four wide column">
-    <h3>Ephys</h3>
-    <div class="ui gray divider"></div>
-    {{#each nonFormList}}
-      <div class="ui {{#ifCond @key 0}}active{{/ifCond}} tab text" data-tab="data-{{@key}}">
-          {{#each matched}}
-          <div class="inline field">
-            <div class="ui checkbox">
-              <input type="checkbox" name="data/{{../name}}/{{name}}" class="hidden">
-              <label>{{name}}</label>
-            </div>
-          </div>
+  <h3>Behavior</h3>
+  <div class="ui gray divider"></div>
+    {{#each collection}}
+    <div class="ui {{#ifCond @key 0}}active{{/ifCond}} tab text" data-tab="data-{{@key}}">
+      <div class="inline fields">
+        <div class="ui fluid left large secondary vertical menu">
+          {{#each behavior}}
+          <a class="{{#ifCond @key 0}}active{{/ifCond}} item" data-tab="data-{{@../key}}/{{@key}}" name="b-{{@../key}}/{{@key}}">
+            {{name}}
+          </a>
           {{/each}}
+        </div>
       </div>
+    </div>
     {{/each}}
   </div>
+
   <div class="four wide column">
-    <h3>Imaging</h3>
-    <div class="ui gray divider"></div>
-    {{#each nonFormList}}
-      <div class="ui {{#ifCond @key 0}}active{{/ifCond}} tab text" data-tab="data-{{@key}}">
-          {{#each matched}}
-          <div class="inline field">
-            <div class="ui checkbox">
-              <input type="checkbox" name="data/{{../name}}/{{name}}" class="hidden">
-              <label>{{name}}</label>
-            </div>
-          </div>
-          {{/each}}
+  <h3>Ephys</h3>
+  <div class="ui gray divider"></div>
+  {{#each collection}}
+    {{#each behavior}}
+    <div class="ui {{#ifCond @../key 0}}{{#ifCond @key 0}}active{{/ifCond}}{{/ifCond}} tab text" data-tab="data-{{@../key}}/{{@key}}">
+      {{#each ephys}}
+      <div class="inline field">
+        <div class="ui checkbox">
+          <input type="checkbox" name="{{name}}" class="hidden">
+          <label>{{name}}</label>
+        </div>
       </div>
+      {{/each}}
+    </div>
     {{/each}}
+  {{/each}}
+  </div>
+
+  <div class="four wide column">
+  <h3>Imaging</h3>
+  <div class="ui gray divider"></div>
+  {{#each collection}}
+    {{#each behavior}}
+    <div class="ui {{#ifCond @../key 0}}{{#ifCond @key 0}}active{{/ifCond}}{{/ifCond}} tab text" data-tab="data-{{@../key}}/{{@key}}">
+      {{#each imaging}}
+      <div class="inline field">
+        <div class="ui checkbox">
+          <input type="checkbox" name="{{name}}" class="hidden">
+          <label>{{name}}</label>
+        </div>
+      </div>
+      {{/each}}
+    </div>
+    {{/each}}
+  {{/each}}
+  </div>
   </div>
 </form>
 <div class="ui gray divider"></div>
-
-<br>
-<button class="ui right floated blue button" id='compare_btn'>Info</button>
+<div class="ui right floated blue submit button" tabindex="0" id='select_data'>View documents</div>
 <br>
 <br>
-
-<div class="ui grid" id='data_collection_tab'>
-  <div class="four wide column">
-    <div class="ui fluid left large secondary vertical pointing menu">
-      {{#each collection}}
-        <a class="{{#ifCond @key 0}}active{{/ifCond}} item" data-tab="data-{{@key}}" )>
-          {{name}}
-          <div class="ui yellow label">
-            {{datasets.length}}
-          </div>
-        </a>
-      {{/each}}
-    </div>
-  </div>
-  <div class="twelve wide column">
-    {{#each collection}}
-      <div class="ui {{#ifCond @key 0}}active{{/ifCond}} tab text" data-tab="data-{{@key}}">
-        <h2>{{name}} <span class="ui red label flotated right">{{label}}</span></h2>
-        <div class="ui accordion">
-          <h3>{{description}} </h3>
-          <div class="title"><i class="dropdown icon"></i> Read more
-          </div>
-          <div class="content">
-            <p>{{description_detail}}</p>
-            <img src="{{description_images}}" height="150" class="ui centered image">
-            <br><br>
-          </div>
-        </div>
-        <h3>Related datasets <span class="ui large teal circular label">{{datasets.length}}</span></h3>
-        <ul class="ui list">
-          {{#each datasets}}
-            <li>
-              <h3>{{Name}}</h3></li>
-            <span class="ui blue label">{{Label}}</span>
-            {{#each OtherLabel}}
-              <span class="ui gray label">{{this}}</span>
-            {{/each}}
-            <br> {{Description}}
-            <br> <br> <div class="ui gray label">
-              References
-            </div>
-            <ul class="ui list">
-              {{#each Reference}}
-                <li>{{this}}</li>
-              {{/each}}
-            </ul>
-            <span class="ui gray label">Link</span> <a href="{{Linkhref}}">{{Link}}</a>
-            <br>
-            <br>
-          {{/each}}
-        </ul>
-        <br><br><br><br>
-      </div>
-    {{/each}}
-  </div>
+<br>
+<div class="ui container" id='data_collection'>
 </div>
+<br>
+<br>
+<br>
 
 <script type="text/javascript">
   $(document).ready(function() {
-    $('#data_collection_tab .menu .item').tab({
-      context: $("#data_collection_tab")
+    $('#data_collection_tab .menu .item').tab({context: $("#data_collection_tab")});
+    $('#data_collection_tab .menu .item').on('click', function(){
+      $('#data_collection_tab .checkbox').checkbox('uncheck');
+    });
+    $('#select_data').on('click', function(){
+      $.getScript("/javascripts/datasetList.js");
     });
   });
 </script>
