@@ -5,7 +5,7 @@
     <div class="ui gray divider"></div>
     <div class="ui fluid left large secondary vertical pointing menu">
       {{#each nonFormList}}
-        <a class="{{#ifCond @key 0}}active{{/ifCond}} item" data-tab="data-{{@key}}")>
+        <a class="{{#ifCond @key 0}}active{{/ifCond}} item" data-tab="data-{{@key}}">
           {{brain_area}}
         </a>
       {{/each}}
@@ -17,9 +17,9 @@
   <div class="ui gray divider"></div>
     {{#each nonFormList}}
     <div class="ui {{#ifCond @key 0}}active{{/ifCond}} tab text" data-tab="data-{{@key}}">
-      <div class="ui fluid left large secondary vertical pointing menu">
+      <div class="ui fluid left large secondary vertical menu">
         {{#each behavior}}
-        <a class="{{#ifCond @key 0}}active{{/ifCond}} item" data-tab="data-{{@../key}}/{{@key}}")>
+        <a class="{{#ifCond @key 0}}active{{/ifCond}} item" data-tab="data-{{@../key}}/{{@key}}">
           {{name}}
         </a>
         {{/each}}
