@@ -123,6 +123,29 @@
   </tbody>
 </table>
 
+
+<br>
+<br>
+<table class="ui celled striped six column table">
+    <thead>
+        <tr>
+            <th colspan="6">
+                Distribution table
+            </th>
+      </tr>
+      <tr>
+          <th>Dataset Name</th>
+          <!-- <th>Cell #</th> -->
+          <th>Fraction selective neuron</th>
+          <th>Peakness</th>
+          <th>PC content</th>
+          <th>Decodability</th>
+    </tr>
+  </thead>
+  <tbody id="nonFormDistrListResults">
+  </tbody>
+</table>
+
 <script type="text/javascript">
   $(function(){
     $('#nonFormList .menu .item').tab({context:$("#nonFormList")});
@@ -130,9 +153,11 @@
       $('#nonFormList .checkbox').checkbox('uncheck');
     });
     $('#nonFormListResults').load('/results/_non_ephys_ca_s2c_form_empty.html');
+    $('#nonFormDistrListResults').load('/results/_non_ephys_ca_s2c_form_empty.html');
     $('#compare_btn').on('click', function(event){
       event.preventDefault();
       $.getScript("/javascripts/nonFormList.js");
+      $.getScript("/javascripts/nonFormDistrList.js");
     });
   });
 </script>
