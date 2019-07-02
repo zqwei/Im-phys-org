@@ -106,8 +106,8 @@
 <table class="ui celled table">
     <thead>
         <tr>
-            <th colspan="6">
-                Benchmark table
+            <th colspan="5">
+              Benchmark table
             </th>
       </tr>
       <tr>
@@ -131,7 +131,8 @@
     <thead>
       <tr>
         <th colspan="5">
-              Distribution table
+          Distribution table
+          <button class="ui right floated tiny grey button" id='refresh_btn'>Update</button>
         </th>
       </tr>
       <tr>
@@ -142,7 +143,8 @@
         <th>Decodability</th>
       </tr>
       <tr>
-        <th></th>
+        <th>
+        </th>
         <th>
           <div class="grouped fields">
             <div class="field">
@@ -206,13 +208,17 @@
   $(function(){
     $('#nonFormList .menu .item').tab({context:$("#nonFormList")});
     $('#nonFormList .menu .item').on('click', function(){
-      $('#nonFormList .checkbox').checkbox('uncheck');
+      $('#nonFormList radio.checkbox').checkbox('uncheck');
     });
     $('#nonFormListResults').load('/results/_non_ephys_ca_s2c_form_empty.html');
     $('#nonFormDistrListResults').load('/results/_non_ephys_ca_s2c_form_empty.html');
     $('#compare_btn').on('click', function(event){
       event.preventDefault();
       $.getScript("/javascripts/nonFormList.js");
+      $.getScript("/javascripts/nonFormDistrList.js");
+    });
+    $('#refresh_btn').on('click', function(event){
+      event.preventDefault();
       $.getScript("/javascripts/nonFormDistrList.js");
     });
   });

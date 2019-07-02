@@ -1,4 +1,11 @@
-var comparisonList = ['selectivity', 'peakness', 'pca', 'decodability'];
+var comparisonDistr = $('#nonFormDistrList').serializeArray(),
+    comparisonnDistrList = [];
+$(comparisonDistr).each(function(i, field){
+  comparisonnDistrList.push(field.value);
+});
+
+console.log(comparisonnDistrList);
+
 var numPerformance = 4;
 var html = '';
 var objectArrary = $('#nonFormList').serializeArray();
@@ -24,9 +31,6 @@ $.each(objectArrary, function(ind, value){
   }
 });
 if(dataList.length+ephysList.length){
-  if(dataList.length === 0 && modelList.length>0){
-    alert('No imaging data is selected, s2c or c2s model will not display.');
-  }
   if(dataList.length){
     $.each(modelList, function(ind, model){
       $.each(dataList, function(ind, data){
@@ -49,7 +53,7 @@ if(dataList.length+ephysList.length){
     html += '<td>'+ tb_name +'</td>'
     // html += '<td>' + cellNum + '</td>'
     for(var i=0; i<numPerformance; i++){
-      var url =  '/results/nonDataDistr/' + data[1] + '_' + comparisonList[i] + '.svg';
+      var url =  '/results/nonDataDistr/' + data[1] + '_' + comparisonnDistrList[i] + '.svg';
       html += '<td><img src="' + url +'"></td>'
     }
     html += '</tr>';
@@ -57,6 +61,5 @@ if(dataList.length+ephysList.length){
   $('#nonFormDistrListResults').html(html);
 }
 else{
-  alert('No item is selected to display.');
   $('#nonFormDistrListResults').load('/results/_non_ephys_ca_s2c_form_empty.html');
 }
