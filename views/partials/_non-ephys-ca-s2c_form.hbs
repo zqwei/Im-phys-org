@@ -145,58 +145,18 @@
       <tr>
         <th>
         </th>
+        {{#each nonsimDistrList}}
         <th>
           <div class="grouped fields">
-            <div class="field">
-              <div class="ui radio checkbox">
-                <input type="radio" name="CellType" checked="checked" value='MonoCell'>
-                <label>Mono-Cell</label>
-              </div>
-            </div>
-            <div class="field">
-              <div class="ui radio checkbox">
-                <input type="radio" name="CellType" value='MultiCell'>
-                <label>Multi-Cell</label>
-              </div>
-            </div>
+            {{#each list}}
+            <div class="field"> <div class="ui radio checkbox">
+              <input type="radio" {{#ifCond @key 0}}checked="checked"{{/ifCond}} name="{{../name}}" value="{{value}}">
+              <label>{{label}}</label>
+            </div> </div>
+            {{/each}}
           </div>
         </th>
-        <th>
-          <div class="grouped fields">
-            <div class="field">
-              <div class="ui radio checkbox">
-                <input type="radio" name="Peakiness" checked="checked" value='Peakiness'>
-                <label>Peakiness</label>
-              </div>
-            </div>
-          </div>
-        </th>
-        <th>
-          <div class="grouped fields">
-            <div class="field">
-              <div class="ui radio checkbox">
-                <input type="radio" name="PC1" checked="checked" value='PC1'>
-                <label>1st PC</label>
-              </div>
-            </div>
-          </div>
-        </th>
-        <th>
-          <div class="grouped fields">
-            <div class="field">
-              <div class="ui radio checkbox">
-                <input type="radio" name="Decodablity" checked="checked" value='Decode_Sample'>
-                <label>Sample Epoch</label>
-              </div>
-            </div>
-            <div class="field">
-              <div class="ui radio checkbox">
-                <input type="radio" name="Decodablity" value='Decode_Delay'>
-                <label>Delay Epoch</label>
-              </div>
-            </div>
-          </div>
-        </th>
+        {{/each}}
       </tr>
     </thead>
     <tbody id="nonFormDistrListResults">
