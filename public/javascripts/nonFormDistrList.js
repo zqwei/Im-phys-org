@@ -4,8 +4,6 @@ $(comparisonDistr).each(function(i, field){
   comparisonnDistrList.push(field.value);
 });
 
-console.log(comparisonnDistrList);
-
 var numPerformance = 4;
 var html = '';
 var objectArrary = $('#nonFormList').serializeArray();
