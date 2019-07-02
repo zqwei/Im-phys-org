@@ -13,6 +13,17 @@ var dataModelList = [];
 var ephysList = [];
 var fails = 0;
 
+// // add imaging to table when it is available
+// function addImage(url) {
+//   var response = jQuery.ajax({
+// 		url: url,
+// 		type: 'HEAD',
+// 		async: false
+// 	}).status;
+//   console.log(response);
+// }
+
+
 $.each(objectArrary, function(ind, value){
   var name = this.name.split("/");
   var type_name = name[0];
@@ -52,7 +63,8 @@ if(dataList.length+ephysList.length){
     // html += '<td>' + cellNum + '</td>'
     for(var i=0; i<numPerformance; i++){
       var url =  '/results/nonDataDistr/' + data[1] + '_' + comparisonnDistrList[i] + '.svg';
-      html += '<td><img src="' + url +'"></td>'
+      html += '<td><img src="' + url +'"></td>';
+      // html += addImage(url); //'<td><img src="' + url +'"></td>'
     }
     html += '</tr>';
   });
