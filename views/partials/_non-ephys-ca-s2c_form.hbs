@@ -103,7 +103,7 @@
 <button class="ui right floated blue button" id='compare_btn'>Display</button>
 <br>
 <br>
-<table class="ui celled striped six column table">
+<table class="ui celled table">
     <thead>
         <tr>
             <th colspan="6">
@@ -126,25 +126,81 @@
 
 <br>
 <br>
-<table class="ui celled striped six column table">
+<form class="ui form" id='nonFormDistrList' method='post'>
+  <table class="ui celled table">
     <thead>
-        <tr>
-            <th colspan="6">
-                Distribution table
-            </th>
+      <tr>
+        <th colspan="5">
+              Distribution table
+        </th>
       </tr>
       <tr>
-          <th>Dataset Name</th>
-          <!-- <th>Cell #</th> -->
-          <th>Fraction selective neuron</th>
-          <th>Peakness</th>
-          <th>PC content</th>
-          <th>Decodability</th>
-    </tr>
-  </thead>
-  <tbody id="nonFormDistrListResults">
-  </tbody>
-</table>
+        <th>Dataset Name</th>
+        <th>Fraction selective neuron</th>
+        <th>Peakness</th>
+        <th>PC content</th>
+        <th>Decodability</th>
+      </tr>
+      <tr>
+        <th></th>
+        <th>
+          <div class="grouped fields">
+            <div class="field">
+              <div class="ui radio checkbox">
+                <input type="radio" name="CellType" checked="checked" value='MonoCell'>
+                <label>Mono-Cell</label>
+              </div>
+            </div>
+            <div class="field">
+              <div class="ui radio checkbox">
+                <input type="radio" name="CellType" value='MultiCell'>
+                <label>Multi-Cell</label>
+              </div>
+            </div>
+          </div>
+        </th>
+        <th>
+          <div class="grouped fields">
+            <div class="field">
+              <div class="ui radio checkbox">
+                <input type="radio" name="Peakiness" checked="checked" value='Peakiness'>
+                <label>Peakiness</label>
+              </div>
+            </div>
+          </div>
+        </th>
+        <th>
+          <div class="grouped fields">
+            <div class="field">
+              <div class="ui radio checkbox">
+                <input type="radio" name="PC1" checked="checked" value='PC1'>
+                <label>1st PC</label>
+              </div>
+            </div>
+          </div>
+        </th>
+        <th>
+          <div class="grouped fields">
+            <div class="field">
+              <div class="ui radio checkbox">
+                <input type="radio" name="Decodablity" checked="checked" value='Decode_Sample'>
+                <label>Sample Epoch</label>
+              </div>
+            </div>
+            <div class="field">
+              <div class="ui radio checkbox">
+                <input type="radio" name="Decodablity" value='Decode_Delay'>
+                <label>Delay Epoch</label>
+              </div>
+            </div>
+          </div>
+        </th>
+      </tr>
+    </thead>
+    <tbody id="nonFormDistrListResults">
+    </tbody>
+  </table>
+</form>
 
 <script type="text/javascript">
   $(function(){
