@@ -208,7 +208,7 @@
   $(function(){
     $('#nonFormList .menu .item').tab({context:$("#nonFormList")});
     $('#nonFormList .menu .item').on('click', function(){
-      $('#nonFormList radio.checkbox').checkbox('uncheck');
+      $('#nonFormList .checkbox').checkbox('uncheck');
     });
     $('#nonFormListResults').load('/results/_non_ephys_ca_s2c_form_empty.html');
     $('#nonFormDistrListResults').load('/results/_non_ephys_ca_s2c_form_empty.html');
