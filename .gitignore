@@ -3,6 +3,7 @@ node_modules/
 data/*
 public/results/*.json
 public/results/nonData/
+public/results/nonDataDistr/
 public/results/simData/
 public/semantic-ui/
 temp/
