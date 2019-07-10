@@ -12,3 +12,4 @@ public/datasets/
 issuer.json
 .DS_Store
 depreciated
+ephys_imaging_datasets/
