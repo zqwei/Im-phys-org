@@ -51,14 +51,14 @@ function subdataHtml(info, name){
     if (this.name===name){
       html_ = '<li><h4>'+name+'</h4></li>';
 //       html_ += '<div class="ui accordion"><div class="title">  Task description <i class="dropdown icon"></i> </div> <div class="content">'+this['Description']+'<br></div></div>';
+      html_ += '<span class="ui small gray label">Reference</span> ' +this['Reference'][0] + '<br>';
+      html_ += '<span class="ui small gray label">Link</span> <a href="'+this['Linkhref']+'">'+this['Link']+'</a><br>';
       html_ += '<span class="ui small gray label">Sample size</span> ';
       if (this['nAnimals']>0){
         html_ += this['nAnimals'] + ' animals; ';
       }
       html_ += this['nSessions'] + ' sessions; ';
       html_ += this['nNeurons'] + ' neurons' + '<br>';
-      html_ += '<span class="ui small gray label">Reference</span> ' +this['Reference'][0] + '<br>';
-      html_ += '<span class="ui small gray label">Link</span> <a href="'+this['Linkhref']+'">'+this['Link']+'</a><br>';
     }
   });
   return html_;
