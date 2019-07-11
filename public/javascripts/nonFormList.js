@@ -39,10 +39,12 @@ if(dataList.length+ephysList.length){
   dataList = dataList.concat(dataModelList);
   $.each(dataList, function(ind, data){
     var str_data = data[0].split("/");
-    var tb_name = '<h4>'+str_data[0]+'</h4>';
+    var tb_name = '';
     if (str_data.length===1){
+      tb_name += '<h4>'+str_data[0]+'</h4>';
       tb_name += '<br><br>';
     }else {
+      tb_name += '<h4> synthetic '+str_data[0]+'</h4>';
       tb_name += str_data[1]+'<br><br>';
     }
     html += '<tr>';
