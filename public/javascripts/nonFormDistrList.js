@@ -57,7 +57,11 @@ if(dataList.length+ephysList.length){
       tb_name += '<h4>'+str_data[0]+'</h4>';
       tb_name += '<br><br>';
     }else {
-      tb_name += '<h4> synthetic '+str_data[0]+'</h4>';
+      if(str_data[1].indexOf('S2C')>=0){
+        tb_name += '<h4> synthetic '+str_data[0]+'</h4>';
+      }else{
+        tb_name += '<h4> synthetic ephys from '+str_data[0].substring(8)+'</h4>';
+      }
       tb_name += str_data[1]+'<br><br>';
     }
     html += '<tr>';
